@@ -49,8 +49,8 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,6 +60,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\BudgetDTO.cs" />
+    <Compile Include="DTOs\CategoryDTO.cs" />
+    <Compile Include="DTOs\EquipeDTO.cs" />
+    <Compile Include="DTOs\EquipementDTO.cs" />
+    <Compile Include="DTOs\EquipementLightDTO.cs" />
+    <Compile Include="DTOs\InterventionDTO.cs" />
+    <Compile Include="DTOs\InterventionLightDTO.cs" />
+    <Compile Include="DTOs\MaintenanceCorrectiveDTO.cs" />
+    <Compile Include="DTOs\MaintenanceCorrectiveLightDTO.cs" />
+    <Compile Include="DTOs\MaintenanceLightDTO.cs" />
+    <Compile Include="DTOs\MaintenancePlanifieeDTO.cs" />
+    <Compile Include="DTOs\PieceDTO.cs" />
+    <Compile Include="DTOs\PieceReservationDTO.cs" />
+    <Compile Include="DTOs\PieceUtilisationDTO.cs" />
+    <Compile Include="DTOs\StockDTO.cs" />
+    <Compile Include="DTOs\TeamInfo.cs" />
+    <Compile Include="DTOs\UserDTO.cs" />
+    <Compile Include="DTOs\UserDTO2.cs" />
+    <Compile Include="DTOs\UserDTO3.cs" />
+    <Compile Include="DTOs\WorkOrderDTO.cs" />
+    <Compile Include="DTOs\WorkOrderDTO2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +90,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTOs\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
