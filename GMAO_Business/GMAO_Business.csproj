@@ -73,15 +73,33 @@
     <Compile Include="DTOs\MaintenancePlanifieeDTO.cs" />
     <Compile Include="DTOs\PieceDTO.cs" />
     <Compile Include="DTOs\PieceReservationDTO.cs" />
+    <Compile Include="DTOs\PieceReservationView.cs" />
     <Compile Include="DTOs\PieceUtilisationDTO.cs" />
     <Compile Include="DTOs\StockDTO.cs" />
     <Compile Include="DTOs\TeamInfo.cs" />
     <Compile Include="DTOs\UserDTO.cs" />
     <Compile Include="DTOs\UserDTO2.cs" />
     <Compile Include="DTOs\UserDTO3.cs" />
+    <Compile Include="DTOs\UserDTO4.cs" />
     <Compile Include="DTOs\WorkOrderDTO.cs" />
     <Compile Include="DTOs\WorkOrderDTO2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AlerteService.cs" />
+    <Compile Include="Services\AuthentificationService.cs" />
+    <Compile Include="Services\BudgetService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\EquipementService.cs" />
+    <Compile Include="Services\EquipeService.cs" />
+    <Compile Include="Services\GestionProfilService.cs" />
+    <Compile Include="Services\InscriptionService.cs" />
+    <Compile Include="Services\InterventionService.cs" />
+    <Compile Include="Services\MaintenanceCorrectiveService.cs" />
+    <Compile Include="Services\MaintenancePlanService.cs" />
+    <Compile Include="Services\MaintenanceService.cs" />
+    <Compile Include="Services\PieceRechangeService.cs" />
+    <Compile Include="Services\StockService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\WorkOrderCoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GMAO_Data\GMAO_Data.csproj">
@@ -89,9 +107,7 @@
       <Name>GMAO_Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />

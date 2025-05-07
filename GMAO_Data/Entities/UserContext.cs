@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GMAO_Presentation.Helpers
+namespace GMAO_Data.Entities
 {
     public class UserContext
     {
