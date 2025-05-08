@@ -13,13 +13,23 @@ namespace GMAO_Business.Services
     {
         private readonly BudgetRepository repo = new BudgetRepository();
 
-        public void Ajouter(Budget budget)
+        public void Ajouter(BudgetDTO dto)
         {
-            if (repo.ExistePourAnnee(budget.Annee))
+            if (repo.ExistePourAnnee(dto.Annee))
                 throw new InvalidOperationException("Un budget pour cette année existe déjà.");
+
+            var budget = new Budget
+            {
+                Nom = dto.Nom,
+                Annee = dto.Annee,
+                Montant = dto.Montant,
+                DateCreation = dto.DateCreation,
+                ResponsableId = dto.ResponsableId
+            };
 
             repo.Ajouter(budget);
         }
+
 
         public void Modifier(BudgetDTO dto)
         {

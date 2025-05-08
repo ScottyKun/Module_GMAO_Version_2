@@ -11,4 +11,11 @@ namespace GMAO_Business.DTOs
         public int Id { get; set; }
         public string Description { get; set; }
     }
+
+    public class InterventionLightDTO2
+    {
+        public int Id { get; set; }
+        public DateTime DatePrevue { get; set; }
+    }
+
 }

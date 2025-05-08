@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\AlerteDTO.cs" />
     <Compile Include="DTOs\BudgetDTO.cs" />
     <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\EquipeDTO.cs" />
@@ -75,12 +76,15 @@
     <Compile Include="DTOs\PieceReservationDTO.cs" />
     <Compile Include="DTOs\PieceReservationView.cs" />
     <Compile Include="DTOs\PieceUtilisationDTO.cs" />
+    <Compile Include="DTOs\PieceUtilisationView.cs" />
     <Compile Include="DTOs\StockDTO.cs" />
     <Compile Include="DTOs\TeamInfo.cs" />
     <Compile Include="DTOs\UserDTO.cs" />
     <Compile Include="DTOs\UserDTO2.cs" />
     <Compile Include="DTOs\UserDTO3.cs" />
     <Compile Include="DTOs\UserDTO4.cs" />
+    <Compile Include="DTOs\WorkOrderCoDTODetails.cs" />
+    <Compile Include="DTOs\WorkOrderDetailsDTO.cs" />
     <Compile Include="DTOs\WorkOrderDTO.cs" />
     <Compile Include="DTOs\WorkOrderDTO2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,9 +101,11 @@
     <Compile Include="Services\MaintenancePlanService.cs" />
     <Compile Include="Services\MaintenanceService.cs" />
     <Compile Include="Services\PieceRechangeService.cs" />
+    <Compile Include="Services\PlanningService.cs" />
     <Compile Include="Services\StockService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\WorkOrderCoService.cs" />
+    <Compile Include="Services\WorkOrderPlanifieeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GMAO_Data\GMAO_Data.csproj">

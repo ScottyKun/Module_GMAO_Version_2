@@ -17,4 +17,17 @@ namespace GMAO_Business.DTOs
         public string StockNom { get; set; }
         public List<string> Equipements { get; set; }
     }
+
+    public class PieceDeRechangeDTO
+    {
+        public int PieceId { get; set; } 
+        public string Nom { get; set; }
+        public string Reference { get; set; }
+        public decimal Prix { get; set; }
+        public DateTime DateAjout { get; set; }
+        public int Quantite { get; set; }
+        public int StockId { get; set; }
+        public List<int> EquipementIds { get; set; }
+    }
+
 }

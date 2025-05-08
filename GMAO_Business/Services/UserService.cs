@@ -121,6 +121,20 @@ namespace GMAO_Business.Services
         }
 
         public bool ProfilIncomplet(int id) => _repo.ProfilIncomplet(id);
+
+        public UtilisateurDTO GetById(int id)
+        {
+            var user = _repo.GetById(id);
+            if (user == null) return null;
+
+            return new UtilisateurDTO
+            {
+                Id = user.idUser,
+                Nom = user.nom,
+                Prenom = user.prenom
+            };
+        }
+
     }
 
 }

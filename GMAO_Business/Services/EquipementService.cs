@@ -11,12 +11,9 @@ namespace GMAO_Business.Services
 {
    public class EquipementService
     {
-        private readonly EquipementRepository _repository;
+        private readonly EquipementRepository _repository= new EquipementRepository() ;
 
-        public EquipementService(EquipementRepository repository)
-        {
-            _repository = repository;
-        }
+      
 
         public List<EquipementDTO> GetAll()
         {
@@ -41,11 +38,95 @@ namespace GMAO_Business.Services
             return null;
         }
 
-        public Equipement GetById(int id) => _repository.GetById(id);
+        public EquipementDTO2 GetById(int id)
+        {
+            var equipement = _repository.GetById(id);
 
-        public void Add(Equipement equipement) => _repository.Add(equipement);
+            if (equipement == null)
+                return null;
 
-        public void Update(Equipement equipement) => _repository.Update(equipement);
+            return new EquipementDTO2
+            {
+                Id = equipement.id,
+                NomResponsable = equipement.responsable?.nom ?? "-",
+                NomEquipe = equipement.maintenanceTeam?.nom ?? "-",
+                MaintenanceTeamId = equipement.maintenanceTeamId
+            };
+        }
+
+        public EquipementDTO3 GetById3(int id)
+        {
+            var equipement = _repository.GetById(id);
+
+            if (equipement == null)
+                return null;
+
+            return new EquipementDTO3
+            {
+                Id = equipement.id,
+                Nom = equipement.nom,
+                CategorieId = equipement.CategorieId,
+                ResponsableId = equipement.responsableId,
+                MaintenanceTeamId = equipement.maintenanceTeamId,
+                DateAchat = equipement.dateAchat,
+                DateFinGarantie = equipement.dateFinGarantie,
+                Statut = equipement.statut,
+                Commentaires = equipement.commentaires
+            };
+        }
+
+
+        public Equipement2DTO GetById2(int id)
+        {
+            var eq = _repository.GetById(id);
+            if (eq == null) return null;
+
+            return new Equipement2DTO
+            {
+                Id = eq.id,
+                Nom = eq.nom,
+                MaintenanceTeam = eq.maintenanceTeam != null ? new EquipeDTO
+                {
+                    Id = eq.maintenanceTeam.teamId,
+                    Nom = eq.maintenanceTeam.nom
+                } : null
+            };
+        }
+
+
+        public void Add(EquipementDTO3 dto)
+        {
+            var entity = new Equipement
+            {
+                nom = dto.Nom,
+                CategorieId = dto.CategorieId,
+                responsableId = dto.ResponsableId,
+                maintenanceTeamId = dto.MaintenanceTeamId,
+                dateAchat = dto.DateAchat,
+                dateFinGarantie = dto.DateFinGarantie,
+                statut = dto.Statut,
+                commentaires = dto.Commentaires
+            };
+
+            _repository.Add(entity);
+        }
+
+        public void Update(EquipementDTO3 dto)
+        {
+            var entity = _repository.GetById(dto.Id);
+            if (entity == null) throw new Exception("Équipement non trouvé.");
+
+            entity.nom = dto.Nom;
+            entity.CategorieId = dto.CategorieId;
+            entity.responsableId = dto.ResponsableId;
+            entity.maintenanceTeamId = dto.MaintenanceTeamId;
+            entity.dateAchat = dto.DateAchat;
+            entity.dateFinGarantie = dto.DateFinGarantie;
+            entity.statut = dto.Statut;
+            entity.commentaires = dto.Commentaires;
+
+            _repository.Update(entity);
+        }
 
         public void Delete(int id) => _repository.Delete(id);
 

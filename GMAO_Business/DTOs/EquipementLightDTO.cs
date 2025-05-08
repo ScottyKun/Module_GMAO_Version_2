@@ -11,4 +11,18 @@ namespace GMAO_Business.DTOs
         public int Id { get; set; }
         public string Nom { get; set; }
     }
+
+    public class Equipement2DTO
+    {
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public EquipeDTO MaintenanceTeam { get; set; }
+    }
+
+    public class EquipeDTO
+    {
+        public int Id { get; set; }
+        public string Nom { get; set; }
+    }
+
 }

@@ -49,41 +49,59 @@ namespace GMAO_Business.Services
             }).ToList();
         }
 
-        public void AddPiece(PieceDeRechange piece, List<int> equipementIds)
+        public void AddPiece(PieceDeRechangeDTO dto)
         {
+            var piece = new PieceDeRechange
+            {
+                nom = dto.Nom,
+                reference = dto.Reference,
+                prix = dto.Prix,
+                dateAjout = dto.DateAjout,
+                quantite = dto.Quantite,
+                StockId = dto.StockId
+            };
+
             repository.Add(piece);
-            var liaisons = equipementIds.Select(id => new Equipement_Pieces
+
+            var liaisons = dto.EquipementIds.Select(id => new Equipement_Pieces
             {
                 EquipementId = id,
                 PieceDeRechangeId = piece.pieceId
             }).ToList();
+
             repository.AddLiaisons(liaisons);
         }
 
-        public void UpdatePiece(PieceDeRechange modifie, List<int> equipementIds)
+
+        public void UpdatePiece(PieceDeRechangeDTO dto)
         {
-            var piece = repository.GetByIdWithLiaisons(modifie.pieceId);
+            if (dto.PieceId==null)
+                throw new ArgumentException("L'ID de la pièce à modifier est requis.");
+
+            var piece = repository.GetByIdWithLiaisons(dto.PieceId);
             if (piece != null)
             {
-                piece.nom = modifie.nom;
-                piece.reference = modifie.reference;
-                piece.prix = modifie.prix;
-                piece.dateAjout = modifie.dateAjout;
-                piece.quantite = modifie.quantite;
-                piece.StockId = modifie.StockId;
+                piece.nom = dto.Nom;
+                piece.reference = dto.Reference;
+                piece.prix = dto.Prix;
+                piece.dateAjout = dto.DateAjout;
+                piece.quantite = dto.Quantite;
+                piece.StockId = dto.StockId;
 
                 var anciennes = repository.GetLiaisonsByPiece(piece.pieceId);
                 repository.RemoveLiaisons(anciennes);
 
-                var nouvelles = equipementIds.Select(id => new Equipement_Pieces
+                var nouvelles = dto.EquipementIds.Select(id => new Equipement_Pieces
                 {
                     EquipementId = id,
                     PieceDeRechangeId = piece.pieceId
                 }).ToList();
                 repository.AddLiaisons(nouvelles);
+
                 repository.Update();
             }
         }
+
 
         public void DeletePiece(int id)
         {
@@ -131,11 +149,20 @@ namespace GMAO_Business.Services
             return repository.GetEquipementIdsByPieceId(pieceId);
         }
 
-        public Equipement GetEquipementByNomApprox(string nom)
+        public EquipementLightDTO GetEquipementByNomApprox(string nom)
         {
             nom = nom.Trim().ToLower();
             var equipements = repository.GetEquipements();
-            return equipements.FirstOrDefault(e => e.nom != null && e.nom.ToLower().Contains(nom));
+            var equipement = equipements.FirstOrDefault(e => e.nom != null && e.nom.ToLower().Contains(nom));
+
+            if (equipement == null) return null;
+
+            return new EquipementLightDTO
+            {
+                Id = equipement.id,
+                Nom = equipement.nom
+            };
         }
+
     }
 }

@@ -11,96 +11,109 @@ namespace GMAO_Data.Repositories
 {
     public class WorkOrderCoRepository
     {
-        private readonly DbManager _context;
+        private readonly DbManager db;
 
         public WorkOrderCoRepository()
         {
-            _context = new DbManager();
+            db = new DbManager();
         }
 
         // WorkOrders
-        public void AddWorkOrder(WorkOrder workOrder) => _context.WorkOrders.Add(workOrder);
-
-        public WorkOrder GetWorkOrderById(int id)
+        public WorkOrder GetById(int id)
         {
-            var workOrder = _context.WorkOrders
-                .Include(w => w.MaintenanceCorrective)
-                .FirstOrDefault(w => w.Id == id);
-
-            // Chargement manuel des entités liées (enfants de collections)
-            if (workOrder != null)
-            {
-                // Chargement manuel des pièces utilisées
-                workOrder.PiecesUtilisees = _context.WorkOrder_Pieces
-                    .Where(p => p.WorkOrderId == workOrder.Id)
-                    .ToList();
-
-                // Pour chaque pièce utilisée, charger la pièce liée
-                foreach (var pu in workOrder.PiecesUtilisees)
-                {
-                    pu.Piece = _context.PiecesDeRechanges.Find(pu.PieceId);
-                }
-            }
-
-            return workOrder;
+            return db.WorkOrders
+                     .Include(w => w.MaintenanceCorrective.PiecesReservees.Select(r => r.Piece))
+                     .Include(w => w.PiecesUtilisees.Select(u => u.Piece))
+                     .FirstOrDefault(w => w.Id == id);
         }
 
 
-        public List<WorkOrder> GetWorkOrdersByResponsable(int responsableId)
+
+        public WorkOrder GetForTermination(int id)
         {
-            return _context.WorkOrders
-                .Where(w => w.MaintenanceCorrective.ResponsableId == responsableId)
-                .Include(w => w.MaintenanceCorrective)
-                .ToList();
+            return db.WorkOrders
+                     .Include("MaintenanceCorrective.PiecesReservees")
+                     .FirstOrDefault(w => w.Id == id);
         }
 
-        public List<WorkOrder> GetWorkOrdersByResponsables(List<int> responsablesIds)
+        public WorkOrder GetForModification(int id)
         {
-            return _context.WorkOrders
-                .Where(w => responsablesIds.Contains(w.MaintenanceCorrective.ResponsableId))
-                .Include(w => w.MaintenanceCorrective)
-                .ToList();
+            return db.WorkOrders
+                     .Include("PiecesUtilisees")
+                     .Include("MaintenanceCorrective.PiecesReservees")
+                     .FirstOrDefault(w => w.Id == id);
         }
 
-
-        public bool WorkOrderExistsForMaintenance(int maintenanceId)
+        public void Add(WorkOrder workOrder)
         {
-            return _context.WorkOrders
-                .Any(w => w.MaintenanceCorrective.MaintenanceId == maintenanceId);
+            db.WorkOrders.Add(workOrder);
         }
 
-        public void RemoveWorkOrder(WorkOrder workOrder) => _context.WorkOrders.Remove(workOrder);
-
-        public List<WorkOrder> GetAllWorkOrders() => _context.WorkOrders.ToList();
-
-        // Pieces utilisées
-        public List<WorkOrder_Piece> GetPiecesForWorkOrder(int workOrderId)
+        public void Delete(WorkOrder workOrder)
         {
-            return _context.WorkOrder_Pieces
-                .Where(p => p.WorkOrderId == workOrderId)
-                .ToList();
+            db.WorkOrders.Remove(workOrder);
         }
 
-        public void AddWorkOrderPiece(WorkOrder_Piece piece) => _context.WorkOrder_Pieces.Add(piece);
-
-        public void RemoveWorkOrderPieces(List<WorkOrder_Piece> pieces) => _context.WorkOrder_Pieces.RemoveRange(pieces);
-
-        // MaintenanceCorrective
-        public MaintenanceCorrective GetMaintenanceCorrectiveById(int id)
+        public List<WorkOrder> GetAllByResponsableId(int responsableId)
         {
-            return _context.MaintenancesCorrectives
-                .Include(m => m.Equipement)
-                .FirstOrDefault(m => m.MaintenanceId == id);
+            return db.WorkOrders
+                     .Where(w => w.MaintenanceCorrective.ResponsableId == responsableId)
+                     .ToList();
         }
 
-        // Equipement
-        public void UpdateEquipement(Equipement equipement) => _context.Entry(equipement).State = EntityState.Modified;
+        public List<WorkOrder> GetAllByResponsables(List<int> responsables)
+        {
+            return db.WorkOrders
+                     .Where(w => responsables.Contains(w.MaintenanceCorrective.ResponsableId))
+                     .ToList();
+        }
 
-        // Pièce
-        public PieceDeRechange GetPieceById(int id) => _context.PiecesDeRechanges.Find(id);
+        public bool ExistePourMaintenance(int maintenanceId)
+        {
+            return db.WorkOrders.Any(w => w.MaintenanceCorrective != null && w.MaintenanceCorrective.MaintenanceId == maintenanceId);
+        }
 
-        public void UpdatePiece(PieceDeRechange piece) => _context.Entry(piece).State = EntityState.Modified;
+        public void Save()
+        {
+            db.SaveChanges();
+        }
 
-        public void SaveChanges() => _context.SaveChanges();
+        public WorkOrder GetForSuppression(int id)
+        {
+            return db.WorkOrders
+                     .Include("PiecesUtilisees")
+                     .Include("MaintenanceCorrective")
+                     .FirstOrDefault(w => w.Id == id);
+        }
+
+        public List<WorkOrder_Piece> GetUtilisationsByWorkOrderId(int id)
+        {
+            return db.WorkOrder_Pieces.Where(p => p.WorkOrderId == id).ToList();
+        }
+
+        public void RemoveUtilisations(List<WorkOrder_Piece> utilisations)
+        {
+            db.WorkOrder_Pieces.RemoveRange(utilisations);
+        }
+
+        public void AddUtilisation(WorkOrder_Piece utilisation)
+        {
+            db.WorkOrder_Pieces.Add(utilisation);
+        }
+
+        public PieceDeRechange GetPiece(int pieceId)
+        {
+            return db.PiecesDeRechanges.FirstOrDefault(p => p.pieceId == pieceId);
+        }
+
+        public MaintenanceCorrective GetMaintenanceCorrective(int maintenanceId)
+        {
+            return db.MaintenancesCorrectives.FirstOrDefault(m => m.MaintenanceId == maintenanceId);
+        }
+
+        public Equipement GetEquipement(int id)
+        {
+            return db.Equipements.FirstOrDefault(e => e.id == id);
+        }
     }
 }

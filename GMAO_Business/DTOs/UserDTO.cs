@@ -14,4 +14,11 @@ namespace GMAO_Business.DTOs
         public string email { get; set; }
         public string tel { get; set; }
     }
+    public class UtilisateurDTO
+    {
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+    }
+
 }

@@ -20,19 +20,27 @@ namespace GMAO_Business.Services
             _maintenanceService = new MaintenanceService(); // Toujours logique métier
         }
 
-        public void Creer(MaintenancePlanifiee maintenance)
+        public void Creer(MaintenancePlanifieeDTO2 dto)
         {
-            if (!_maintenanceService.PeutCreerMaintenance(maintenance.EquipementId, maintenance.DateDebut, maintenance.DateFin))
-                throw new InvalidOperationException("Une maintenance existe déjà sur cet équipement durant la période indiquée.");
-
-            maintenance.Statut = "Nouvelle";
-            maintenance.NbInterventions = CalculerNbInterventions(maintenance.DateDebut, maintenance.DateFin, maintenance.RecurrenceJours);
-            maintenance.NbInterventionsFinish = 0;
-            maintenance.CoutReel = 0;
-            maintenance.CoutPrevu = 0;
+            var maintenance = new MaintenancePlanifiee
+            {
+                Description = dto.Description,
+                Statut = "Nouvelle",
+                DateDebut = dto.DateDebut,
+                DateFin = dto.DateFin,
+                RecurrenceJours = dto.RecurrenceJours,
+                ResponsableId = dto.ResponsableId,
+                EquipementId = dto.EquipementId,
+                EquipeId = dto.EquipeId,
+                NbInterventions = CalculerNbInterventions(dto.DateDebut, dto.DateFin, dto.RecurrenceJours),
+                NbInterventionsFinish = 0,
+                CoutReel = 0,
+                CoutPrevu = 0
+        };
 
             _repository.Add(maintenance);
         }
+       
 
         public int CalculerNbInterventions(DateTime debut, DateTime fin, int recurrence)
         {
@@ -69,22 +77,47 @@ namespace GMAO_Business.Services
             }).ToList();
         }
 
-        public MaintenancePlanifiee GetById(int id)
+        public MaintenancePlanifieeDTO2 GetById(int id)
         {
-            return _repository.GetById(id);
+            var maintenance = _repository.GetById(id);
+            if (maintenance == null)
+                return null;
+
+            return new MaintenancePlanifieeDTO2
+            {
+                MaintenanceId = maintenance.MaintenanceId,
+                Description = maintenance.Description,
+                Statut = maintenance.Statut,
+                DateDebut = maintenance.DateDebut,
+                DateFin = maintenance.DateFin,
+                RecurrenceJours = maintenance.RecurrenceJours,
+                ResponsableId = maintenance.ResponsableId,
+                EquipementId = maintenance.EquipementId,
+                EquipeId = maintenance.EquipeId
+            };
         }
+
 
         public void RecalculerCouts(int maintenanceId)
         {
             _repository.RecalculerCouts(maintenanceId);
         }
 
-        public void Modifier(MaintenancePlanifiee modif)
+        public void Modifier(MaintenancePlanifieeDTO2 dto)
         {
-            modif.NbInterventions = CalculerNbInterventions(modif.DateDebut, modif.DateFin, modif.RecurrenceJours);
+            var modif = new MaintenancePlanifiee
+            {
+                MaintenanceId = dto.MaintenanceId,
+                Description = dto.Description,
+                DateDebut = dto.DateDebut,
+                DateFin = dto.DateFin,
+                RecurrenceJours = dto.RecurrenceJours,
+                NbInterventions = CalculerNbInterventions(dto.DateDebut, dto.DateFin, dto.RecurrenceJours)
+            };
+
             _repository.Update(modif);
         }
-
+       
         public void Supprimer(int maintenanceId)
         {
             _repository.Delete(maintenanceId);

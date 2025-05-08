@@ -1,4 +1,5 @@
 ﻿using GMAO_Business.DTOs;
+using GMAO_Data.DataBaseManager;
 using GMAO_Data.Entities;
 using GMAO_Data.Repositories;
 using System;
@@ -9,50 +10,88 @@ using System.Threading.Tasks;
 
 namespace GMAO_Business.Services
 {
-    public class  InterventionService
+    public class InterventionService
     {
-        private readonly InterventionRepository repo;
+        private readonly InterventionRepository _repository;
         private readonly MaintenancePlanService _maintenancePlanService;
+        private readonly UserService _userService;
 
-        /*public InterventionService()
+        public InterventionService()
         {
-            repo = new InterventionRepository();
+            _repository = new InterventionRepository();
+            _maintenancePlanService = new MaintenancePlanService();
+            _userService = new UserService();
         }
 
-        public void Creer(Intervention i)
+        public void Creer(InterventionCreationDTO dto)
         {
-            if (i.MaintenancePlanifieeId !=null)
+            var i = new Intervention
             {
-                var maintenance = _maintenancePlanService.GetById(i.MaintenancePlanifieeId);
-                if (maintenance == null)
-                    throw new InvalidOperationException("Maintenance planifiée non trouvée.");
+                Nom = dto.Nom,
+                DatePrevue = dto.DatePrevue,
+                MaintenancePlanifieeId = dto.MaintenancePlanifieeId,
+                Etat = dto.Etat
+            };
+
+            _repository.Add(i);
+
+            var maintenance = _maintenancePlanService.GetById(i.MaintenancePlanifieeId);
+            if (maintenance != null)
+            {
+                maintenance.Statut = "En cours";
+                _maintenancePlanService.Modifier(maintenance);
             }
-
-            i.Etat = "New";
-            repo.Add(i);
-
-            repo.SaveChanges();
         }
 
-        public Intervention GetById(int id) => repo.GetById(id);
+        public InterventionDTO2 GetById(int id)
+        {
+            var intervention = _repository.GetById(id);
+            if (intervention == null)
+                return null;
 
-        public List<Intervention> GetByMaintenanceId(int maintenancePlanifieeId) =>
-            repo.GetByMaintenanceId(maintenancePlanifieeId);
+            return new InterventionDTO2
+            {
+                Id = intervention.Id,
+                Nom = intervention.Nom,
+                Etat = intervention.Etat,
+                DatePrevue = intervention.DatePrevue,
+                DescriptionMaintenance = intervention.MaintenancePlanifiee.Description,
+                EquipementNom = intervention.MaintenancePlanifiee.Equipement.nom,
+                EquipementId = intervention.MaintenancePlanifiee.EquipementId,
+                ResponsableId = intervention.MaintenancePlanifiee.ResponsableId,
+                PiecesReservees = intervention.PiecesReservees.Select(pr => new PieceReservationDTO
+                {
+                    PieceId = pr.PieceId,
+                    Quantite = pr.Quantite
+                }).ToList()
+            };
+        }
+
+
+        public List<InterventionLightDTO2> GetByMaintenanceId(int maintenancePlanifieeId)
+        {
+            var interventions = _repository.GetByMaintenanceId(maintenancePlanifieeId);
+
+            return interventions.Select(i => new InterventionLightDTO2
+            {
+                Id = i.Id,
+                DatePrevue = i.DatePrevue
+            }).ToList();
+        }
+
 
         public void Supprimer(int id)
         {
-            var i = repo.GetForDeletion(id);
+            var i = _repository.GetById(id);
             if (i == null) return;
 
             if (i.WorkOrders.Any(wo => wo.Terminee))
                 throw new InvalidOperationException("Impossible de supprimer une intervention avec des WorkOrders terminés.");
 
-            repo.RemovePieces(i.PiecesReservees);
-            repo.Remove(i);
-            repo.SaveChanges();
-
             var maintenance = i.MaintenancePlanifiee;
-            new MaintenanceRepository().RechargerInterventions(maintenance);
+
+            i.PiecesReservees.Clear();
+            _repository.Delete(i);
 
             if (!maintenance.Interventions.Any())
             {
@@ -63,71 +102,54 @@ namespace GMAO_Business.Services
             }
             else
             {
-                new MaintenancePlanService().RecalculerCouts(maintenance.MaintenanceId);
+                _maintenancePlanService.RecalculerCouts(maintenance.MaintenanceId);
             }
-
-            new MaintenanceRepository().Update(maintenance);
-            repo.SaveChanges();
         }
 
-        public void ModifierComplet(Intervention modif, List<PieceReservationDTO> nouvellesPieces)
+        public void ModifierComplet(InterventionModificationDTO dto)
         {
-            var i = repo.GetById(modif.Id);
-
-            if (i == null || i.Etat != "New")
+            var intervention = _repository.GetById(dto.Id);
+            if (intervention == null || intervention.Etat != "New")
                 throw new InvalidOperationException("Impossible de modifier une intervention en cours.");
 
-            i.Nom = modif.Nom;
-            i.DatePrevue = modif.DatePrevue;
+            intervention.Nom = dto.Nom;
+            intervention.DatePrevue = dto.DatePrevue;
 
-            repo.RemovePieces(i.PiecesReservees);
-
-            decimal totalPrevu = 0;
-            List<Intervention_Piece> piecesAAjouter = new();
-
-            foreach (var p in nouvellesPieces)
+            var nouvellesEntites = dto.PiecesReservees.Select(p => new Intervention_Piece
             {
-                var stock = repo.GetPieceById(p.PieceId);
-                if (stock == null)
-                    throw new InvalidOperationException($"Pièce {p.PieceId} introuvable.");
+                InterventionId = intervention.Id,
+                PieceId = p.PieceId,
+                Quantite = p.Quantite
+            }).ToList();
 
-                if (stock.quantite < p.Quantite)
-                    throw new InvalidOperationException($"Stock insuffisant pour la pièce \"{stock.nom}\".");
+            decimal totalPrevu = _repository.PreparerPiecesEtCalculerCout(nouvellesEntites);
 
-                totalPrevu += p.Quantite * stock.prix;
+            _repository.RemoveReservedPieces(intervention.PiecesReservees.ToList());
+            _repository.AddReservedPieces(nouvellesEntites);
+            intervention.Cout = totalPrevu;
 
-                piecesAAjouter.Add(new Intervention_Piece
-                {
-                    InterventionId = i.Id,
-                    PieceId = p.PieceId,
-                    Quantite = p.Quantite
-                });
-            }
-
-            repo.AddPieces(piecesAAjouter);
-            i.Cout = totalPrevu;
-            repo.SaveChanges();
-
-            new MaintenancePlanService().RecalculerCouts(i.MaintenancePlanifieeId);
+            _repository.Update(intervention);
+            _maintenancePlanService.RecalculerCouts(intervention.MaintenancePlanifieeId);
         }
+
+
 
         public void RecalculerCout(int interventionId)
         {
-            var i = repo.GetById(interventionId);
+            var i = _repository.GetById(interventionId);
             if (i == null) return;
 
-            var coutPrevu = i.PiecesReservees.Sum(p => p.Quantite * p.Piece.prix);
-            var coutReel = i.WorkOrders.Where(w => w.Terminee).Sum(w => w.Cout);
+            decimal coutPrevu = i.PiecesReservees.Sum(p => p.Quantite * p.Piece.prix);
+            decimal coutReel = i.WorkOrders.Where(w => w.Terminee).Sum(w => w.Cout);
 
             i.Cout = coutPrevu;
-            repo.SaveChanges();
-
-            new MaintenancePlanService().RecalculerCouts(i.MaintenancePlanifieeId);
+            _repository.Update(i);
+            _maintenancePlanService.RecalculerCouts(i.MaintenancePlanifieeId);
         }
 
         public List<InterventionDTO> GetAllDTOByResponsable(int idResponsable)
         {
-            var list = repo.GetAllWithResponsable(idResponsable);
+            var list = _repository.GetAllByResponsable(idResponsable);
 
             return list.Select(i => new InterventionDTO
             {
@@ -144,45 +166,47 @@ namespace GMAO_Business.Services
 
         public bool ExisteInterventionPour(int maintenanceId, DateTime date)
         {
-            DateTime dateDebut = date.Date;
-            DateTime dateFin = dateDebut.AddDays(1);
-            return repo.ExistsForDate(maintenanceId, dateDebut, dateFin);
+            return _repository.ExisteInterventionPour(maintenanceId, date);
         }
 
         public List<InterventionLightDTO> GetInterventionsDisponiblesPourWO(int idResponsable)
         {
-            return repo.GetInterventionsDisponiblesPourWO(idResponsable)
-                       .Select(i => new InterventionLightDTO
-                       {
-                           Id = i.Id,
-                           Description = i.Nom
-                       }).ToList();
+            var list = _repository.GetDisponiblesPourWO(idResponsable);
+
+            return list.Select(i => new InterventionLightDTO
+            {
+                Id = i.Id,
+                Description = i.Nom
+            }).ToList();
         }
 
         public List<InterventionDTO> GetAllPourUtilisateur()
         {
+            List<Intervention> list;
+
             if (UserContext.Role == "Responsable")
             {
-                return GetAllDTOByResponsable(UserContext.IdUser);
+                list = _repository.GetAllByResponsable(UserContext.IdUser);
             }
             else
             {
-                var responsables = new UserService().GetResponsablesPourTechnicien(UserContext.IdUser);
-                var list = repo.GetAll()
-                               .Where(i => responsables.Contains(i.MaintenancePlanifiee.ResponsableId))
-                               .ToList();
+                var responsables = _userService.GetResponsablesPourTechnicien(UserContext.IdUser);
+                var all = _repository.GetAll();
+                list = all.Where(i => responsables.Contains(i.MaintenancePlanifiee.ResponsableId)).ToList();
+            }
 
-                return list.Select(i => new InterventionDTO
-                {
-                    Id = i.Id,
-                    Nom = i.Nom,
-                    Etat = i.Etat,
-                    DatePrevue = i.DatePrevue,
-                    Cout = i.Cout,
-                    MaintenanceId = i.MaintenancePlanifieeId,
-                    MaintenanceDescription = i.MaintenancePlanifiee.Description,
-                    EquipementNom = i.MaintenancePlanifiee.Equipement.nom
-                }).ToList();
-            }*/
+            return list.Select(i => new InterventionDTO
+            {
+                Id = i.Id,
+                Nom = i.Nom,
+                Etat = i.Etat,
+                DatePrevue = i.DatePrevue,
+                Cout = i.Cout,
+                MaintenanceId = i.MaintenancePlanifieeId,
+                MaintenanceDescription = i.MaintenancePlanifiee.Description,
+                EquipementNom = i.MaintenancePlanifiee.Equipement.nom
+            }).ToList();
+        }
     }
+
 }

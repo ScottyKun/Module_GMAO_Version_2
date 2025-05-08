@@ -63,9 +63,37 @@ namespace GMAO_Data.Repositories
             }
         }
 
-        public IQueryable<Alerte> AsQueryable()
+        public List<Alerte> GetAlertesResponsable(int responsableId)
         {
-            return db.Alertes.AsQueryable();
+            return db.Alertes
+                .Where(a =>
+                    (a.Libelle == "Alerte Stock" ||
+                    (a.ResponsableId != null && a.ResponsableId == responsableId)) &&
+                    !a.Terminee)
+                .OrderByDescending(a => a.DateCreation)
+                .ToList();
+        }
+
+        public List<Alerte> GetAlertesPourTechnicien(List<int> responsables)
+        {
+            return db.Alertes
+                .Where(a =>
+                    a.Libelle != "Alerte Stock" &&
+                    a.ResponsableId != null &&
+                    responsables.Contains(a.ResponsableId.Value) &&
+                    !a.Terminee)
+                .OrderByDescending(a => a.DateCreation)
+                .ToList();
+        }
+
+        public List<Alerte> GetAlertesGlobales()
+        {
+            return db.Alertes
+                .Where(a =>
+                    !a.Terminee &&
+                    a.DateCreation >= DateTime.Today.AddDays(-3))
+                .OrderByDescending(a => a.DateCreation)
+                .ToList();
         }
     }
 }

@@ -26,4 +26,18 @@ namespace GMAO_Business.DTOs
 
         public string ResponsableNom { get; set; }
     }
+
+    public class MaintenancePlanifieeDTO2
+    {
+        public int MaintenanceId { get; set; } // Nullable pour différencier création / modification
+        public string Description { get; set; }
+        public string Statut { get; set; }
+        public DateTime DateDebut { get; set; }
+        public DateTime DateFin { get; set; }
+        public int RecurrenceJours { get; set; }
+        public int ResponsableId { get; set; }
+        public int EquipementId { get; set; }
+        public int EquipeId { get; set; }
+    }
+
 }

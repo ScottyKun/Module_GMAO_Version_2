@@ -147,10 +147,12 @@
     <Compile Include="Repositories\MaintenancePlanifieeRepository.cs" />
     <Compile Include="Repositories\MaintenanceRepository.cs" />
     <Compile Include="Repositories\PieceDeRechangeRepository.cs" />
+    <Compile Include="Repositories\PlanningRepository.cs" />
     <Compile Include="Repositories\ProfilRepository.cs" />
     <Compile Include="Repositories\StockRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\WorkOrderCoRepository.cs" />
+    <Compile Include="Repositories\WorkOrderPlanRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

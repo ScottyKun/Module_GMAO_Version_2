@@ -20,9 +20,9 @@ namespace GMAO_Business.Services
             maintenanceService = new MaintenanceService();
         }
 
-        public void CreerMaintenanceCorrective(MaintenanceCorrective maintenance, List<PieceReservationDTO> pieces)
+        public void CreerMaintenanceCorrective(MaintenanceCorrectiveDTO2 dto, List<PieceReservationDTO> pieces)
         {
-            if (!maintenanceService.PeutCreerMaintenance(maintenance.EquipementId, maintenance.DateCreation.Date, maintenance.DateCreation.Date))
+            if (!maintenanceService.PeutCreerMaintenance(dto.EquipementId, dto.DateCreation.Date, dto.DateCreation.Date))
                 throw new InvalidOperationException("Une maintenance existe déjà pour cette période.");
 
             foreach (var p in pieces)
@@ -31,6 +31,16 @@ namespace GMAO_Business.Services
                     throw new InvalidOperationException($"Stock insuffisant pour la pièce {p.PieceId}.");
             }
 
+            var maintenance = new MaintenanceCorrective
+            {
+                Description = dto.Description,
+                DateCreation = dto.DateCreation,
+                EquipementId = dto.EquipementId,
+                ResponsableId = dto.ResponsableId,
+                Statut = dto.Statut,
+                EquipeId = dto.EquipeId
+            };
+
             repo.AjouterMaintenance(maintenance);
 
             foreach (var p in pieces)
@@ -38,6 +48,7 @@ namespace GMAO_Business.Services
 
             maintenance.Cout = repo.CalculerCoutTotal(maintenance.MaintenanceId);
         }
+
 
         public decimal CalculerCoutPrevu(int maintenanceId)
         {
@@ -63,10 +74,30 @@ namespace GMAO_Business.Services
             }
         }
 
-        public MaintenanceCorrective GetById(int id)
+        public MaintenanceCorrectiveDTO2 GetById(int id)
         {
-            return repo.GetById(id);
+            var m = repo.GetById2(id);
+            if (m == null) return null;
+
+            return new MaintenanceCorrectiveDTO2
+            {
+                MaintenanceId = m.MaintenanceId,
+                Description = m.Description,
+                Statut = m.Statut,
+                EquipementId = m.EquipementId,
+                ResponsableId = m.ResponsableId,
+                DateCreation = m.DateCreation,
+                EquipeId = m.EquipeId,
+                ResponsableNom = m.Responsable?.nom ?? "",
+                EquipeMaintenanceNom = m.Equipement?.maintenanceTeam?.nom ?? "-",
+                PiecesReservees = m.PiecesReservees?.Select(p => new PieceReservationDTO
+                {
+                    PieceId = p.PieceId,
+                    Quantite = p.Quantite
+                }).ToList()
+            };
         }
+
 
         public List<MaintenanceCorrectiveDTO> GetAllDTOByResponsable(int idUser)
         {
@@ -84,31 +115,32 @@ namespace GMAO_Business.Services
             }).ToList();
         }
 
-        public void Modifier(MaintenanceCorrective modifiee, List<PieceReservationDTO> nouvellesPieces)
+        public void Modifier(MaintenanceCorrectiveDTO2 dto, List<PieceReservationDTO> nouvellesPieces)
         {
-            var maintenance = repo.FindById(modifiee.MaintenanceId);
+            var maintenance = repo.FindById(dto.MaintenanceId);
             if (maintenance == null || maintenance.Statut == "Terminée")
                 throw new InvalidOperationException("Impossible de modifier une maintenance terminée ou inexistante.");
 
-            maintenance.Description = modifiee.Description;
-            maintenance.EquipementId = modifiee.EquipementId;
+            maintenance.Description = dto.Description;
+            maintenance.EquipementId = dto.EquipementId;
 
-            var equipement = repo.GetEquipement(modifiee.EquipementId);
+            var equipement = repo.GetEquipement(dto.EquipementId);
             if (equipement == null)
                 throw new InvalidOperationException("Équipement introuvable.");
+
             maintenance.ResponsableId = equipement.responsableId;
 
-            repo.SupprimerReservations(modifiee.MaintenanceId);
+            repo.SupprimerReservations(dto.MaintenanceId);
 
             foreach (var p in nouvellesPieces)
             {
                 if (!repo.ExisteStockSuffisant(p.PieceId, p.Quantite))
                     throw new InvalidOperationException($"Stock insuffisant pour la pièce {p.PieceId}.");
 
-                repo.AjouterReservationPiece(modifiee.MaintenanceId, p.PieceId, p.Quantite);
+                repo.AjouterReservationPiece(dto.MaintenanceId, p.PieceId, p.Quantite);
             }
 
-            maintenance.Cout = repo.CalculerCoutTotal(modifiee.MaintenanceId);
+            maintenance.Cout = repo.CalculerCoutTotal(dto.MaintenanceId);
             repo.ModifierMaintenance(maintenance);
         }
 
