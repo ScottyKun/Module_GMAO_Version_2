@@ -98,11 +98,281 @@
     <Compile Include="ViewModel\WOIAccVM.cs" />
     <Compile Include="ViewModel\WOIAddVM.cs" />
     <Compile Include="ViewModel\WOIUpVM.cs" />
+    <Compile Include="Views\AlerteDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AlerteDetailForm.Designer.cs">
+      <DependentUpon>AlerteDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlertesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AlertesForm.Designer.cs">
+      <DependentUpon>AlertesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AuthentificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\AuthentificationForm.Designer.cs">
       <DependentUpon>AuthentificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BudgetAccForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BudgetAccForm.Designer.cs">
+      <DependentUpon>BudgetAccForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BudgetAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BudgetAddForm.Designer.cs">
+      <DependentUpon>BudgetAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BudgetUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BudgetUpForm.Designer.cs">
+      <DependentUpon>BudgetUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategorieFormAccueil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CategorieFormAccueil.Designer.cs">
+      <DependentUpon>CategorieFormAccueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategorieFormAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CategorieFormAdd.Designer.cs">
+      <DependentUpon>CategorieFormAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategorieFormUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CategorieFormUpdate.Designer.cs">
+      <DependentUpon>CategorieFormUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ConfigurationForm.Designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionDesEquipes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GestionDesEquipes.Designer.cs">
+      <DependentUpon>GestionDesEquipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionDesEquipes2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GestionDesEquipes2.Designer.cs">
+      <DependentUpon>GestionDesEquipes2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionDesEquipes3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GestionDesEquipes3.Designer.cs">
+      <DependentUpon>GestionDesEquipes3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionEquipementAccueil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GestionEquipementAccueil.Designer.cs">
+      <DependentUpon>GestionEquipementAccueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionEquipementAjout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GestionEquipementAjout.Designer.cs">
+      <DependentUpon>GestionEquipementAjout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionEquipementUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GestionEquipementUpdate.Designer.cs">
+      <DependentUpon>GestionEquipementUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionProfilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GestionProfilForm.Designer.cs">
+      <DependentUpon>GestionProfilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GstPieceAcceuil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GstPieceAcceuil.Designer.cs">
+      <DependentUpon>GstPieceAcceuil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GstPiecesAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GstPiecesAdd.Designer.cs">
+      <DependentUpon>GstPiecesAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GstPiecesUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GstPiecesUpdate.Designer.cs">
+      <DependentUpon>GstPiecesUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GstStockAccueil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GstStockAccueil.Designer.cs">
+      <DependentUpon>GstStockAccueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GstStockCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GstStockCRUD.Designer.cs">
+      <DependentUpon>GstStockCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GstStockCRUD2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GstStockCRUD2.Designer.cs">
+      <DependentUpon>GstStockCRUD2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GstUserAccForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GstUserAccForm.Designer.cs">
+      <DependentUpon>GstUserAccForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GstUserUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GstUserUpForm.Designer.cs">
+      <DependentUpon>GstUserUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InscriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InscriptionForm.Designer.cs">
+      <DependentUpon>InscriptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InterventionAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InterventionAddForm.Designer.cs">
+      <DependentUpon>InterventionAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InterventionsAccueilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InterventionsAccueilForm.Designer.cs">
+      <DependentUpon>InterventionsAccueilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InterventionsUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InterventionsUpdateForm.Designer.cs">
+      <DependentUpon>InterventionsUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm2.Designer.cs">
+      <DependentUpon>MainForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainFormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainFormAdmin.Designer.cs">
+      <DependentUpon>MainFormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenanceCoAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintenanceCoAddForm.Designer.cs">
+      <DependentUpon>MaintenanceCoAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenanceCoFormAccueil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintenanceCoFormAccueil.Designer.cs">
+      <DependentUpon>MaintenanceCoFormAccueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenanceCoUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintenanceCoUpdateForm.Designer.cs">
+      <DependentUpon>MaintenanceCoUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenancePlanAccueilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintenancePlanAccueilForm.Designer.cs">
+      <DependentUpon>MaintenancePlanAccueilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenancePlanAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintenancePlanAddForm.Designer.cs">
+      <DependentUpon>MaintenancePlanAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenancePlanUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintenancePlanUpdateForm.Designer.cs">
+      <DependentUpon>MaintenancePlanUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModifPwdForm.Designer.cs">
+      <DependentUpon>ModifPwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiviBudgetCoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SuiviBudgetCoutForm.Designer.cs">
+      <DependentUpon>SuiviBudgetCoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WOIAccueilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WOIAccueilForm.Designer.cs">
+      <DependentUpon>WOIAccueilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WOIAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WOIAddForm.Designer.cs">
+      <DependentUpon>WOIAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WOIUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WOIUpdateForm.Designer.cs">
+      <DependentUpon>WOIUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkOrderCoAccueilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WorkOrderCoAccueilForm.Designer.cs">
+      <DependentUpon>WorkOrderCoAccueilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkOrderCoAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WorkOrderCoAddForm.Designer.cs">
+      <DependentUpon>WorkOrderCoAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkOrderCoUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WorkOrderCoUpdateForm.Designer.cs">
+      <DependentUpon>WorkOrderCoUpdateForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
