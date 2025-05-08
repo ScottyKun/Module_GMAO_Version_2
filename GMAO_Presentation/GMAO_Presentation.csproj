@@ -33,8 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +52,8 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\BiCard.cs">
@@ -158,6 +168,18 @@
     <Compile Include="Views\ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\GererUserAccForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GererUserAccForm.Designer.cs">
+      <DependentUpon>GererUserAccForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GererUserUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GererUserUpForm.Designer.cs">
+      <DependentUpon>GererUserUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GestionDesEquipes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,18 +257,6 @@
     </Compile>
     <Compile Include="Views\GstStockCRUD2.Designer.cs">
       <DependentUpon>GstStockCRUD2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GstUserAccForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\GstUserAccForm.Designer.cs">
-      <DependentUpon>GstUserAccForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GstUserUpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\GstUserUpForm.Designer.cs">
-      <DependentUpon>GstUserUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\InscriptionForm.cs">
       <SubType>Form</SubType>
@@ -382,7 +392,143 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AlerteDetailForm.resx">
+      <DependentUpon>AlerteDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AlertesForm.resx">
+      <DependentUpon>AlertesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AuthentificationForm.resx">
+      <DependentUpon>AuthentificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BudgetAccForm.resx">
+      <DependentUpon>BudgetAccForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BudgetAddForm.resx">
+      <DependentUpon>BudgetAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BudgetUpForm.resx">
+      <DependentUpon>BudgetUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CategorieFormAccueil.resx">
+      <DependentUpon>CategorieFormAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CategorieFormAdd.resx">
+      <DependentUpon>CategorieFormAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CategorieFormUpdate.resx">
+      <DependentUpon>CategorieFormUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConfigurationForm.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GererUserAccForm.resx">
+      <DependentUpon>GererUserAccForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GererUserUpForm.resx">
+      <DependentUpon>GererUserUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GestionDesEquipes.resx">
+      <DependentUpon>GestionDesEquipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GestionDesEquipes2.resx">
+      <DependentUpon>GestionDesEquipes2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GestionDesEquipes3.resx">
+      <DependentUpon>GestionDesEquipes3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GestionEquipementAccueil.resx">
+      <DependentUpon>GestionEquipementAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GestionEquipementAjout.resx">
+      <DependentUpon>GestionEquipementAjout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GestionEquipementUpdate.resx">
+      <DependentUpon>GestionEquipementUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GestionProfilForm.resx">
+      <DependentUpon>GestionProfilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GstPieceAcceuil.resx">
+      <DependentUpon>GstPieceAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GstPiecesAdd.resx">
+      <DependentUpon>GstPiecesAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GstPiecesUpdate.resx">
+      <DependentUpon>GstPiecesUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GstStockAccueil.resx">
+      <DependentUpon>GstStockAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GstStockCRUD.resx">
+      <DependentUpon>GstStockCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GstStockCRUD2.resx">
+      <DependentUpon>GstStockCRUD2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InscriptionForm.resx">
+      <DependentUpon>InscriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InterventionAddForm.resx">
+      <DependentUpon>InterventionAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InterventionsAccueilForm.resx">
+      <DependentUpon>InterventionsAccueilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InterventionsUpdateForm.resx">
+      <DependentUpon>InterventionsUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm2.resx">
+      <DependentUpon>MainForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainFormAdmin.resx">
+      <DependentUpon>MainFormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaintenanceCoAddForm.resx">
+      <DependentUpon>MaintenanceCoAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaintenanceCoFormAccueil.resx">
+      <DependentUpon>MaintenanceCoFormAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaintenanceCoUpdateForm.resx">
+      <DependentUpon>MaintenanceCoUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaintenancePlanAccueilForm.resx">
+      <DependentUpon>MaintenancePlanAccueilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaintenancePlanAddForm.resx">
+      <DependentUpon>MaintenancePlanAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaintenancePlanUpdateForm.resx">
+      <DependentUpon>MaintenancePlanUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModifPwdForm.resx">
+      <DependentUpon>ModifPwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WOIAccueilForm.resx">
+      <DependentUpon>WOIAccueilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WOIAddForm.resx">
+      <DependentUpon>WOIAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WOIUpdateForm.resx">
+      <DependentUpon>WOIUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WorkOrderCoAccueilForm.resx">
+      <DependentUpon>WorkOrderCoAccueilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WorkOrderCoAddForm.resx">
+      <DependentUpon>WorkOrderCoAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WorkOrderCoUpdateForm.resx">
+      <DependentUpon>WorkOrderCoUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -402,6 +548,116 @@
       <Name>GMAO_Business</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Brake Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Available Updates2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Business.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Control Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dollar Bag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Emergency Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Engineer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gears.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Installing Updates.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Order Completed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profitability.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Request Service.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Role.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Service.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List View.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_Systematic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Date To.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

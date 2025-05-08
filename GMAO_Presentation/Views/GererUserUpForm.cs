@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GMAO_Presentation.Views
 {
-    public partial class GstUserUpForm : Form
+    public partial class GererUserUpForm : Form
     {
-        public GstUserUpForm()
+        public GererUserUpForm()
         {
             InitializeComponent();
         }

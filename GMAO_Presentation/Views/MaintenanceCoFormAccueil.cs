@@ -16,5 +16,7 @@ namespace GMAO_Presentation.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }
