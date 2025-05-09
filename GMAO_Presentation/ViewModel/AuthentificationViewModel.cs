@@ -1,4 +1,5 @@
 ﻿using GMAO_Business.DTOs;
+using GMAO_Business.Entities;
 using GMAO_Business.Services;
 using GMAO_Presentation.Helpers;
 using System;
@@ -78,8 +79,8 @@ namespace GMAO_Presentation.ViewModel
 
                 if (user != null)
                 {
-                    // UserContext.IdUser = user.idUser;
-                    //UserContext.Role = user.fonction;
+                     UserContext.IdUser = user.IdUser;
+                    UserContext.Role = user.Fonction;
 
                     Id = user.IdUser;
                     OnShowNotification?.Invoke("Succès", "Connexion réussie !");

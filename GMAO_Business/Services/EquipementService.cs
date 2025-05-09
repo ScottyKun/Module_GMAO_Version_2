@@ -1,4 +1,5 @@
 ﻿using GMAO_Business.DTOs;
+using GMAO_Business.Entities;
 using GMAO_Data.Entities;
 using GMAO_Data.Repositories;
 using System;
@@ -85,7 +86,7 @@ namespace GMAO_Business.Services
             {
                 Id = eq.id,
                 Nom = eq.nom,
-                MaintenanceTeam = eq.maintenanceTeam != null ? new EquipeDTO
+                MaintenanceTeam = eq.maintenanceTeam != null ? new EquipeDTO2
                 {
                     Id = eq.maintenanceTeam.teamId,
                     Nom = eq.maintenanceTeam.nom

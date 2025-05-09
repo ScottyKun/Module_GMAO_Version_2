@@ -30,10 +30,10 @@ namespace GMAO_Presentation.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.imgExit = new System.Windows.Forms.PictureBox();
             this.imgVersProfil = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSideBar = new System.Windows.Forms.PictureBox();
             this.sideBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -68,16 +68,6 @@ namespace GMAO_Presentation.Views
             this.panel1.Size = new System.Drawing.Size(1284, 75);
             this.panel1.TabIndex = 6;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(96, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(293, 43);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "MAINTENANCE | GMAO";
-            // 
             // imgExit
             // 
             this.imgExit.Image = global::GMAO_Presentation.Properties.Resources.Emergency_Exit;
@@ -87,6 +77,7 @@ namespace GMAO_Presentation.Views
             this.imgExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imgExit.TabIndex = 5;
             this.imgExit.TabStop = false;
+            this.imgExit.Click += new System.EventHandler(this.imgExit_Click);
             // 
             // imgVersProfil
             // 
@@ -97,6 +88,7 @@ namespace GMAO_Presentation.Views
             this.imgVersProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imgVersProfil.TabIndex = 3;
             this.imgVersProfil.TabStop = false;
+            this.imgVersProfil.Click += new System.EventHandler(this.imgVersProfil_Click);
             // 
             // pictureBox1
             // 
@@ -108,6 +100,16 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(96, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(293, 43);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "MAINTENANCE | GMAO";
+            // 
             // btnSideBar
             // 
             this.btnSideBar.Image = global::GMAO_Presentation.Properties.Resources.Menu2;
@@ -117,6 +119,7 @@ namespace GMAO_Presentation.Views
             this.btnSideBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnSideBar.TabIndex = 0;
             this.btnSideBar.TabStop = false;
+       
             // 
             // sideBar
             // 
@@ -152,6 +155,7 @@ namespace GMAO_Presentation.Views
             this.btnGstUsers.TabIndex = 2;
             this.btnGstUsers.Text = "       Gérer users";
             this.btnGstUsers.UseVisualStyleBackColor = false;
+            this.btnGstUsers.Click += new System.EventHandler(this.btnGstUsers_Click);
             // 
             // panel9
             // 
@@ -175,6 +179,7 @@ namespace GMAO_Presentation.Views
             this.btnSuiviCout.TabIndex = 2;
             this.btnSuiviCout.Text = "      Suivi coûts";
             this.btnSuiviCout.UseVisualStyleBackColor = false;
+            this.btnSuiviCout.Click += new System.EventHandler(this.btnSuiviCout_Click);
             // 
             // panel10
             // 
@@ -217,6 +222,7 @@ namespace GMAO_Presentation.Views
             this.Controls.Add(this.sideBar);
             this.Controls.Add(this.panel1);
             this.Name = "MainFormAdmin";
+            this.Shown += new System.EventHandler(this.MainFormAdmin_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgExit)).EndInit();

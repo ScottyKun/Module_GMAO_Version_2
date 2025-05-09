@@ -112,7 +112,6 @@ namespace GMAO_Presentation.Views
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Name = "ConfigurationForm";
-            this.Text = "ConfigurationForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

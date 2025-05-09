@@ -31,47 +31,51 @@ namespace GMAO_Presentation.Views
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.imgExit = new System.Windows.Forms.PictureBox();
+            this.imgVersProfil = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSideBar = new System.Windows.Forms.PictureBox();
             this.sideBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEquipement = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnIntervention = new System.Windows.Forms.Button();
             this.WO = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnWorders = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.btnWOCO = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.btnWOI = new System.Windows.Forms.Button();
             this.menuContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnMaintenance = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnGstMaintenanceCo = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnGstMaintenancePlanifie = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.btnAlertes = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.btnGstStock = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.btnGstEquipes = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnSuiviCB = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.menuTransition = new System.Windows.Forms.Timer(this.components);
             this.sideTransition = new System.Windows.Forms.Timer(this.components);
             this.woTransition = new System.Windows.Forms.Timer(this.components);
-            this.btnEquipement = new System.Windows.Forms.Button();
-            this.btnIntervention = new System.Windows.Forms.Button();
-            this.btnWorders = new System.Windows.Forms.Button();
-            this.btnMaintenance = new System.Windows.Forms.Button();
-            this.btnAlertes = new System.Windows.Forms.Button();
-            this.btnGstStock = new System.Windows.Forms.Button();
-            this.btnGstEquipes = new System.Windows.Forms.Button();
-            this.btnSuiviCB = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.btnConfig = new System.Windows.Forms.Button();
-            this.imgExit = new System.Windows.Forms.PictureBox();
-            this.imgVersProfil = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSideBar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgVersProfil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSideBar)).BeginInit();
             this.sideBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,10 +93,6 @@ namespace GMAO_Presentation.Views
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgVersProfil)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSideBar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,6 +109,38 @@ namespace GMAO_Presentation.Views
             this.panel1.Size = new System.Drawing.Size(1284, 75);
             this.panel1.TabIndex = 1;
             // 
+            // imgExit
+            // 
+            this.imgExit.Image = global::GMAO_Presentation.Properties.Resources.Emergency_Exit;
+            this.imgExit.Location = new System.Drawing.Point(1222, 7);
+            this.imgExit.Name = "imgExit";
+            this.imgExit.Size = new System.Drawing.Size(50, 50);
+            this.imgExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgExit.TabIndex = 4;
+            this.imgExit.TabStop = false;
+            this.imgExit.Click += new System.EventHandler(this.imgExit_Click);
+            // 
+            // imgVersProfil
+            // 
+            this.imgVersProfil.Image = global::GMAO_Presentation.Properties.Resources.User;
+            this.imgVersProfil.Location = new System.Drawing.Point(656, 7);
+            this.imgVersProfil.Name = "imgVersProfil";
+            this.imgVersProfil.Size = new System.Drawing.Size(50, 50);
+            this.imgVersProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imgVersProfil.TabIndex = 3;
+            this.imgVersProfil.TabStop = false;
+            this.imgVersProfil.Click += new System.EventHandler(this.imgVersProfil_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.logo_Systematic;
+            this.pictureBox1.Location = new System.Drawing.Point(921, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(207, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -119,10 +151,19 @@ namespace GMAO_Presentation.Views
             this.label1.TabIndex = 1;
             this.label1.Text = "MAINTENANCE | GMAO";
             // 
+            // btnSideBar
+            // 
+            this.btnSideBar.Image = global::GMAO_Presentation.Properties.Resources.Menu2;
+            this.btnSideBar.Location = new System.Drawing.Point(9, 12);
+            this.btnSideBar.Name = "btnSideBar";
+            this.btnSideBar.Size = new System.Drawing.Size(50, 44);
+            this.btnSideBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnSideBar.TabIndex = 0;
+            this.btnSideBar.TabStop = false;
+            this.btnSideBar.Click += new System.EventHandler(this.btnSideBar_Click_1);
+            // 
             // sideBar
             // 
-            this.sideBar.AutoScrollMargin = new System.Drawing.Size(5, 5);
-            this.sideBar.AutoScrollMinSize = new System.Drawing.Size(5, 5);
             this.sideBar.BackColor = System.Drawing.Color.DimGray;
             this.sideBar.Controls.Add(this.panel2);
             this.sideBar.Controls.Add(this.panel3);
@@ -149,6 +190,21 @@ namespace GMAO_Presentation.Views
             this.panel2.Size = new System.Drawing.Size(186, 53);
             this.panel2.TabIndex = 3;
             // 
+            // btnEquipement
+            // 
+            this.btnEquipement.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnEquipement.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEquipement.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnEquipement.Image = global::GMAO_Presentation.Properties.Resources.Gears;
+            this.btnEquipement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEquipement.Location = new System.Drawing.Point(3, -6);
+            this.btnEquipement.Name = "btnEquipement";
+            this.btnEquipement.Size = new System.Drawing.Size(190, 59);
+            this.btnEquipement.TabIndex = 2;
+            this.btnEquipement.Text = "       Equipement";
+            this.btnEquipement.UseVisualStyleBackColor = false;
+            this.btnEquipement.Click += new System.EventHandler(this.btnEquipement_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
@@ -157,6 +213,21 @@ namespace GMAO_Presentation.Views
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(186, 53);
             this.panel3.TabIndex = 4;
+            // 
+            // btnIntervention
+            // 
+            this.btnIntervention.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnIntervention.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIntervention.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnIntervention.Image = global::GMAO_Presentation.Properties.Resources.Order_Completed;
+            this.btnIntervention.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIntervention.Location = new System.Drawing.Point(3, -6);
+            this.btnIntervention.Name = "btnIntervention";
+            this.btnIntervention.Size = new System.Drawing.Size(190, 59);
+            this.btnIntervention.TabIndex = 2;
+            this.btnIntervention.Text = "        Intervention";
+            this.btnIntervention.UseVisualStyleBackColor = false;
+            this.btnIntervention.Click += new System.EventHandler(this.btnIntervention_Click);
             // 
             // WO
             // 
@@ -177,6 +248,21 @@ namespace GMAO_Presentation.Views
             this.panel8.Size = new System.Drawing.Size(186, 53);
             this.panel8.TabIndex = 7;
             // 
+            // btnWorders
+            // 
+            this.btnWorders.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnWorders.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWorders.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnWorders.Image = global::GMAO_Presentation.Properties.Resources.Business;
+            this.btnWorders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWorders.Location = new System.Drawing.Point(3, -5);
+            this.btnWorders.Name = "btnWorders";
+            this.btnWorders.Size = new System.Drawing.Size(190, 58);
+            this.btnWorders.TabIndex = 2;
+            this.btnWorders.Text = "       WorkOrders";
+            this.btnWorders.UseVisualStyleBackColor = false;
+            this.btnWorders.Click += new System.EventHandler(this.btnWorders_Click);
+            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.btnWOCO);
@@ -191,6 +277,7 @@ namespace GMAO_Presentation.Views
             this.btnWOCO.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.btnWOCO.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWOCO.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnWOCO.Image = global::GMAO_Presentation.Properties.Resources.Maintenance;
             this.btnWOCO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWOCO.Location = new System.Drawing.Point(3, -6);
             this.btnWOCO.Name = "btnWOCO";
@@ -198,6 +285,7 @@ namespace GMAO_Presentation.Views
             this.btnWOCO.TabIndex = 2;
             this.btnWOCO.Text = "      Corrective";
             this.btnWOCO.UseVisualStyleBackColor = false;
+            this.btnWOCO.Click += new System.EventHandler(this.btnWOCO_Click_1);
             // 
             // panel16
             // 
@@ -213,6 +301,7 @@ namespace GMAO_Presentation.Views
             this.btnWOI.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.btnWOI.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWOI.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnWOI.Image = global::GMAO_Presentation.Properties.Resources.Maintenance;
             this.btnWOI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWOI.Location = new System.Drawing.Point(3, -6);
             this.btnWOI.Name = "btnWOI";
@@ -220,6 +309,7 @@ namespace GMAO_Presentation.Views
             this.btnWOI.TabIndex = 2;
             this.btnWOI.Text = "        Systématique";
             this.btnWOI.UseVisualStyleBackColor = false;
+            this.btnWOI.Click += new System.EventHandler(this.btnWOI_Click_1);
             // 
             // menuContainer
             // 
@@ -240,6 +330,21 @@ namespace GMAO_Presentation.Views
             this.panel5.Size = new System.Drawing.Size(186, 53);
             this.panel5.TabIndex = 7;
             // 
+            // btnMaintenance
+            // 
+            this.btnMaintenance.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnMaintenance.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaintenance.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnMaintenance.Image = global::GMAO_Presentation.Properties.Resources.Service;
+            this.btnMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMaintenance.Location = new System.Drawing.Point(3, -5);
+            this.btnMaintenance.Name = "btnMaintenance";
+            this.btnMaintenance.Size = new System.Drawing.Size(190, 58);
+            this.btnMaintenance.TabIndex = 2;
+            this.btnMaintenance.Text = "       Maintenance";
+            this.btnMaintenance.UseVisualStyleBackColor = false;
+            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.btnGstMaintenanceCo);
@@ -254,6 +359,7 @@ namespace GMAO_Presentation.Views
             this.btnGstMaintenanceCo.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.btnGstMaintenanceCo.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGstMaintenanceCo.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnGstMaintenanceCo.Image = global::GMAO_Presentation.Properties.Resources.Maintenance;
             this.btnGstMaintenanceCo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGstMaintenanceCo.Location = new System.Drawing.Point(3, -6);
             this.btnGstMaintenanceCo.Name = "btnGstMaintenanceCo";
@@ -261,6 +367,7 @@ namespace GMAO_Presentation.Views
             this.btnGstMaintenanceCo.TabIndex = 2;
             this.btnGstMaintenanceCo.Text = "      Corrective";
             this.btnGstMaintenanceCo.UseVisualStyleBackColor = false;
+            this.btnGstMaintenanceCo.Click += new System.EventHandler(this.btnGstMaintenanceCo_Click);
             // 
             // panel7
             // 
@@ -276,6 +383,7 @@ namespace GMAO_Presentation.Views
             this.btnGstMaintenancePlanifie.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.btnGstMaintenancePlanifie.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGstMaintenancePlanifie.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnGstMaintenancePlanifie.Image = global::GMAO_Presentation.Properties.Resources.Request_Service;
             this.btnGstMaintenancePlanifie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGstMaintenancePlanifie.Location = new System.Drawing.Point(3, -6);
             this.btnGstMaintenancePlanifie.Name = "btnGstMaintenancePlanifie";
@@ -283,6 +391,7 @@ namespace GMAO_Presentation.Views
             this.btnGstMaintenancePlanifie.TabIndex = 2;
             this.btnGstMaintenancePlanifie.Text = "        Systématique";
             this.btnGstMaintenancePlanifie.UseVisualStyleBackColor = false;
+            this.btnGstMaintenancePlanifie.Click += new System.EventHandler(this.btnGstMaintenancePlanifie_Click);
             // 
             // panel11
             // 
@@ -292,129 +401,6 @@ namespace GMAO_Presentation.Views
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(186, 53);
             this.panel11.TabIndex = 8;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.Transparent;
-            this.panel13.Controls.Add(this.btnGstStock);
-            this.panel13.Location = new System.Drawing.Point(3, 308);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(186, 53);
-            this.panel13.TabIndex = 8;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.Transparent;
-            this.panel12.Controls.Add(this.btnGstEquipes);
-            this.panel12.Location = new System.Drawing.Point(3, 367);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(186, 53);
-            this.panel12.TabIndex = 9;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Transparent;
-            this.panel9.Controls.Add(this.btnSuiviCB);
-            this.panel9.Location = new System.Drawing.Point(3, 426);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(186, 53);
-            this.panel9.TabIndex = 6;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.Transparent;
-            this.panel10.Controls.Add(this.button8);
-            this.panel10.Location = new System.Drawing.Point(3, 485);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(186, 53);
-            this.panel10.TabIndex = 7;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.Transparent;
-            this.panel14.Controls.Add(this.btnConfig);
-            this.panel14.Location = new System.Drawing.Point(3, 544);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(186, 53);
-            this.panel14.TabIndex = 8;
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.AutoScroll = true;
-            this.panelContainer.BackColor = System.Drawing.Color.LightGray;
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(215, 75);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1069, 676);
-            this.panelContainer.TabIndex = 4;
-            // 
-            // menuTransition
-            // 
-            this.menuTransition.Interval = 10;
-            // 
-            // sideTransition
-            // 
-            this.sideTransition.Interval = 10;
-            // 
-            // woTransition
-            // 
-            this.woTransition.Interval = 10;
-            // 
-            // btnEquipement
-            // 
-            this.btnEquipement.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnEquipement.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEquipement.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnEquipement.Image = global::GMAO_Presentation.Properties.Resources.Gears;
-            this.btnEquipement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEquipement.Location = new System.Drawing.Point(3, -6);
-            this.btnEquipement.Name = "btnEquipement";
-            this.btnEquipement.Size = new System.Drawing.Size(190, 59);
-            this.btnEquipement.TabIndex = 2;
-            this.btnEquipement.Text = "       Equipement";
-            this.btnEquipement.UseVisualStyleBackColor = false;
-            // 
-            // btnIntervention
-            // 
-            this.btnIntervention.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnIntervention.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIntervention.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnIntervention.Image = global::GMAO_Presentation.Properties.Resources.Order_Completed;
-            this.btnIntervention.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIntervention.Location = new System.Drawing.Point(3, -6);
-            this.btnIntervention.Name = "btnIntervention";
-            this.btnIntervention.Size = new System.Drawing.Size(190, 59);
-            this.btnIntervention.TabIndex = 2;
-            this.btnIntervention.Text = "        Intervention";
-            this.btnIntervention.UseVisualStyleBackColor = false;
-            // 
-            // btnWorders
-            // 
-            this.btnWorders.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnWorders.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWorders.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnWorders.Image = global::GMAO_Presentation.Properties.Resources.Business;
-            this.btnWorders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWorders.Location = new System.Drawing.Point(3, -5);
-            this.btnWorders.Name = "btnWorders";
-            this.btnWorders.Size = new System.Drawing.Size(190, 58);
-            this.btnWorders.TabIndex = 2;
-            this.btnWorders.Text = "       WorkOrders";
-            this.btnWorders.UseVisualStyleBackColor = false;
-            // 
-            // btnMaintenance
-            // 
-            this.btnMaintenance.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.btnMaintenance.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaintenance.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnMaintenance.Image = global::GMAO_Presentation.Properties.Resources.Service;
-            this.btnMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMaintenance.Location = new System.Drawing.Point(3, -5);
-            this.btnMaintenance.Name = "btnMaintenance";
-            this.btnMaintenance.Size = new System.Drawing.Size(190, 58);
-            this.btnMaintenance.TabIndex = 2;
-            this.btnMaintenance.Text = "       Maintenance";
-            this.btnMaintenance.UseVisualStyleBackColor = false;
             // 
             // btnAlertes
             // 
@@ -429,6 +415,16 @@ namespace GMAO_Presentation.Views
             this.btnAlertes.TabIndex = 2;
             this.btnAlertes.Text = "Alertes";
             this.btnAlertes.UseVisualStyleBackColor = false;
+            this.btnAlertes.Click += new System.EventHandler(this.btnAlertes_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.Transparent;
+            this.panel13.Controls.Add(this.btnGstStock);
+            this.panel13.Location = new System.Drawing.Point(3, 308);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(186, 53);
+            this.panel13.TabIndex = 8;
             // 
             // btnGstStock
             // 
@@ -443,6 +439,16 @@ namespace GMAO_Presentation.Views
             this.btnGstStock.TabIndex = 2;
             this.btnGstStock.Text = "Stock";
             this.btnGstStock.UseVisualStyleBackColor = false;
+            this.btnGstStock.Click += new System.EventHandler(this.btnGstStock_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Transparent;
+            this.panel12.Controls.Add(this.btnGstEquipes);
+            this.panel12.Location = new System.Drawing.Point(3, 367);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(186, 53);
+            this.panel12.TabIndex = 9;
             // 
             // btnGstEquipes
             // 
@@ -457,6 +463,16 @@ namespace GMAO_Presentation.Views
             this.btnGstEquipes.TabIndex = 2;
             this.btnGstEquipes.Text = "   Equipes";
             this.btnGstEquipes.UseVisualStyleBackColor = false;
+            this.btnGstEquipes.Click += new System.EventHandler(this.btnGstEquipes_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.Controls.Add(this.btnSuiviCB);
+            this.panel9.Location = new System.Drawing.Point(3, 426);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(186, 53);
+            this.panel9.TabIndex = 6;
             // 
             // btnSuiviCB
             // 
@@ -471,6 +487,16 @@ namespace GMAO_Presentation.Views
             this.btnSuiviCB.TabIndex = 2;
             this.btnSuiviCB.Text = "      Suivi coûts";
             this.btnSuiviCB.UseVisualStyleBackColor = false;
+            this.btnSuiviCB.Click += new System.EventHandler(this.btnSuiviCB_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Transparent;
+            this.panel10.Controls.Add(this.button8);
+            this.panel10.Location = new System.Drawing.Point(3, 485);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(186, 53);
+            this.panel10.TabIndex = 7;
             // 
             // button8
             // 
@@ -486,6 +512,15 @@ namespace GMAO_Presentation.Views
             this.button8.Text = "    Reporting";
             this.button8.UseVisualStyleBackColor = false;
             // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Transparent;
+            this.panel14.Controls.Add(this.btnConfig);
+            this.panel14.Location = new System.Drawing.Point(3, 544);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(186, 53);
+            this.panel14.TabIndex = 8;
+            // 
             // btnConfig
             // 
             this.btnConfig.BackColor = System.Drawing.Color.DarkOliveGreen;
@@ -499,46 +534,32 @@ namespace GMAO_Presentation.Views
             this.btnConfig.TabIndex = 2;
             this.btnConfig.Text = "       Configration";
             this.btnConfig.UseVisualStyleBackColor = false;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
-            // imgExit
+            // panelContainer
             // 
-            this.imgExit.Image = global::GMAO_Presentation.Properties.Resources.Emergency_Exit;
-            this.imgExit.Location = new System.Drawing.Point(1222, 7);
-            this.imgExit.Name = "imgExit";
-            this.imgExit.Size = new System.Drawing.Size(50, 50);
-            this.imgExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgExit.TabIndex = 4;
-            this.imgExit.TabStop = false;
+            this.panelContainer.AutoScroll = true;
+            this.panelContainer.BackColor = System.Drawing.Color.LightGray;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(215, 75);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1069, 676);
+            this.panelContainer.TabIndex = 4;
             // 
-            // imgVersProfil
+            // menuTransition
             // 
-            this.imgVersProfil.Image = global::GMAO_Presentation.Properties.Resources.User;
-            this.imgVersProfil.Location = new System.Drawing.Point(656, 7);
-            this.imgVersProfil.Name = "imgVersProfil";
-            this.imgVersProfil.Size = new System.Drawing.Size(50, 50);
-            this.imgVersProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imgVersProfil.TabIndex = 3;
-            this.imgVersProfil.TabStop = false;
+            this.menuTransition.Interval = 10;
+            this.menuTransition.Tick += new System.EventHandler(this.menuTransition_Tick_1);
             // 
-            // pictureBox1
+            // sideTransition
             // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.logo_Systematic;
-            this.pictureBox1.Location = new System.Drawing.Point(921, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(207, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.sideTransition.Interval = 10;
+            this.sideTransition.Tick += new System.EventHandler(this.sideTransition_Tick_1);
             // 
-            // btnSideBar
+            // woTransition
             // 
-            this.btnSideBar.Image = global::GMAO_Presentation.Properties.Resources.Menu2;
-            this.btnSideBar.Location = new System.Drawing.Point(9, 12);
-            this.btnSideBar.Name = "btnSideBar";
-            this.btnSideBar.Size = new System.Drawing.Size(50, 44);
-            this.btnSideBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.btnSideBar.TabIndex = 0;
-            this.btnSideBar.TabStop = false;
+            this.woTransition.Interval = 10;
+            this.woTransition.Tick += new System.EventHandler(this.woTransition_Tick_1);
             // 
             // MainForm
             // 
@@ -548,8 +569,14 @@ namespace GMAO_Presentation.Views
             this.Controls.Add(this.sideBar);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgVersProfil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSideBar)).EndInit();
             this.sideBar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -567,10 +594,6 @@ namespace GMAO_Presentation.Views
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgVersProfil)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSideBar)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -16,10 +16,10 @@ namespace GMAO_Business.DTOs
     {
         public int Id { get; set; }
         public string Nom { get; set; }
-        public EquipeDTO MaintenanceTeam { get; set; }
+        public EquipeDTO2 MaintenanceTeam { get; set; }
     }
 
-    public class EquipeDTO
+    public class EquipeDTO2
     {
         public int Id { get; set; }
         public string Nom { get; set; }

@@ -31,10 +31,10 @@ namespace GMAO_Presentation.Views
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.imgExit = new System.Windows.Forms.PictureBox();
             this.imgVersProfil = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSideBar = new System.Windows.Forms.PictureBox();
             this.sideBar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -79,16 +79,6 @@ namespace GMAO_Presentation.Views
             this.panel1.Size = new System.Drawing.Size(1284, 75);
             this.panel1.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(96, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(293, 43);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "MAINTENANCE | GMAO";
-            // 
             // imgExit
             // 
             this.imgExit.Image = global::GMAO_Presentation.Properties.Resources.Emergency_Exit;
@@ -98,6 +88,7 @@ namespace GMAO_Presentation.Views
             this.imgExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imgExit.TabIndex = 5;
             this.imgExit.TabStop = false;
+            this.imgExit.Click += new System.EventHandler(this.imgExit_Click);
             // 
             // imgVersProfil
             // 
@@ -108,6 +99,7 @@ namespace GMAO_Presentation.Views
             this.imgVersProfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imgVersProfil.TabIndex = 3;
             this.imgVersProfil.TabStop = false;
+            this.imgVersProfil.Click += new System.EventHandler(this.imgVersProfil_Click);
             // 
             // pictureBox1
             // 
@@ -119,6 +111,16 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(96, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(293, 43);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "MAINTENANCE | GMAO";
+            // 
             // btnSideBar
             // 
             this.btnSideBar.Image = global::GMAO_Presentation.Properties.Resources.Menu2;
@@ -128,6 +130,7 @@ namespace GMAO_Presentation.Views
             this.btnSideBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnSideBar.TabIndex = 0;
             this.btnSideBar.TabStop = false;
+            this.btnSideBar.Click += new System.EventHandler(this.btnSideBar_Click);
             // 
             // sideBar
             // 
@@ -163,6 +166,7 @@ namespace GMAO_Presentation.Views
             this.btnIntervention.TabIndex = 2;
             this.btnIntervention.Text = "        Intervention";
             this.btnIntervention.UseVisualStyleBackColor = false;
+            this.btnIntervention.Click += new System.EventHandler(this.btnIntervention_Click);
             // 
             // WO
             // 
@@ -196,6 +200,7 @@ namespace GMAO_Presentation.Views
             this.btnWorders.TabIndex = 2;
             this.btnWorders.Text = "       WorkOrders";
             this.btnWorders.UseVisualStyleBackColor = false;
+            this.btnWorders.Click += new System.EventHandler(this.btnWorders_Click);
             // 
             // panel15
             // 
@@ -211,6 +216,7 @@ namespace GMAO_Presentation.Views
             this.btnWOCO.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.btnWOCO.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWOCO.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnWOCO.Image = global::GMAO_Presentation.Properties.Resources.Maintenance;
             this.btnWOCO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWOCO.Location = new System.Drawing.Point(3, -6);
             this.btnWOCO.Name = "btnWOCO";
@@ -218,6 +224,7 @@ namespace GMAO_Presentation.Views
             this.btnWOCO.TabIndex = 2;
             this.btnWOCO.Text = "      Corrective";
             this.btnWOCO.UseVisualStyleBackColor = false;
+            this.btnWOCO.Click += new System.EventHandler(this.btnWOCO_Click);
             // 
             // panel16
             // 
@@ -233,6 +240,7 @@ namespace GMAO_Presentation.Views
             this.btnWOI.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.btnWOI.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWOI.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnWOI.Image = global::GMAO_Presentation.Properties.Resources.Maintenance;
             this.btnWOI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWOI.Location = new System.Drawing.Point(3, -6);
             this.btnWOI.Name = "btnWOI";
@@ -240,6 +248,7 @@ namespace GMAO_Presentation.Views
             this.btnWOI.TabIndex = 2;
             this.btnWOI.Text = "        Systématique";
             this.btnWOI.UseVisualStyleBackColor = false;
+            this.btnWOI.Click += new System.EventHandler(this.btnWOI_Click);
             // 
             // panel11
             // 
@@ -263,6 +272,7 @@ namespace GMAO_Presentation.Views
             this.btnAlertes.TabIndex = 2;
             this.btnAlertes.Text = "Alertes";
             this.btnAlertes.UseVisualStyleBackColor = false;
+            this.btnAlertes.Click += new System.EventHandler(this.btnAlertes_Click);
             // 
             // panelContainer
             // 
@@ -277,10 +287,12 @@ namespace GMAO_Presentation.Views
             // sideTransition
             // 
             this.sideTransition.Interval = 10;
+            this.sideTransition.Tick += new System.EventHandler(this.sideTransition_Tick);
             // 
             // woTransition
             // 
             this.woTransition.Interval = 10;
+            this.woTransition.Tick += new System.EventHandler(this.woTransition_Tick);
             // 
             // MainForm2
             // 
@@ -291,6 +303,8 @@ namespace GMAO_Presentation.Views
             this.Controls.Add(this.sideBar);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm2";
+            this.Load += new System.EventHandler(this.MainForm2_Load);
+            this.Shown += new System.EventHandler(this.MainForm2_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgExit)).EndInit();

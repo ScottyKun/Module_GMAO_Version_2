@@ -16,5 +16,20 @@ namespace GMAO_Presentation.Views
         {
             InitializeComponent();
         }
+
+        private void btnGstCategorie_Click(object sender, EventArgs e)
+        {
+            new Views.CategorieFormAccueil().ShowDialog();
+        }
+
+        private void btnGstStock_Click(object sender, EventArgs e)
+        {
+            new Views.GstStockAccueil().ShowDialog();
+        }
+
+        private void btnGstBudget_Click(object sender, EventArgs e)
+        {
+            new Views.BudgetAccForm().ShowDialog();
+        }
     }
 }

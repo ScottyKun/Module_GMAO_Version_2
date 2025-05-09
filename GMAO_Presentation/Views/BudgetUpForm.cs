@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GMAO_Business.DTOs;
+using GMAO_Presentation.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,37 @@ namespace GMAO_Presentation.Views
 {
     public partial class BudgetUpForm : Form
     {
-        public BudgetUpForm()
+        private readonly BudgetUpVM viewModel;
+        public BudgetUpForm(BudgetDTO budget)
         {
             InitializeComponent();
+
+            viewModel = new BudgetUpVM(budget);
+
+            txtNom.DataBindings.Add("Text", viewModel, "Nom");
+            numAnnee.DataBindings.Add("Value", viewModel, "Annee");
+            numMontant.DataBindings.Add("Value", viewModel, "Montant");
+            dtCreation.DataBindings.Add("Value", viewModel, "DateAjout");
+
+            dtCreation.Enabled = false;
+
+            btnUpdate.Click += (s, e) =>
+            {
+                if (viewModel.ModifierCommand.CanExecute(null))
+                    viewModel.ModifierCommand.Execute(null);
+            };
+
+            viewModel.OnClose += () =>
+            {
+                MessageBox.Show("Budget modifié avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DialogResult = DialogResult.OK;
+                Close();
+            };
+
+            viewModel.OnError += msg =>
+            {
+                MessageBox.Show(msg, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
         }
     }
 }

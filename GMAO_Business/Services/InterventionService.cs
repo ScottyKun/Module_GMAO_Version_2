@@ -1,4 +1,5 @@
 ﻿using GMAO_Business.DTOs;
+using GMAO_Business.Entities;
 using GMAO_Data.DataBaseManager;
 using GMAO_Data.Entities;
 using GMAO_Data.Repositories;

@@ -7,13 +7,13 @@ namespace GMAO_Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class NewDeparture : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NewDeparture));
         
         string IMigrationMetadata.Id
         {
-            get { return "202505061227273_Initial"; }
+            get { return "202505090107526_NewDeparture"; }
         }
         
         string IMigrationMetadata.Source

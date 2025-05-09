@@ -1,4 +1,5 @@
 ﻿using GMAO_Business.DTOs;
+using GMAO_Business.Entities;
 using GMAO_Business.Services;
 using GMAO_Presentation.Helpers;
 using System;
