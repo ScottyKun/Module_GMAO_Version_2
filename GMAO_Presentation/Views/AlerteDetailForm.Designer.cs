@@ -30,8 +30,11 @@ namespace GMAO_Presentation.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEnregistrer = new System.Windows.Forms.Button();
+            this.btnSupprimer = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtDateCreation = new System.Windows.Forms.TextBox();
             this.chkTerminee = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,16 +45,13 @@ namespace GMAO_Presentation.Views
             this.label1 = new System.Windows.Forms.Label();
             this.txtLibelle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnEnregistrer = new System.Windows.Forms.Button();
-            this.btnSupprimer = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnEnregistrer);
             this.panel1.Controls.Add(this.btnSupprimer);
@@ -63,6 +63,36 @@ namespace GMAO_Presentation.Views
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 15;
+            // 
+            // btnEnregistrer
+            // 
+            this.btnEnregistrer.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnEnregistrer.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnregistrer.Image = global::GMAO_Presentation.Properties.Resources.Refresh2;
+            this.btnEnregistrer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEnregistrer.Location = new System.Drawing.Point(497, 12);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(142, 83);
+            this.btnEnregistrer.TabIndex = 7;
+            this.btnEnregistrer.Text = "Modifier";
+            this.btnEnregistrer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEnregistrer.UseVisualStyleBackColor = false;
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.BackColor = System.Drawing.Color.Brown;
+            this.btnSupprimer.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnSupprimer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimer.Image = global::GMAO_Presentation.Properties.Resources.Remove;
+            this.btnSupprimer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSupprimer.Location = new System.Drawing.Point(661, 12);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(127, 83);
+            this.btnSupprimer.TabIndex = 6;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSupprimer.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -83,6 +113,16 @@ namespace GMAO_Presentation.Views
             this.label2.Size = new System.Drawing.Size(180, 39);
             this.label2.TabIndex = 4;
             this.label2.Text = "Détail alerte";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Brake_Warning;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 68);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // txtDateCreation
             // 
@@ -174,50 +214,10 @@ namespace GMAO_Presentation.Views
             this.label3.TabIndex = 16;
             this.label3.Text = "Libellé";
             // 
-            // btnEnregistrer
-            // 
-            this.btnEnregistrer.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnEnregistrer.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnregistrer.Image = global::GMAO_Presentation.Properties.Resources.Refresh2;
-            this.btnEnregistrer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEnregistrer.Location = new System.Drawing.Point(497, 12);
-            this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(142, 83);
-            this.btnEnregistrer.TabIndex = 7;
-            this.btnEnregistrer.Text = "Modifier";
-            this.btnEnregistrer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEnregistrer.UseVisualStyleBackColor = false;
-            // 
-            // btnSupprimer
-            // 
-            this.btnSupprimer.BackColor = System.Drawing.Color.Brown;
-            this.btnSupprimer.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnSupprimer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimer.Image = global::GMAO_Presentation.Properties.Resources.Remove;
-            this.btnSupprimer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSupprimer.Location = new System.Drawing.Point(661, 12);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(127, 83);
-            this.btnSupprimer.TabIndex = 6;
-            this.btnSupprimer.Text = "Supprimer";
-            this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSupprimer.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Brake_Warning;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 68);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // AlerteDetailForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtDateCreation);

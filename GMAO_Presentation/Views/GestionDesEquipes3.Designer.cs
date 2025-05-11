@@ -33,6 +33,7 @@ namespace GMAO_Presentation.Views
             this.btnAjouter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.chkStatut = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,11 +44,10 @@ namespace GMAO_Presentation.Views
             this.label4 = new System.Windows.Forms.Label();
             this.clbMembres = new System.Windows.Forms.CheckedListBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -97,6 +97,16 @@ namespace GMAO_Presentation.Views
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1051, 112);
             this.panel1.TabIndex = 17;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Add;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -186,6 +196,7 @@ namespace GMAO_Presentation.Views
             this.clbMembres.Name = "clbMembres";
             this.clbMembres.Size = new System.Drawing.Size(307, 140);
             this.clbMembres.TabIndex = 9;
+            this.clbMembres.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbMembres_ItemCheck_1);
             // 
             // panel3
             // 
@@ -197,20 +208,10 @@ namespace GMAO_Presentation.Views
             this.panel3.Size = new System.Drawing.Size(431, 193);
             this.panel3.TabIndex = 19;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Add;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // GestionDesEquipes3
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 412);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -219,11 +220,11 @@ namespace GMAO_Presentation.Views
             this.Name = "GestionDesEquipes3";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

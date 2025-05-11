@@ -1,4 +1,5 @@
-﻿using GMAO_Presentation.ViewModel;
+﻿using GMAO_Business.DTOs;
+using GMAO_Presentation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace GMAO_Presentation.Views
     public partial class GestionEquipementUpdate : Form
     {
         private readonly EquipementModifViewModel viewModel;
+        public EquipementDTO EquipementModifie { get; private set; }
         public GestionEquipementUpdate(int id)
         {
             InitializeComponent();
@@ -43,6 +45,18 @@ namespace GMAO_Presentation.Views
             btnModifier.Click += (s, e) =>
             {
                 viewModel.ModifierCommand.Execute(null);
+                EquipementModifie = new EquipementDTO
+                {
+                    Id = viewModel.Equipement.Id,
+                    Nom = viewModel.Equipement.Nom,
+                    Categorie = viewModel.Categories.FirstOrDefault(c => c.id == viewModel.Equipement.CategorieId)?.nom,
+                    Responsable = viewModel.Responsables.FirstOrDefault(u => u.idUser == viewModel.Equipement.ResponsableId)?.nom,
+                    MaintenanceTeam = viewModel.Equipes.FirstOrDefault(eq => eq.Id == viewModel.Equipement.MaintenanceTeamId)?.Nom,
+                    DateAchat = viewModel.Equipement.DateAchat,
+                    DateFinGarantie = viewModel.Equipement.DateFinGarantie,
+                    Statut = viewModel.Equipement.Statut,
+                    Commentaires = viewModel.Equipement.Commentaires
+                };
                 MessageBox.Show("Équipement modifié avec succès !", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
@@ -54,6 +68,7 @@ namespace GMAO_Presentation.Views
                 if (confirm == DialogResult.Yes)
                 {
                     viewModel.SupprimerCommand.Execute(null);
+            
                     MessageBox.Show("Équipement supprimé !", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                     Close();

@@ -21,43 +21,42 @@ namespace GMAO_Presentation.Views
 
             viewModel = new AlerteAccVM();
 
-            dgvAlertes.AutoGenerateColumns = false;
-            dgvAlertes.DataSource = viewModel.Alertes;
+            gridControlAlertes.DataSource = viewModel.Alertes;
 
-            dgvAlertes.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Libelle",
-                HeaderText = "Libellé"
-            });
+            // Accès à la vue principale
+            var view = gridViewAlertes;
+            view.Columns.Clear();
 
-            dgvAlertes.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Priorite",
-                HeaderText = "Priorité"
-            });
-            dgvAlertes.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "DateCreation",
-                HeaderText = "Date"
-            });
+            // Colonne Libellé
+            view.Columns.AddVisible("Libelle", "Libellé");
 
-            dgvAlertes.Columns.Add(new DataGridViewCheckBoxColumn
-            {
-                DataPropertyName = "Terminee",
-                HeaderText = "Lue"
-            });
+            // Colonne Priorité
+            view.Columns.AddVisible("Priorite", "Priorité");
 
-            dgvAlertes.CellDoubleClick += (s, e) =>
+            // Colonne Date
+            var dateCol = view.Columns.AddVisible("DateCreation", "Date");
+            dateCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            dateCol.DisplayFormat.FormatString = "dd/MM/yyyy";
+
+            // Colonne Lue (checkbox)
+            var checkCol = view.Columns.AddVisible("Terminee", "Lue");
+            checkCol.ColumnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+
+            // Double-clic pour voir les détails
+            view.DoubleClick += (s, e) =>
             {
-                if (dgvAlertes.CurrentRow?.DataBoundItem is AlerteDTO selected)
+                var selected = view.GetFocusedRow() as AlerteDTO;
+                if (selected != null)
                 {
                     var form = new AlerteDetailForm(selected.Id);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
-                        viewModel.ChargerAlertes();
+                        viewModel.RefreshCommand.Execute(null); // actualisation
+                        gridViewAlertes.RefreshData(); // pour être sûr
                     }
                 }
             };
+
         }
     }
 }

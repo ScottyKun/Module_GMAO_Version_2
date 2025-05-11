@@ -16,7 +16,6 @@ namespace GMAO_Business.Services
 
         public PlanningService()
         {
-            var db = new DbManager();
             _repository = new PlanningRepository();
             _alerteService = new AlerteService();
         }

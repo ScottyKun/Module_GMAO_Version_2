@@ -68,6 +68,13 @@ namespace GMAO_Data.Repositories
                      .FirstOrDefault(m => m.MaintenanceId == id);
         }
 
+        public MaintenanceCorrective GetById3(int id)
+        {
+            return db.MaintenancesCorrectives
+                     .Include("PiecesReservees")
+                     .FirstOrDefault(m => m.MaintenanceId == id);
+        }
+
 
         public List<MaintenanceCorrective> GetAllByResponsable(int userId)
         {

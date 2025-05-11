@@ -45,7 +45,8 @@ namespace GMAO_Presentation.Views
             this.Close();
         }
 
-        private void clbMembres_ItemCheck(object sender, ItemCheckEventArgs e)
+
+        private void clbMembres_ItemCheck_1(object sender, ItemCheckEventArgs e)
         {
             var selectedIds = clbMembres.CheckedItems.Cast<UserDTO>().Select(u => u.idUser).ToList();
             if (e.NewValue == CheckState.Checked)
@@ -62,7 +63,6 @@ namespace GMAO_Presentation.Views
             cmbChefEquipe.DataSource = _viewModel.ChefsDisponibles;
             cmbChefEquipe.DisplayMember = "nom";
             cmbChefEquipe.ValueMember = "idUser";
-
         }
     }
 }

@@ -33,6 +33,8 @@ namespace GMAO_Presentation.Views
             this.btnModifier = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,13 +47,11 @@ namespace GMAO_Presentation.Views
             this.label1 = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +96,26 @@ namespace GMAO_Presentation.Views
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1051, 90);
             this.panel1.TabIndex = 38;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GMAO_Presentation.Properties.Resources.Available_Updates2;
+            this.pictureBox2.Location = new System.Drawing.Point(989, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.User;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -202,29 +222,9 @@ namespace GMAO_Presentation.Views
             this.pictureBox3.TabIndex = 39;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GMAO_Presentation.Properties.Resources.Available_Updates2;
-            this.pictureBox2.Location = new System.Drawing.Point(989, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.User;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
             // separatorControl2
             // 
-            this.separatorControl2.BackColor = System.Drawing.Color.LightGray;
+            this.separatorControl2.BackColor = System.Drawing.Color.DimGray;
             this.separatorControl2.LineColor = System.Drawing.Color.Black;
             this.separatorControl2.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
             this.separatorControl2.LineThickness = 2;
@@ -236,7 +236,7 @@ namespace GMAO_Presentation.Views
             // GestionProfilForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
             this.Controls.Add(this.separatorControl2);
             this.Controls.Add(this.txtTelephone);
@@ -257,9 +257,9 @@ namespace GMAO_Presentation.Views
             this.Name = "GestionProfilForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

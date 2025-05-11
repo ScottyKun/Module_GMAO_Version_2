@@ -43,7 +43,9 @@ namespace GMAO_Data.Repositories
         public List<Alerte> GetOldAlertes(int delaiJours)
         {
             var seuil = DateTime.Now.AddDays(-delaiJours);
-            return _db.Alertes.Where(a => a.DateCreation < seuil).ToList();
+            return _db.Alertes
+                      .Where(a => a.DateCreation < seuil)
+                      .ToList();
         }
 
         public List<PieceDeRechange> GetPiecesCritiques()
@@ -55,8 +57,13 @@ namespace GMAO_Data.Repositories
 
         public List<string> GetMessagesAlertesStockDuJour()
         {
+            var today = DateTime.Today;
+            var tomorrow = today.AddDays(1);
+
             return _db.Alertes
-                      .Where(a => a.Libelle == "Alerte Stock" && a.DateCreation.Date == DateTime.Today)
+                      .Where(a => a.Libelle == "Alerte Stock" &&
+                                  a.DateCreation >= today &&
+                                  a.DateCreation < tomorrow)
                       .Select(a => a.Message)
                       .ToList();
         }
@@ -75,8 +82,13 @@ namespace GMAO_Data.Repositories
 
         public List<string> GetMessagesAlertesCorrectivesDuJour()
         {
+            var today = DateTime.Today;
+            var tomorrow = today.AddDays(1);
+
             return _db.Alertes
-                      .Where(a => a.Libelle == "Alerte Corrective" && a.DateCreation.Date == DateTime.Today)
+                      .Where(a => a.Libelle == "Alerte Corrective" &&
+                                  a.DateCreation >= today &&
+                                  a.DateCreation < tomorrow)
                       .Select(a => a.Message)
                       .ToList();
         }

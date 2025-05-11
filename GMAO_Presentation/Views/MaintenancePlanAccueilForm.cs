@@ -22,8 +22,12 @@ namespace GMAO_Presentation.Views
 
             viewModel = new MaintenancePlanAccVM(idResponsable);
 
-            //dgvMaintenances.AutoGenerateColumns = false;
-            dgvMaintenances.DataSource = viewModel.Maintenances;
+            gridControl1.DataSource = viewModel.Maintenances;
+            gridView1.OptionsBehavior.Editable = false;
+            gridView1.BestFitColumns();
+
+            // Double-clic pour modifier
+            gridView1.DoubleClick += GridView1_DoubleClick;
 
             btnAjouter.Click += (s, e) =>
             {
@@ -32,18 +36,36 @@ namespace GMAO_Presentation.Views
                     viewModel.ChargerMaintenances();
             };
 
+        }
 
-            dgvMaintenances.CellDoubleClick += (s, e) =>
+        private void GridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridView1.FocusedRowHandle >= 0)
             {
-                if (e.RowIndex >= 0)
+                var selected = gridView1.GetFocusedRow() as MaintenancePlanifieeDTO;
+                if (selected != null)
                 {
-                    var selected = (MaintenancePlanifieeDTO)dgvMaintenances.Rows[e.RowIndex].DataBoundItem;
                     var form = new MaintenancePlanUpdateForm(selected.MaintenanceId);
                     if (form.ShowDialog() == DialogResult.OK)
-                        viewModel.ChargerMaintenances();
+                    {
+                        if (form.EstSupprimee)
+                        {
+                            viewModel.Maintenances.Remove(selected);
+                            gridView1.RefreshData(); // Mise à jour visuelle
+                        }
+                        else if (form.MaintenanceModifiee != null)
+                        {
+                            var index = viewModel.Maintenances.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                viewModel.Maintenances[index] = form.MaintenanceModifiee;
+                                gridView1.RefreshData(); // Mise à jour visuelle
+                            }
+                        }
+                    }
                 }
-            };
-
+            }
         }
+
     }
 }

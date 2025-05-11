@@ -47,20 +47,20 @@ namespace GMAO_Presentation.Views
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSupprimer = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnConvertir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPieces = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnSupprimer = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.btnConvertir = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPieces)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // datPrevue
@@ -239,49 +239,6 @@ namespace GMAO_Presentation.Views
             this.panel1.Size = new System.Drawing.Size(1051, 119);
             this.panel1.TabIndex = 23;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Mistral", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(528, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 29);
-            this.label2.TabIndex = 4;
-            this.label2.Text = ">>>>";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(82, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(355, 48);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Modifier intervention";
-            // 
-            // dgvPieces
-            // 
-            this.dgvPieces.AllowUserToAddRows = false;
-            this.dgvPieces.AllowUserToDeleteRows = false;
-            this.dgvPieces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPieces.Location = new System.Drawing.Point(311, 62);
-            this.dgvPieces.Name = "dgvPieces";
-            this.dgvPieces.RowHeadersWidth = 51;
-            this.dgvPieces.RowTemplate.Height = 24;
-            this.dgvPieces.Size = new System.Drawing.Size(537, 190);
-            this.dgvPieces.TabIndex = 29;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.dgvPieces);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Location = new System.Drawing.Point(0, 357);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1051, 271);
-            this.panel4.TabIndex = 24;
-            // 
             // btnSupprimer
             // 
             this.btnSupprimer.BackColor = System.Drawing.Color.Brown;
@@ -312,6 +269,16 @@ namespace GMAO_Presentation.Views
             this.btnModifier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnModifier.UseVisualStyleBackColor = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Mistral", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(528, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 29);
+            this.label2.TabIndex = 4;
+            this.label2.Text = ">>>>";
+            // 
             // btnConvertir
             // 
             this.btnConvertir.BackColor = System.Drawing.Color.OliveDrab;
@@ -337,10 +304,43 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(82, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(355, 48);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Modifier intervention";
+            // 
+            // dgvPieces
+            // 
+            this.dgvPieces.AllowUserToAddRows = false;
+            this.dgvPieces.AllowUserToDeleteRows = false;
+            this.dgvPieces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPieces.Location = new System.Drawing.Point(311, 62);
+            this.dgvPieces.Name = "dgvPieces";
+            this.dgvPieces.RowHeadersWidth = 51;
+            this.dgvPieces.RowTemplate.Height = 24;
+            this.dgvPieces.Size = new System.Drawing.Size(510, 190);
+            this.dgvPieces.TabIndex = 29;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.dgvPieces);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Location = new System.Drawing.Point(0, 357);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1051, 271);
+            this.panel4.TabIndex = 24;
+            // 
             // InterventionsUpdateForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
@@ -354,10 +354,10 @@ namespace GMAO_Presentation.Views
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPieces)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

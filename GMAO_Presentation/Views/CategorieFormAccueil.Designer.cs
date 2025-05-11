@@ -30,20 +30,22 @@ namespace GMAO_Presentation.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEnregistrer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnEnregistrer = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.gridControlCategories = new DevExpress.XtraGrid.GridControl();
+            this.gridViewCategories = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCategories)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCategories)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnEnregistrer);
             this.panel1.Controls.Add(this.label2);
@@ -53,6 +55,21 @@ namespace GMAO_Presentation.Views
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 8;
+            // 
+            // btnEnregistrer
+            // 
+            this.btnEnregistrer.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnEnregistrer.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnregistrer.Image = global::GMAO_Presentation.Properties.Resources.Add2;
+            this.btnEnregistrer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEnregistrer.Location = new System.Drawing.Point(628, 10);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(142, 83);
+            this.btnEnregistrer.TabIndex = 7;
+            this.btnEnregistrer.Text = "Ajouter";
+            this.btnEnregistrer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEnregistrer.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -84,34 +101,6 @@ namespace GMAO_Presentation.Views
             this.label3.TabIndex = 10;
             this.label3.Text = "Liste catégories";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(177, 260);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 150);
-            this.dataGridView1.TabIndex = 9;
-            // 
-            // btnEnregistrer
-            // 
-            this.btnEnregistrer.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnEnregistrer.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnregistrer.Image = global::GMAO_Presentation.Properties.Resources.Add2;
-            this.btnEnregistrer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEnregistrer.Location = new System.Drawing.Point(628, 10);
-            this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(142, 83);
-            this.btnEnregistrer.TabIndex = 7;
-            this.btnEnregistrer.Text = "Ajouter";
-            this.btnEnregistrer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEnregistrer.UseVisualStyleBackColor = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GMAO_Presentation.Properties.Resources.List_View;
@@ -122,21 +111,37 @@ namespace GMAO_Presentation.Views
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
             // 
+            // gridControlCategories
+            // 
+            this.gridControlCategories.Location = new System.Drawing.Point(167, 238);
+            this.gridControlCategories.MainView = this.gridViewCategories;
+            this.gridControlCategories.Name = "gridControlCategories";
+            this.gridControlCategories.Size = new System.Drawing.Size(400, 200);
+            this.gridControlCategories.TabIndex = 16;
+            this.gridControlCategories.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewCategories});
+            // 
+            // gridViewCategories
+            // 
+            this.gridViewCategories.GridControl = this.gridControlCategories;
+            this.gridViewCategories.Name = "gridViewCategories";
+            // 
             // CategorieFormAccueil
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.gridControlCategories);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CategorieFormAccueil";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCategories)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCategories)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,7 +154,8 @@ namespace GMAO_Presentation.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private DevExpress.XtraGrid.GridControl gridControlCategories;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewCategories;
     }
 }

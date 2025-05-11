@@ -15,49 +15,73 @@ namespace GMAO_Presentation.Views
     public partial class GererUserAccForm : Form
     {
         private readonly GstUserAccVM viewModel;
+        private BindingList<UserDTO3> _bindedUsers;
         public GererUserAccForm()
         {
             InitializeComponent();
 
             viewModel = new GstUserAccVM();
 
-            dgvUsers.DataSource = viewModel.Users;
+            _bindedUsers = new BindingList<UserDTO3>(viewModel.Users);
+
+            gridControlUsers.DataSource = _bindedUsers;
 
             btnModPWD.Enabled = false;
 
-            txtRecherche.DataBindings.Add("Text", viewModel, "Recherche", false, DataSourceUpdateMode.OnPropertyChanged);
-
-            imgREchercher.Click += (s, e) => viewModel.RechercherCommand.Execute(null);
-            imgActualiser.Click += (s, e) => viewModel.ActualiserCommand.Execute(null);
-
             btnModPWD.Click += (s, e) =>
             {
-                if (dgvUsers.CurrentRow?.DataBoundItem is UserDTO3 selectedUser)
+                if (gridViewUsers.GetFocusedRow() is UserDTO3 selectedUser)
                 {
                     var form = new ModifPwdForm(selectedUser.IdUser);
                     if (form.ShowDialog() == DialogResult.OK)
-                        viewModel.Actualiser();
-                }
-            };
-
-            dgvUsers.CellDoubleClick += (s, e) =>
-            {
-                if (e.RowIndex >= 0)
-                {
-                    var selected = dgvUsers.Rows[e.RowIndex].DataBoundItem as UserDTO3;
-                    if (selected != null)
                     {
-                        var form = new GererUserUpForm(selected);
-                        if (form.ShowDialog() == DialogResult.OK)
-                            viewModel.Actualiser();
+                        viewModel.Actualiser();
+                        gridViewUsers.RefreshData();
+
+                        gridViewUsers.BestFitColumns();
                     }
                 }
             };
 
-            dgvUsers.SelectionChanged += (s, e) =>
+            gridViewUsers.RowCellClick += (s, e) =>
             {
-                btnModPWD.Enabled = dgvUsers.SelectedRows.Count > 0;
+                btnModPWD.Enabled = gridViewUsers.FocusedRowHandle >= 0;
             };
+
+            gridViewUsers.DoubleClick += (s, e) =>
+            {
+                if (gridViewUsers.GetFocusedRow() is UserDTO3 selected)
+                {
+                    var form = new GererUserUpForm(selected);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        var updated = form.UtilisateurModifie;
+
+                        if (updated == null)
+                        {
+                            viewModel.Actualiser(); // recharge depuis la BDD
+                            _bindedUsers = new BindingList<UserDTO3>(viewModel.Users);
+                            gridControlUsers.DataSource = _bindedUsers;
+                            gridViewUsers.RefreshData();
+                            gridViewUsers.BestFitColumns();
+                        }
+                        else
+                        {
+                            // ✅ C’était une modification
+                            int index = _bindedUsers.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                _bindedUsers[index] = updated;
+                                gridViewUsers.RefreshData();
+                                gridViewUsers.BestFitColumns();
+                            }
+                        }
+                    }
+                }
+            };
+
+
+
         }
     }
 }

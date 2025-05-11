@@ -18,6 +18,11 @@ namespace GMAO_Presentation.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public MaintenancePlanifieeDTO GetById(int id)
+        {
+            return _service.GetById2(id);
+        }
+
         public int MaintenanceId { get; set; }
 
         public string Description { get; set; }

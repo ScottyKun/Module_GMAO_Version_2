@@ -15,6 +15,7 @@ namespace GMAO_Presentation.Views
     public partial class GstStockCRUD2 : Form
     {
         private readonly GstStock3ViewModel _viewModel;
+        public StockDTO StockModifie { get; private set; }
         public GstStockCRUD2(StockDTO stock)
         {
             InitializeComponent();
@@ -28,7 +29,13 @@ namespace GMAO_Presentation.Views
             {
 
                 _viewModel.ModifierCommand.Execute(null);
-                MessageBox.Show("Stock modifié avec succès.");
+
+                StockModifie = new StockDTO { 
+                    Id=stock.Id,
+                    Nom=txtNom.Text
+                };
+
+                MessageBox.Show("Stock modifié avec succès.", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
 
@@ -37,10 +44,11 @@ namespace GMAO_Presentation.Views
 
             btnSupprimer.Click += (s, e) =>
             {
-                var confirm = MessageBox.Show("Confirmer la suppression ?", "Suppression", MessageBoxButtons.YesNo);
+                var confirm = MessageBox.Show("Confirmer la suppression ?", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
                     _viewModel.SupprimerCommand.Execute(null);
+                    StockModifie = null;
                     MessageBox.Show("Stock supprimé.");
                     this.DialogResult = DialogResult.OK;
                     this.Close();

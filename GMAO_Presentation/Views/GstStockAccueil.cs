@@ -20,7 +20,7 @@ namespace GMAO_Presentation.Views
             InitializeComponent();
             _viewModel = new GstStock1ViewModel();
 
-            dataGridView1.DataSource = new BindingList<StockDTO>(_viewModel.Stocks);
+            gridControlStock.DataSource = new BindingList<StockDTO>(_viewModel.Stocks);
 
             btnEnregistrer.Click += (s, e) =>
             {
@@ -28,26 +28,43 @@ namespace GMAO_Presentation.Views
                 if (addForm.ShowDialog() == DialogResult.OK)
                     LoadData();
             };
+
+            gridViewStock.OptionsBehavior.Editable = false;
+
+            gridViewStock.DoubleClick += (s, e) =>
+            {
+                if (gridViewStock.GetFocusedRow() is StockDTO selected)
+                {
+                    var updateForm = new Views.GstStockCRUD2(selected);
+                    if (updateForm.ShowDialog() == DialogResult.OK)
+                    {
+                        var updatedStock = updateForm.StockModifie;
+
+                        if (updatedStock == null)
+                        {
+                            LoadData();
+                        }
+                        else
+                        {
+                            int index = _viewModel.Stocks.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                _viewModel.Stocks[index] = updatedStock;
+                                LoadData();
+                            }
+                        }
+                    }
+
+                }
+            };
         }
         private void LoadData()
         {
             _viewModel.LoadStocks();
             var stocks = _viewModel.Stocks;
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = new BindingList<StockDTO>(stocks);
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (e.RowIndex >= 0 && dataGridView1.Rows[e.RowIndex].DataBoundItem is StockDTO selected)
-            {
-                var updateForm = new Views.GstStockCRUD2(selected);
-                if (updateForm.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
-            }
+            gridControlStock.DataSource = null;
+            gridControlStock.DataSource = new BindingList<StockDTO>(stocks);
+            gridViewStock.RefreshData();
         }
     }
 }

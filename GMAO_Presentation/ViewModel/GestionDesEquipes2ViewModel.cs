@@ -164,9 +164,7 @@ namespace GMAO_Presentation.ViewModel
                 try
                 {
 
-                    //_equipeService.ModifierEquipe(_idEquipe, NomEquipe, ChefSelectionne.idUser, Statut, MembresEquipe.Select(u => u.idUser).ToList());
-                    //ChefEquipeId = ChefSelectionne.idUser;
-                    //ChargerEquipe();
+                    
 
                     _equipeService.ModifierEquipe(_idEquipe, NomEquipe, ChefSelectionne.idUser, Statut, MembresSelectionnes);
                     OnEquipeModifiee?.Invoke();

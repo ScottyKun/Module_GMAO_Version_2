@@ -228,6 +228,7 @@ namespace GMAO_Presentation.Views
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnModifier);
             this.panel1.Controls.Add(this.btnSupprimer);
@@ -253,7 +254,7 @@ namespace GMAO_Presentation.Views
             // GererUserUpForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
             this.Controls.Add(this.chkStatut);
             this.Controls.Add(this.label10);

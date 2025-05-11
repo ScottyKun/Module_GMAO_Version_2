@@ -1,4 +1,5 @@
-﻿using GMAO_Presentation.ViewModel;
+﻿using GMAO_Business.DTOs;
+using GMAO_Presentation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace GMAO_Presentation.Views
     public partial class WorkOrderCoUpdateForm : Form
     {
         private readonly WOCoUpdateVM viewModel;
+        public WorkOrderDTO WorkOrderModifie { get; private set; }
+        public bool EstSupprime { get; private set; } = false;
 
         public WorkOrderCoUpdateForm(int workOrderId)
         {
@@ -60,11 +63,14 @@ namespace GMAO_Presentation.Views
             gridPiecesReservees.DataSource = viewModel.PiecesReservees;
             gridPiecesUtilisees.DataSource = viewModel.PiecesUtilisees;
 
-            viewModel.OnClose += () =>
-            {
-                DialogResult = DialogResult.OK;
-                Close();
-            };
+     
+           viewModel.OnClose += () =>
+           {
+               WorkOrderModifie = viewModel.GetById(workOrderId);
+               DialogResult = DialogResult.OK;
+               Close();
+           };
+
 
             viewModel.OnError += msg =>
             {
@@ -82,10 +88,12 @@ namespace GMAO_Presentation.Views
 
             btnSupprimer.Click += (s, e) =>
             {
-                var confirm = MessageBox.Show("Confirmer la suppression ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (confirm == DialogResult.Yes)
+                if (MessageBox.Show("Supprimer ce Work Order ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     viewModel.SupprimerCommand.Execute(null);
+                    EstSupprime = true;
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
             };
 
@@ -109,7 +117,9 @@ namespace GMAO_Presentation.Views
 
         }
 
-        private void btnUtiliser_Click(object sender, EventArgs e)
+      
+
+        private void btnUtiliser_Click_1(object sender, EventArgs e)
         {
             if (gridPiecesReservees.SelectedRows.Count == 0)
             {
@@ -122,6 +132,5 @@ namespace GMAO_Presentation.Views
 
             viewModel.AjouterPieceUtiliseeDepuisReservation(pieceId);
         }
-
     }
 }

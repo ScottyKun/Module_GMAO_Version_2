@@ -33,6 +33,7 @@ namespace GMAO_Presentation.Views
             this.btnModifier = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSupprimer = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.numPrix = new System.Windows.Forms.NumericUpDown();
             this.numQuantite = new System.Windows.Forms.NumericUpDown();
@@ -51,14 +52,13 @@ namespace GMAO_Presentation.Views
             this.cbStock = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrix)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantite)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,9 +82,9 @@ namespace GMAO_Presentation.Views
             this.btnModifier.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifier.Image = global::GMAO_Presentation.Properties.Resources.Refresh2;
             this.btnModifier.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnModifier.Location = new System.Drawing.Point(743, 38);
+            this.btnModifier.Location = new System.Drawing.Point(743, 26);
             this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(127, 76);
+            this.btnModifier.Size = new System.Drawing.Size(127, 88);
             this.btnModifier.TabIndex = 5;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -107,13 +107,23 @@ namespace GMAO_Presentation.Views
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.Image = global::GMAO_Presentation.Properties.Resources.Remove;
             this.btnSupprimer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSupprimer.Location = new System.Drawing.Point(894, 38);
+            this.btnSupprimer.Location = new System.Drawing.Point(894, 26);
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(127, 76);
+            this.btnSupprimer.Size = new System.Drawing.Size(127, 88);
             this.btnSupprimer.TabIndex = 2;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSupprimer.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Available_Updates2;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(65, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -285,20 +295,10 @@ namespace GMAO_Presentation.Views
             this.panel2.Size = new System.Drawing.Size(527, 371);
             this.panel2.TabIndex = 24;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Available_Updates2;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // GstPiecesUpdate
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1028, 499);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
@@ -308,6 +308,7 @@ namespace GMAO_Presentation.Views
             this.Name = "GstPiecesUpdate";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrix)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantite)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -316,7 +317,6 @@ namespace GMAO_Presentation.Views
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

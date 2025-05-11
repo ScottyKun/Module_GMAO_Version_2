@@ -106,6 +106,7 @@ namespace GMAO_Presentation.Views
             this.btnUtiliser.TabIndex = 18;
             this.btnUtiliser.Text = "Utiliser";
             this.btnUtiliser.UseVisualStyleBackColor = false;
+            this.btnUtiliser.Click += new System.EventHandler(this.btnUtiliser_Click_1);
             // 
             // gridPiecesUtilisees
             // 
@@ -116,7 +117,7 @@ namespace GMAO_Presentation.Views
             this.gridPiecesUtilisees.Name = "gridPiecesUtilisees";
             this.gridPiecesUtilisees.RowHeadersWidth = 51;
             this.gridPiecesUtilisees.RowTemplate.Height = 24;
-            this.gridPiecesUtilisees.Size = new System.Drawing.Size(372, 174);
+            this.gridPiecesUtilisees.Size = new System.Drawing.Size(341, 174);
             this.gridPiecesUtilisees.TabIndex = 16;
             // 
             // gridPiecesReservees
@@ -129,7 +130,7 @@ namespace GMAO_Presentation.Views
             this.gridPiecesReservees.ReadOnly = true;
             this.gridPiecesReservees.RowHeadersWidth = 51;
             this.gridPiecesReservees.RowTemplate.Height = 24;
-            this.gridPiecesReservees.Size = new System.Drawing.Size(373, 174);
+            this.gridPiecesReservees.Size = new System.Drawing.Size(346, 174);
             this.gridPiecesReservees.TabIndex = 17;
             // 
             // label9
@@ -377,7 +378,7 @@ namespace GMAO_Presentation.Views
             // WorkOrderCoUpdateForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 683);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);

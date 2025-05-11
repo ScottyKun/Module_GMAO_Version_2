@@ -46,6 +46,7 @@ namespace GMAO_Presentation.Views
             this.label1 = new System.Windows.Forms.Label();
             this.txtStatut = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.numericRecurrence = new System.Windows.Forms.NumericUpDown();
@@ -54,13 +55,12 @@ namespace GMAO_Presentation.Views
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRecurrence)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -189,9 +189,9 @@ namespace GMAO_Presentation.Views
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(492, 145);
+            this.panel3.Location = new System.Drawing.Point(492, 125);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(559, 184);
+            this.panel3.Size = new System.Drawing.Size(559, 204);
             this.panel3.TabIndex = 33;
             // 
             // dtFin
@@ -227,6 +227,7 @@ namespace GMAO_Presentation.Views
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnSupprimer);
             this.panel1.Controls.Add(this.btnModifier);
@@ -240,6 +241,16 @@ namespace GMAO_Presentation.Views
             this.panel1.Size = new System.Drawing.Size(1054, 119);
             this.panel1.TabIndex = 31;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Available_Updates2;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(65, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -247,9 +258,9 @@ namespace GMAO_Presentation.Views
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtDescription);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(0, 145);
+            this.panel2.Location = new System.Drawing.Point(0, 125);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(486, 184);
+            this.panel2.Size = new System.Drawing.Size(486, 204);
             this.panel2.TabIndex = 32;
             // 
             // label4
@@ -320,20 +331,10 @@ namespace GMAO_Presentation.Views
             this.panel4.Size = new System.Drawing.Size(1051, 183);
             this.panel4.TabIndex = 34;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Available_Updates2;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // MaintenancePlanUpdateForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1054, 519);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -345,12 +346,12 @@ namespace GMAO_Presentation.Views
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRecurrence)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -179,9 +179,9 @@ namespace GMAO_Presentation.Views
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.Image = global::GMAO_Presentation.Properties.Resources.Add2;
             this.btnAjouter.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAjouter.Location = new System.Drawing.Point(894, 38);
+            this.btnAjouter.Location = new System.Drawing.Point(894, 11);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(127, 76);
+            this.btnAjouter.Size = new System.Drawing.Size(127, 88);
             this.btnAjouter.TabIndex = 2;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -248,7 +248,7 @@ namespace GMAO_Presentation.Views
             // WorkOrderCoAddForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 431);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);

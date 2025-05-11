@@ -30,19 +30,22 @@ namespace GMAO_Presentation.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvAlertes = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gridControlAlertes = new DevExpress.XtraGrid.GridControl();
+            this.gridViewAlertes = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlertes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlAlertes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewAlertes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label2);
@@ -51,6 +54,16 @@ namespace GMAO_Presentation.Views
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1051, 100);
             this.panel1.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Brake_Warning;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 68);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -61,19 +74,6 @@ namespace GMAO_Presentation.Views
             this.label2.Size = new System.Drawing.Size(278, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "Consulter les alertes";
-            // 
-            // dgvAlertes
-            // 
-            this.dgvAlertes.AllowUserToAddRows = false;
-            this.dgvAlertes.AllowUserToDeleteRows = false;
-            this.dgvAlertes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlertes.Location = new System.Drawing.Point(158, 303);
-            this.dgvAlertes.Name = "dgvAlertes";
-            this.dgvAlertes.ReadOnly = true;
-            this.dgvAlertes.RowHeadersWidth = 51;
-            this.dgvAlertes.RowTemplate.Height = 24;
-            this.dgvAlertes.Size = new System.Drawing.Size(486, 264);
-            this.dgvAlertes.TabIndex = 9;
             // 
             // label1
             // 
@@ -95,31 +95,37 @@ namespace GMAO_Presentation.Views
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // gridControlAlertes
             // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Brake_Warning;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 68);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.gridControlAlertes.Location = new System.Drawing.Point(158, 320);
+            this.gridControlAlertes.MainView = this.gridViewAlertes;
+            this.gridControlAlertes.Name = "gridControlAlertes";
+            this.gridControlAlertes.Size = new System.Drawing.Size(499, 264);
+            this.gridControlAlertes.TabIndex = 14;
+            this.gridControlAlertes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewAlertes});
+            // 
+            // gridViewAlertes
+            // 
+            this.gridViewAlertes.GridControl = this.gridControlAlertes;
+            this.gridViewAlertes.Name = "gridViewAlertes";
             // 
             // AlertesForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 649);
+            this.Controls.Add(this.gridControlAlertes);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvAlertes);
             this.Controls.Add(this.label1);
             this.Name = "AlertesForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlertes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlAlertes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewAlertes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,8 +136,9 @@ namespace GMAO_Presentation.Views
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvAlertes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private DevExpress.XtraGrid.GridControl gridControlAlertes;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewAlertes;
     }
 }

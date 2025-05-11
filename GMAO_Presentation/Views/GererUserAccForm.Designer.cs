@@ -32,21 +32,19 @@ namespace GMAO_Presentation.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnModPWD = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtRecherche = new System.Windows.Forms.TextBox();
-            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.imgActualiser = new System.Windows.Forms.PictureBox();
-            this.imgREchercher = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gridControlUsers = new DevExpress.XtraGrid.GridControl();
+            this.gridViewUsers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgActualiser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgREchercher)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnModPWD);
             this.panel1.Controls.Add(this.label2);
@@ -83,36 +81,6 @@ namespace GMAO_Presentation.Views
             this.label2.TabIndex = 4;
             this.label2.Text = ">>>>";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(151, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(395, 48);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Gestion des Utilisateurs";
-            // 
-            // txtRecherche
-            // 
-            this.txtRecherche.Location = new System.Drawing.Point(595, 243);
-            this.txtRecherche.Name = "txtRecherche";
-            this.txtRecherche.Size = new System.Drawing.Size(284, 22);
-            this.txtRecherche.TabIndex = 18;
-            // 
-            // dgvUsers
-            // 
-            this.dgvUsers.AllowUserToAddRows = false;
-            this.dgvUsers.AllowUserToDeleteRows = false;
-            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(146, 311);
-            this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.ReadOnly = true;
-            this.dgvUsers.RowHeadersWidth = 51;
-            this.dgvUsers.RowTemplate.Height = 24;
-            this.dgvUsers.Size = new System.Drawing.Size(776, 255);
-            this.dgvUsers.TabIndex = 15;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Management;
@@ -123,45 +91,46 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // imgActualiser
+            // label1
             // 
-            this.imgActualiser.Image = global::GMAO_Presentation.Properties.Resources.Refresh;
-            this.imgActualiser.Location = new System.Drawing.Point(97, 311);
-            this.imgActualiser.Name = "imgActualiser";
-            this.imgActualiser.Size = new System.Drawing.Size(34, 35);
-            this.imgActualiser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgActualiser.TabIndex = 16;
-            this.imgActualiser.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(151, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(395, 48);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Gestion des Utilisateurs";
             // 
-            // imgREchercher
+            // gridControlUsers
             // 
-            this.imgREchercher.Image = global::GMAO_Presentation.Properties.Resources.Search;
-            this.imgREchercher.Location = new System.Drawing.Point(885, 243);
-            this.imgREchercher.Name = "imgREchercher";
-            this.imgREchercher.Size = new System.Drawing.Size(37, 34);
-            this.imgREchercher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgREchercher.TabIndex = 17;
-            this.imgREchercher.TabStop = false;
+            this.gridControlUsers.Location = new System.Drawing.Point(137, 235);
+            this.gridControlUsers.MainView = this.gridViewUsers;
+            this.gridControlUsers.Name = "gridControlUsers";
+            this.gridControlUsers.Size = new System.Drawing.Size(766, 331);
+            this.gridControlUsers.TabIndex = 19;
+            this.gridControlUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewUsers});
+            // 
+            // gridViewUsers
+            // 
+            this.gridViewUsers.GridControl = this.gridControlUsers;
+            this.gridViewUsers.Name = "gridViewUsers";
+            this.gridViewUsers.OptionsBehavior.Editable = false;
             // 
             // GererUserAccForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
+            this.Controls.Add(this.gridControlUsers);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.imgActualiser);
-            this.Controls.Add(this.txtRecherche);
-            this.Controls.Add(this.imgREchercher);
-            this.Controls.Add(this.dgvUsers);
             this.Name = "GererUserAccForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgActualiser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgREchercher)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewUsers)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -172,9 +141,7 @@ namespace GMAO_Presentation.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox imgActualiser;
-        private System.Windows.Forms.TextBox txtRecherche;
-        private System.Windows.Forms.PictureBox imgREchercher;
-        private System.Windows.Forms.DataGridView dgvUsers;
+        private DevExpress.XtraGrid.GridControl gridControlUsers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewUsers;
     }
 }

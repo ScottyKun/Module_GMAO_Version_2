@@ -2,6 +2,7 @@
 using GMAO_Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace GMAO_Data.Repositories
         public void Remove(WorkOrder wo)
         {
             db.WorkOrders.Remove(wo);
-            db.SaveChanges();
+          
         }
 
         public WorkOrder GetById(int id)
@@ -42,6 +43,32 @@ namespace GMAO_Data.Repositories
                      .Include("Intervention.MaintenancePlanifiee.Equipement")
                      .FirstOrDefault(w => w.Id == id);
         }
+
+        public WorkOrder GetById3(int id)
+        {
+            return db.WorkOrders
+                     .Include("PiecesUtilisees")
+                      .Include("Intervention.MaintenancePlanifiee.Interventions")
+                     .FirstOrDefault(w => w.Id == id);
+        }
+
+        public void RestaurerEtatInterventionEtMaintenanceAprèsSuppression(WorkOrder wo)
+        {
+            var intervention = wo.Intervention;
+            if (intervention != null)
+            {
+                intervention.Etat = "New";
+                db.Entry(intervention).State = EntityState.Modified;
+
+                var maintenance = intervention.MaintenancePlanifiee;
+                if (maintenance != null && maintenance.Interventions.All(i => i.Etat == "New"))
+                {
+                    maintenance.Statut = "Nouvelle";
+                    db.Entry(maintenance).State = EntityState.Modified;
+                }
+            }
+        }
+
 
 
         public WorkOrder GetById2(int id)

@@ -32,15 +32,17 @@ namespace GMAO_Presentation.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvInterventions = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.gridControlInterventions = new DevExpress.XtraGrid.GridControl();
+            this.gridViewInterventions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInterventions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInterventions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInterventions)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,36 +75,13 @@ namespace GMAO_Presentation.Views
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.Image = global::GMAO_Presentation.Properties.Resources.Add2;
             this.btnAjouter.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAjouter.Location = new System.Drawing.Point(894, 38);
+            this.btnAjouter.Location = new System.Drawing.Point(895, 11);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(127, 76);
+            this.btnAjouter.Size = new System.Drawing.Size(127, 88);
             this.btnAjouter.TabIndex = 2;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAjouter.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(121, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(407, 48);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Demande d\'interventions";
-            // 
-            // dgvInterventions
-            // 
-            this.dgvInterventions.AllowUserToAddRows = false;
-            this.dgvInterventions.AllowUserToDeleteRows = false;
-            this.dgvInterventions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInterventions.Location = new System.Drawing.Point(149, 309);
-            this.dgvInterventions.Name = "dgvInterventions";
-            this.dgvInterventions.ReadOnly = true;
-            this.dgvInterventions.RowHeadersWidth = 51;
-            this.dgvInterventions.RowTemplate.Height = 24;
-            this.dgvInterventions.Size = new System.Drawing.Size(732, 250);
-            this.dgvInterventions.TabIndex = 9;
             // 
             // pictureBox1
             // 
@@ -113,6 +92,16 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(121, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(407, 48);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Demande d\'interventions";
             // 
             // pictureBox2
             // 
@@ -134,21 +123,37 @@ namespace GMAO_Presentation.Views
             this.label3.TabIndex = 14;
             this.label3.Text = "Mes interventions";
             // 
+            // gridControlInterventions
+            // 
+            this.gridControlInterventions.Location = new System.Drawing.Point(149, 281);
+            this.gridControlInterventions.MainView = this.gridViewInterventions;
+            this.gridControlInterventions.Name = "gridControlInterventions";
+            this.gridControlInterventions.Size = new System.Drawing.Size(817, 313);
+            this.gridControlInterventions.TabIndex = 5;
+            this.gridControlInterventions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewInterventions});
+            // 
+            // gridViewInterventions
+            // 
+            this.gridViewInterventions.GridControl = this.gridControlInterventions;
+            this.gridViewInterventions.Name = "gridViewInterventions";
+            // 
             // InterventionsAccueilForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
+            this.Controls.Add(this.gridControlInterventions);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvInterventions);
             this.Name = "InterventionsAccueilForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInterventions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlInterventions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewInterventions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,8 +166,9 @@ namespace GMAO_Presentation.Views
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvInterventions;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
+        private DevExpress.XtraGrid.GridControl gridControlInterventions;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewInterventions;
     }
 }

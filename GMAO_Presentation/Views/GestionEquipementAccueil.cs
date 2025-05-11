@@ -15,43 +15,62 @@ namespace GMAO_Presentation.Views
     public partial class GestionEquipementAccueil : Form
     {
         private EquipementAccueilViewModel _viewModel;
-        private BindingSource _binding;
+        private BindingList<EquipementDTO> _equipements;
 
         public GestionEquipementAccueil()
         {
             InitializeComponent();
             _viewModel = new EquipementAccueilViewModel();
-            _binding = new BindingSource();
+            _viewModel.ChargerEquipements();
+            _equipements = new BindingList<EquipementDTO>(_viewModel.Equipements);
 
-            dataGridView1.AutoGenerateColumns = false;
-            SetupColumns();
-            dataGridView1.DataSource = _binding;
+            gridControlEquipement.DataSource = _equipements;
 
-            LoadData();
+            gridViewEquipements.OptionsBehavior.Editable = false;
+
+            gridViewEquipements.DoubleClick += (s, e) =>
+            {
+                if (gridViewEquipements.GetFocusedRow() is EquipementDTO selected)
+                {
+                    var modifForm = new Views.GestionEquipementUpdate(selected.Id);
+                    if (modifForm.ShowDialog() == DialogResult.OK)
+                    {
+                        var updatedEquipement = modifForm.EquipementModifie;
+                        if (updatedEquipement != null)
+                        {
+                            int index = _viewModel.Equipements.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                _viewModel.Equipements[index] = updatedEquipement;
+                                gridViewEquipements.RefreshData();
+                            }
+                        }
+                        else // si supprimé
+                        {
+                            _viewModel.Equipements.Remove(selected);
+                            _equipements.Remove(selected); // aussi dans la liste liée au GridControl
+                            gridViewEquipements.RefreshData();
+                        }
+
+                    }
+                }
+            };
+
         }
 
-        private void SetupColumns()
-        {
-
-            dataGridView1.Columns.Clear();
-
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "ID", DataPropertyName = "Id" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nom", DataPropertyName = "Nom" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Catégorie", DataPropertyName = "Categorie" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Date d'achat", DataPropertyName = "DateAchat" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Responsable", DataPropertyName = "Responsable" });
-            dataGridView1.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Statut", DataPropertyName = "Statut" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Fin garantie", DataPropertyName = "DateFinGarantie" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Équipe maintenance", DataPropertyName = "MaintenanceTeam" });
-        }
 
         private void LoadData()
         {
             _viewModel.ChargerEquipements();
-            _binding.DataSource = _viewModel.Equipements;
+            _equipements = new BindingList<EquipementDTO>(_viewModel.Equipements);
+
+            gridControlEquipement.DataSource = null;
+            gridControlEquipement.DataSource = _equipements;
+            gridViewEquipements.RefreshData();
         }
 
-        private void btnAjouter_Click(object sender, EventArgs e)
+
+        private void btnAjouter_Click_1(object sender, EventArgs e)
         {
             var ajoutForm = new Views.GestionEquipementAjout();
             if (ajoutForm.ShowDialog() == DialogResult.OK)
@@ -60,17 +79,5 @@ namespace GMAO_Presentation.Views
             }
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                var equipement = (EquipementDTO)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-                var modifForm = new Views.GestionEquipementUpdate(equipement.Id);
-                if (modifForm.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
-            }
-        }
     }
 }

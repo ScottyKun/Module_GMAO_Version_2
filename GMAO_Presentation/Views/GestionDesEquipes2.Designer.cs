@@ -47,15 +47,15 @@ namespace GMAO_Presentation.Views
             this.label1 = new System.Windows.Forms.Label();
             this.btnModifier = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label8
@@ -89,6 +89,7 @@ namespace GMAO_Presentation.Views
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(803, 194);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
             // 
             // panel3
             // 
@@ -118,6 +119,7 @@ namespace GMAO_Presentation.Views
             this.clbMembres.Name = "clbMembres";
             this.clbMembres.Size = new System.Drawing.Size(307, 140);
             this.clbMembres.TabIndex = 9;
+            this.clbMembres.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbMembres_ItemCheck);
             // 
             // panel2
             // 
@@ -253,6 +255,16 @@ namespace GMAO_Presentation.Views
             this.panel1.Size = new System.Drawing.Size(1051, 112);
             this.panel1.TabIndex = 14;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Available_Updates2;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -275,20 +287,10 @@ namespace GMAO_Presentation.Views
             this.panel4.Size = new System.Drawing.Size(1011, 266);
             this.panel4.TabIndex = 17;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Available_Updates2;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // GestionDesEquipes2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -296,6 +298,7 @@ namespace GMAO_Presentation.Views
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "GestionDesEquipes2";
+            this.Load += new System.EventHandler(this.GestionDesEquipes2_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -303,9 +306,9 @@ namespace GMAO_Presentation.Views
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

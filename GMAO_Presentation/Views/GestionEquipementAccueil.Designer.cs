@@ -30,26 +30,28 @@ namespace GMAO_Presentation.Views
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gridControlEquipement = new DevExpress.XtraGrid.GridControl();
+            this.gridViewEquipements = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEquipement)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEquipements)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.gridControlEquipement);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
@@ -57,18 +59,15 @@ namespace GMAO_Presentation.Views
             this.panel2.Size = new System.Drawing.Size(1051, 529);
             this.panel2.TabIndex = 9;
             // 
-            // dataGridView1
+            // pictureBox2
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(104, 172);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(870, 278);
-            this.dataGridView1.TabIndex = 1;
+            this.pictureBox2.Image = global::GMAO_Presentation.Properties.Resources.List_View;
+            this.pictureBox2.Location = new System.Drawing.Point(24, 83);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(68, 68);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
@@ -107,6 +106,7 @@ namespace GMAO_Presentation.Views
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAjouter.UseVisualStyleBackColor = false;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click_1);
             // 
             // label3
             // 
@@ -118,16 +118,6 @@ namespace GMAO_Presentation.Views
             this.label3.TabIndex = 5;
             this.label3.Text = ">>>>";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(164, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(327, 39);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Gestion des équipements";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Gears;
@@ -138,31 +128,47 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // label2
             // 
-            this.pictureBox2.Image = global::GMAO_Presentation.Properties.Resources.List_View;
-            this.pictureBox2.Location = new System.Drawing.Point(24, 83);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 68);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(164, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(327, 39);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Gestion des équipements";
+            // 
+            // gridControlEquipement
+            // 
+            this.gridControlEquipement.Location = new System.Drawing.Point(104, 172);
+            this.gridControlEquipement.MainView = this.gridViewEquipements;
+            this.gridControlEquipement.Name = "gridControlEquipement";
+            this.gridControlEquipement.Size = new System.Drawing.Size(867, 298);
+            this.gridControlEquipement.TabIndex = 10;
+            this.gridControlEquipement.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewEquipements});
+            // 
+            // gridViewEquipements
+            // 
+            this.gridViewEquipements.GridControl = this.gridControlEquipement;
+            this.gridViewEquipements.Name = "gridViewEquipements";
             // 
             // GestionEquipementAccueil
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "GestionEquipementAccueil";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEquipement)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEquipements)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,7 +176,6 @@ namespace GMAO_Presentation.Views
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAjouter;
@@ -178,5 +183,7 @@ namespace GMAO_Presentation.Views
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private DevExpress.XtraGrid.GridControl gridControlEquipement;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewEquipements;
     }
 }

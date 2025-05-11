@@ -20,6 +20,7 @@ namespace GMAO_Presentation.ViewModel
 
         public BindingList<UserDTO3> Users { get; set; } = new BindingList<UserDTO3>();
 
+
         public RelayCommand RechercherCommand { get; }
         public RelayCommand ActualiserCommand { get; }
         public RelayCommand ModifierMotDePasseCommand { get; }
@@ -61,7 +62,10 @@ namespace GMAO_Presentation.ViewModel
             ActualiserCommand = new RelayCommand(Actualiser);
             ModifierMotDePasseCommand = new RelayCommand(ModifierMotDePasse, PeutModifierMotDePasse);
 
-            Actualiser();
+          
+            var allUsers = _userService.Lister();
+            foreach (var user in allUsers)
+                Users.Add(user);
         }
 
         private void Rechercher()
@@ -80,11 +84,14 @@ namespace GMAO_Presentation.ViewModel
         public void Actualiser()
         {
             Recherche = string.Empty;
-            Users.Clear();
+
+            Users.Clear(); 
+
             var allUsers = _userService.Lister();
             foreach (var user in allUsers)
-                Users.Add(user);
+                Users.Add(user); 
         }
+
 
         private void ModifierMotDePasse()
         {

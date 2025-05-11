@@ -98,6 +98,9 @@ namespace GMAO_Business.Services
 
         public void SupprimerEquipe(int id)
         {
+            if (_repo.EstEquipeLieeAUnEquipement(id))
+                throw new Exception("Impossible de supprimer cette équipe : elle est liée à un équipement. Veuillez d'abord changer l'équipe affectée à l'équipement.");
+
             var equipe = _repo.GetEquipePourSuppression(id);
             if (equipe != null)
             {
@@ -105,6 +108,7 @@ namespace GMAO_Business.Services
                 _repo.SupprimerEquipe(equipe);
             }
         }
+
 
         public List<UserDTO> GetAllUtilisateurs()
         {
@@ -135,7 +139,15 @@ namespace GMAO_Business.Services
 
         public void SupprimerMembreEquipe(int equipeId, int utilisateurId)
         {
+            var equipe = _repo.GetEquipeDetailsById(equipeId);
+            if (equipe == null)
+                throw new Exception("Équipe introuvable.");
+
+            if (equipe.chefEquipeId == utilisateurId)
+                throw new Exception("Impossible de retirer le chef d'équipe actuel. Veuillez d'abord nommer un nouveau chef.");
+
             _repo.SupprimerMembre(equipeId, utilisateurId);
         }
+
     }
 }

@@ -15,6 +15,10 @@ namespace GMAO_Presentation.Views
     public partial class WOIUpdateForm : Form
     {
         private readonly WOIUpVM viewModel;
+        public WorkOrderDTO2 WorkOrderModifie { get; private set; }
+        public bool Supprime { get; private set; } = false;
+
+
         public WOIUpdateForm(int workOrderId)
         {
             InitializeComponent();
@@ -97,8 +101,17 @@ namespace GMAO_Presentation.Views
             {
                 var confirm = MessageBox.Show("Confirmer la suppression ?", "Suppression", MessageBoxButtons.YesNo);
                 if (confirm == DialogResult.Yes)
-                    viewModel.SupprimerCommand.Execute(null);
+                {
+                    if (viewModel.SupprimerCommand.CanExecute(null))
+                    {
+                        viewModel.SupprimerCommand.Execute(null);
+                        Supprime = true;
+                        DialogResult = DialogResult.OK;
+                        Close();
+                    }
+                }
             };
+
 
             //
             btnTerminer.Click += (s, e) =>
@@ -124,9 +137,11 @@ namespace GMAO_Presentation.Views
             //
             viewModel.OnClose += () =>
             {
+                WorkOrderModifie = viewModel.GetById(workOrderId);
                 DialogResult = DialogResult.OK;
                 Close();
             };
+
 
             viewModel.OnError += msg =>
             {

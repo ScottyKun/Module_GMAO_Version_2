@@ -92,7 +92,7 @@ namespace GMAO_Presentation.Views
             this.dgvPieces.Name = "dgvPieces";
             this.dgvPieces.RowHeadersWidth = 51;
             this.dgvPieces.RowTemplate.Height = 24;
-            this.dgvPieces.Size = new System.Drawing.Size(537, 190);
+            this.dgvPieces.Size = new System.Drawing.Size(517, 190);
             this.dgvPieces.TabIndex = 32;
             // 
             // label2
@@ -183,9 +183,9 @@ namespace GMAO_Presentation.Views
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(492, 154);
+            this.panel3.Location = new System.Drawing.Point(492, 125);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(559, 184);
+            this.panel3.Size = new System.Drawing.Size(559, 213);
             this.panel3.TabIndex = 31;
             // 
             // txtResponsable
@@ -247,9 +247,9 @@ namespace GMAO_Presentation.Views
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtDescription);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(0, 154);
+            this.panel2.Location = new System.Drawing.Point(0, 125);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(486, 184);
+            this.panel2.Size = new System.Drawing.Size(486, 213);
             this.panel2.TabIndex = 30;
             // 
             // panel1
@@ -295,7 +295,7 @@ namespace GMAO_Presentation.Views
             // MaintenanceCoUpdateForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgvPieces);

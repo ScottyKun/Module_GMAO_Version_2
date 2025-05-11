@@ -1,4 +1,5 @@
-﻿using GMAO_Presentation.ViewModel;
+﻿using GMAO_Business.DTOs;
+using GMAO_Presentation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,70 +20,63 @@ namespace GMAO_Presentation.Views
             InitializeComponent();
 
             viewModel = new BudgetAccVM();
-            dgvBudgets.DataSource = viewModel.Budgets;
+            gridControlBudgets.DataSource = viewModel.Budgets;
             ConfigurerDataGridView();
 
             btnAjouter.Click += (s, e) =>
             {
                 var form = new BudgetAddForm();
                 if (form.ShowDialog() == DialogResult.OK)
-                    viewModel.ChargerBudgets();
+                    ActualiserDonnees();
             };
 
-            dgvBudgets.CellDoubleClick += (s, e) =>
+            gridViewBudgets.DoubleClick += (s, e) =>
             {
-                if (e.RowIndex >= 0 && dgvBudgets.Rows[e.RowIndex].DataBoundItem is GMAO_Business.DTOs.BudgetDTO selected)
+                var selected = gridViewBudgets.GetFocusedRow() as BudgetDTO;
+                if (selected != null)
                 {
                     var form = new BudgetUpForm(selected);
                     if (form.ShowDialog() == DialogResult.OK)
-                        viewModel.ChargerBudgets();
+                    {
+                        // Récupérer le nouveau budget modifié
+                        var updatedBudget = form.BudgetModifie;
+                        if (updatedBudget != null)
+                        {
+                            // Remplacer manuellement dans la liste bindée
+                            int index = viewModel.Budgets.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                viewModel.Budgets[index] = updatedBudget;
+                            }
+                        }
+                    }
                 }
             };
 
         }
         private void ConfigurerDataGridView()
         {
-            dgvBudgets.AutoGenerateColumns = false;
-            dgvBudgets.Columns.Clear();
+            gridViewBudgets.OptionsBehavior.Editable = false;
+            gridViewBudgets.OptionsView.ShowGroupPanel = false;
 
-            // Colonne Nom
-            dgvBudgets.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Nom",
-                HeaderText = "Nom",
-                Width = 150
-            });
+            gridViewBudgets.Columns.Clear();
 
-            // Colonne Année
-            dgvBudgets.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Annee",
-                HeaderText = "Année",
-                Width = 80
-            });
+            gridViewBudgets.Columns.AddVisible("Nom", "Nom").Width = 150;
+            gridViewBudgets.Columns.AddVisible("Annee", "Année").Width = 80;
+            gridViewBudgets.Columns.AddVisible("Montant", "Montant").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridViewBudgets.Columns["Montant"].DisplayFormat.FormatString = "n2";
+            gridViewBudgets.Columns["Montant"].Width = 120;
 
-            // Colonne Montant
-            dgvBudgets.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Montant",
-                HeaderText = "Montant",
-                Width = 120,
-                DefaultCellStyle = new DataGridViewCellStyle { Format = "N2" } // format 0.00
-            });
-
-            // Colonne Date de création
-            dgvBudgets.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "DateCreation",
-                HeaderText = "Date de création",
-                Width = 130,
-                DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy" }
-            });
-
-            // Lier les données
-            dgvBudgets.DataSource = viewModel.Budgets;
+            gridViewBudgets.Columns.AddVisible("DateCreation", "Date de création").DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gridViewBudgets.Columns["DateCreation"].DisplayFormat.FormatString = "dd/MM/yyyy";
+            gridViewBudgets.Columns["DateCreation"].Width = 130;
         }
 
+        private void ActualiserDonnees()
+        {
+            viewModel.ChargerBudgets();
+            gridControlBudgets.RefreshDataSource(); // Important avec BindingList
+        }
 
     }
 }

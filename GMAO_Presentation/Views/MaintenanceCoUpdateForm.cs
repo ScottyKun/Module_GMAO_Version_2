@@ -1,4 +1,5 @@
-﻿using GMAO_Presentation.ViewModel;
+﻿using GMAO_Business.DTOs;
+using GMAO_Presentation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,10 @@ namespace GMAO_Presentation.Views
     public partial class MaintenanceCoUpdateForm : Form
     {
         private readonly MaintenanceCoUpdateViewModel viewModel;
+        public bool MaintenanceSupprimee { get; private set; }
+
+
+        public MaintenanceCorrectiveDTO MaintenanceModifiee { get; private set; }
         public MaintenanceCoUpdateForm(int maintenanceId)
         {
             InitializeComponent();
@@ -89,13 +94,19 @@ namespace GMAO_Presentation.Views
             {
                 var confirm = MessageBox.Show("Confirmer la suppression ?", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
+                {
                     viewModel.SupprimerCommand.Execute(null);
+                    MaintenanceSupprimee = true;
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
             };
 
             btnConvertir.Click += (s, e) => viewModel.ConvertirCommand.Execute(null);
 
             viewModel.OnClose += () =>
             {
+                MaintenanceModifiee = viewModel.GetById(maintenanceId);
                 DialogResult = DialogResult.OK;
                 Close();
             };

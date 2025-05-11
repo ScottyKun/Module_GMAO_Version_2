@@ -18,6 +18,11 @@ namespace GMAO_Presentation.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public WorkOrderDTO GetById(int id)
+        {
+            return _woService.GetById2(id);
+        }
+
         public int WorkOrderId { get; set; }
 
         public string Nom { get; set; }

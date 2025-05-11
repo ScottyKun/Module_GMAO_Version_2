@@ -17,7 +17,10 @@ namespace GMAO_Presentation.ViewModel
         private readonly EquipementService _equipementService;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public InterventionDTO GetById(int id)
+        {
+            return _service.GetById2(id);
+        }
         public int InterventionId { get; set; }
         public int ResponsableId { get; set; }
 
@@ -126,7 +129,7 @@ namespace GMAO_Presentation.ViewModel
             try
             {
                 _service.Supprimer(InterventionId);
-                OnClose?.Invoke();
+               
             }
             catch (Exception ex)
             {
@@ -146,6 +149,10 @@ namespace GMAO_Presentation.ViewModel
             {
                 OnError?.Invoke("Aucune pièce réservée pour cette intervention.");
                 return;
+            }
+            else
+            {
+                Modifier();
             }
 
             OnConvertToWorkOrder?.Invoke(ResponsableId, DescriptionMaintenance, InterventionId);

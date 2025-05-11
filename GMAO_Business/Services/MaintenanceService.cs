@@ -18,8 +18,7 @@ namespace GMAO_Business.Services
 
         public bool PeutCreerMaintenance(int equipementId, DateTime dateDebut, DateTime dateFin)
         {
-            dateDebut = dateDebut.Date;
-            dateFin = dateFin.Date;
+            
 
             bool conflitPlanifiee = repository.ExisteConflitPlanifiee(equipementId, dateDebut, dateFin);
             bool conflitCorrective = repository.ExisteConflitCorrective(equipementId, dateDebut, dateFin);

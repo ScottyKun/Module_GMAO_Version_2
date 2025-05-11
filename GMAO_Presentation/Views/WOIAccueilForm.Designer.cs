@@ -32,12 +32,14 @@ namespace GMAO_Presentation.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvWorkOrders = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWorkOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,6 +80,16 @@ namespace GMAO_Presentation.Views
             this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAjouter.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Checklist;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(65, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -88,41 +100,34 @@ namespace GMAO_Presentation.Views
             this.label1.TabIndex = 0;
             this.label1.Text = "Work Orders";
             // 
-            // dgvWorkOrders
+            // gridControl1
             // 
-            this.dgvWorkOrders.AllowUserToAddRows = false;
-            this.dgvWorkOrders.AllowUserToDeleteRows = false;
-            this.dgvWorkOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWorkOrders.Location = new System.Drawing.Point(131, 246);
-            this.dgvWorkOrders.Name = "dgvWorkOrders";
-            this.dgvWorkOrders.ReadOnly = true;
-            this.dgvWorkOrders.RowHeadersWidth = 51;
-            this.dgvWorkOrders.RowTemplate.Height = 24;
-            this.dgvWorkOrders.Size = new System.Drawing.Size(706, 274);
-            this.dgvWorkOrders.TabIndex = 9;
+            this.gridControl1.Location = new System.Drawing.Point(121, 224);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(876, 325);
+            this.gridControl1.TabIndex = 10;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
-            // pictureBox1
+            // gridView1
             // 
-            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Maintenance;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
             // 
             // WOIAccueilForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvWorkOrders);
             this.Name = "WOIAccueilForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWorkOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -134,6 +139,7 @@ namespace GMAO_Presentation.Views
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvWorkOrders;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

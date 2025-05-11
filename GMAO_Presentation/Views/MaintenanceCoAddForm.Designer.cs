@@ -261,7 +261,7 @@ namespace GMAO_Presentation.Views
             // MaintenanceCoAddForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1058, 629);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvPieces);

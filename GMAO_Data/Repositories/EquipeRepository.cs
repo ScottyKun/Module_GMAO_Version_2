@@ -102,5 +102,11 @@ namespace GMAO_Data.Repositories
                 .FirstOrDefault(e => e.teamId == id);
         }
 
+        public bool EstEquipeLieeAUnEquipement(int equipeId)
+        {
+            return db.Equipements.Any(eq => eq.maintenanceTeamId == equipeId); // À adapter si la colonne est différente
+        }
+
+
     }
 }

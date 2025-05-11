@@ -21,19 +21,16 @@ namespace GMAO_Presentation.Views
 
             viewModel = new GstPiecesAccueilViewModel();
 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView2.AutoGenerateColumns = false;
-            SetupColumns();
+            gridControlPieces.DataSource = viewModel.ListePieces;
+            gridViewPieces.OptionsBehavior.Editable=false;
 
-            dataGridView1.DataSource = viewModel.ListePieces;
-            dataGridView2.DataSource = viewModel.ListePiecesCritiques;
+            gridControlDemandeAchat.DataSource = viewModel.ListePiecesCritiques;
+            gridViewDemandeAchat.PopulateColumns();
 
-            var equipements = viewModel.GetEquipementsNoms();
-            equipements.Insert(0, "-- Sélectionnez un équipement --"); // ligne par défaut
-            cbRecherche.DataSource = equipements;
+            gridViewDemandeAchat.OptionsBehavior.Editable = false;
+            gridViewPieces.OptionsBehavior.Editable = false;
 
-            cbRecherche.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbRecherche.AutoCompleteSource = AutoCompleteSource.ListItems;
+           
 
 
 
@@ -47,80 +44,72 @@ namespace GMAO_Presentation.Views
                 }
             };
 
-            btnActualiser.Click += (s, e) =>
-            {
-                viewModel.Rafraichir();
-                RefreshGrids();
-            };
+         
 
             btnCommander.Click += (s, e) =>
             {
-                if (dataGridView2.SelectedRows.Count > 0)
+                if (gridViewDemandeAchat.SelectedRowsCount > 0) // Utilisation du GridControl et de la méthode de sélection de ligne
                 {
-                    var piece = (PieceDTO)dataGridView2.SelectedRows[0].DataBoundItem;
-                    viewModel.Commander(piece);
-
-                    MessageBox.Show("Demande d'achat créée avec succès.", "Commande", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    viewModel.Rafraichir();
-                    RefreshGrids();
-                }
-            };
-
-            dataGridView1.CellDoubleClick += (s, e) =>
-            {
-                if (e.RowIndex >= 0)
-                {
-                    var piece = (PieceDTO)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-                    var form = new Views.GstPiecesUpdate(piece.PieceId);
-                    if (form.ShowDialog() == DialogResult.OK)
+                    var selectedRow = gridViewDemandeAchat.GetRow(gridViewDemandeAchat.FocusedRowHandle) as PieceDTO;
+                    if (selectedRow != null)
                     {
+                        viewModel.Commander(selectedRow);
+
+                        MessageBox.Show("Demande d'achat créée avec succès.", "Commande", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Rafraîchir les données après la commande
                         viewModel.Rafraichir();
                         RefreshGrids();
+                        // Actualiser le GridControl pour refléter les changements
+                        gridViewDemandeAchat.RefreshData();
                     }
                 }
             };
 
+
+            gridViewPieces.DoubleClick += (s, e) =>
+            {
+                if (gridViewPieces.GetFocusedRow() is PieceDTO selected)
+                {
+                    var modifForm = new Views.GstPiecesUpdate(selected.PieceId);
+
+                    var result = modifForm.ShowDialog(); // Important : Affiche la vue
+
+                    if (result == DialogResult.OK)
+                    {
+                        if (modifForm.EstSupprimee)
+                        {
+                            viewModel.ListePieces.Remove(selected);
+                            gridViewPieces.RefreshData();
+                        }
+                        else if (modifForm.PieceModifiee != null)
+                        {
+                            int index = viewModel.ListePieces.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                viewModel.ListePieces[index] = modifForm.PieceModifiee;
+                                gridViewPieces.RefreshData();
+                            }
+                        }
+                    }
+                }
+            };
+
+
         }
 
-        private void SetupColumns()
-        {
-            dataGridView1.Columns.Clear();
-            dataGridView2.Columns.Clear();
-
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nom", DataPropertyName = "Nom" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Référence", DataPropertyName = "Reference" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Prix", DataPropertyName = "Prix" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Date Ajout", DataPropertyName = "DateAjout" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Quantité", DataPropertyName = "Quantite" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Stock", DataPropertyName = "StockNom" });
-
-            dataGridView2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nom", DataPropertyName = "Nom" });
-            dataGridView2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Référence", DataPropertyName = "Reference" });
-            dataGridView2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Quantité", DataPropertyName = "Quantite" });
-        }
 
         private void RefreshGrids()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = viewModel.ListePieces;
+            gridControlPieces.DataSource = null;
+            gridControlPieces.DataSource = viewModel.ListePieces;
+            gridViewPieces.RefreshData();
 
-            dataGridView2.DataSource = null;
-            dataGridView2.DataSource = viewModel.ListePiecesCritiques;
+            gridControlDemandeAchat.DataSource = null;
+            gridControlDemandeAchat.DataSource = viewModel.ListePiecesCritiques;
+            gridViewDemandeAchat.RefreshData();
+
         }
 
-        private void picBtnRechercher_Click(object sender, EventArgs e)
-        {
-            string nomRecherche = cbRecherche.SelectedItem?.ToString()?.Trim();
-
-            if (!string.IsNullOrWhiteSpace(nomRecherche) && nomRecherche != "-- Sélectionnez un équipement --")
-            {
-                viewModel.FiltrerParNomEquipement(nomRecherche);
-                RefreshGrids();
-            }
-            else
-            {
-                MessageBox.Show("Veuillez sélectionner un équipement valide.", "Recherche", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
     }
 }

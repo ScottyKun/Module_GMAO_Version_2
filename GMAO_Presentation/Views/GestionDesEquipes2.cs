@@ -90,7 +90,28 @@ namespace GMAO_Presentation.Views
             this.Close();
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+      
+        public GestionDesEquipes2ViewModel ViewModel { get; set; }
+
+      
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "dateAjout")
+            {
+                if (e.Value != null && DateTime.TryParse(e.Value.ToString(), out DateTime date))
+                {
+                    e.Value = date == DateTime.MinValue ? "N/A" : date.ToString("dd/MM/yyyy");
+                    e.FormattingApplied = true;
+                }
+                else
+                {
+                    e.Value = "N/A";
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -104,7 +125,30 @@ namespace GMAO_Presentation.Views
             }
         }
 
-        private void clbMembres_ItemCheck_1(object sender, ItemCheckEventArgs e)
+        private void GestionDesEquipes2_Load_1(object sender, EventArgs e)
+        {
+
+            if (ViewModel != null)
+            {
+                // Définir la DataSource
+                clbMembres.DataSource = null;
+                clbMembres.DataSource = ViewModel.MembresDisponibles;
+                clbMembres.DisplayMember = "nom";
+                clbMembres.ValueMember = "idUser";
+
+                // Parcourir les membres et cocher ceux qui sont déjà dans l'équipe
+                for (int i = 0; i < clbMembres.Items.Count; i++)
+                {
+                    var user = (UserDTO2)clbMembres.Items[i];
+                    if (ViewModel.MembresSelectionnes.Contains(user.idUser))
+                    {
+                        clbMembres.SetItemChecked(i, true);
+                    }
+                }
+            }
+        }
+
+        private void clbMembres_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             var selectedIds = clbMembres.CheckedItems.Cast<UserDTO2>().Select(u => u.idUser).ToList();
 
@@ -126,49 +170,6 @@ namespace GMAO_Presentation.Views
             cmbChefEquipe.DataSource = _viewModel.ChefsDisponibles;
             cmbChefEquipe.DisplayMember = "nom";
             cmbChefEquipe.ValueMember = "idUser";
-        }
-
-
-        public GestionDesEquipes2ViewModel ViewModel { get; set; }
-
-        private void GestionDesEquipes2_Load(object sender, EventArgs e)
-        {
-            if (ViewModel != null)
-            {
-                // Définir la DataSource
-                clbMembres.DataSource = null;
-                clbMembres.DataSource = ViewModel.MembresDisponibles;
-                clbMembres.DisplayMember = "nom";
-                clbMembres.ValueMember = "idUser";
-
-                // Parcourir les membres et cocher ceux qui sont déjà dans l'équipe
-                for (int i = 0; i < clbMembres.Items.Count; i++)
-                {
-                    var user = (UserDTO2)clbMembres.Items[i];
-                    if (ViewModel.MembresSelectionnes.Contains(user.idUser))
-                    {
-                        clbMembres.SetItemChecked(i, true);
-                    }
-                }
-            }
-
-        }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "dateAjout")
-            {
-                if (e.Value != null && DateTime.TryParse(e.Value.ToString(), out DateTime date))
-                {
-                    e.Value = date == DateTime.MinValue ? "N/A" : date.ToString("dd/MM/yyyy");
-                    e.FormattingApplied = true;
-                }
-                else
-                {
-                    e.Value = "N/A";
-                    e.FormattingApplied = true;
-                }
-            }
         }
     }
 }

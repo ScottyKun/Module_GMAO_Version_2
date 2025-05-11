@@ -24,8 +24,8 @@ namespace GMAO_Data.Repositories
                      .Any(m => m.EquipementId == equipementId
                             && m.Statut != "Terminee"
                             && m.Statut != "Echec"
-                            && m.DateDebut <= dateFin
-                            && m.DateFin >= dateDebut);
+                            && m.DateDebut < dateFin
+                            && m.DateFin > dateDebut);
         }
 
         public bool ExisteConflitCorrective(int equipementId, DateTime dateDebut, DateTime dateFin)

@@ -1,4 +1,5 @@
-﻿using GMAO_Business.DTOs;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using GMAO_Business.DTOs;
 using GMAO_Presentation.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -21,37 +22,28 @@ namespace GMAO_Presentation.Views
             InitializeComponent();
             viewModel = new GestionDesEquipes1ViewModel();
 
-            dataGridView1.DataSource = viewModel.Equipes;
+            ConfigureGridView();
 
+            // Lier les données
+            gridControlEquipes.DataSource = viewModel.Equipes;
 
-            // btnAjouter.Click += (s, e) => viewModel.AjouterEquipeCommand.Execute(null);
-            // viewModel.OnNavigate += Navigate;
+            // Abonner l’événement double-clic
+            gridViewEquipes.DoubleClick += GridViewEquipes_DoubleClick;
+
         }
 
 
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void loadData()
         {
-            if (e.RowIndex >= 0)
-            {
-                // Récupérez l'ID de l'équipe à partir de la cellule de la première colonne
-                int equipeId = (int)dataGridView1.Rows[e.RowIndex].Cells["Id"].Value;
+            viewModel.RafraichirEquipes();
+            gridControlEquipes.DataSource = null;
+            gridControlEquipes.DataSource = new List<TeamInfo>(viewModel.Equipes);
 
-                var _viewModel = new GestionDesEquipes2ViewModel(equipeId);
-
-                var form = new GestionDesEquipes2(equipeId) { ViewModel = _viewModel };
-
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    loadData();
-
-                }
-                // new Views.GestionDesEquipes2(equipeId).ShowDialog();
-            }
-
+            // Ajustement après chargement
+            ((GridView)gridControlEquipes.MainView).BestFitColumns();
         }
 
-        private void btnAjouter_Click(object sender, EventArgs e)
+        private void btnAjouter_Click_1(object sender, EventArgs e)
         {
             var form = new Views.GestionDesEquipes3();
             if (form.ShowDialog() == DialogResult.OK)
@@ -62,12 +54,36 @@ namespace GMAO_Presentation.Views
 
         }
 
-        private void loadData()
+       
+        private void ConfigureGridView()
         {
-            viewModel.RafraichirEquipes();
-            var equipes = viewModel.Equipes;
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = new List<TeamInfo>(equipes);
+            GridView gridView = (GridView)gridControlEquipes.MainView;
+
+            // Lecture seule
+            gridView.OptionsBehavior.Editable = false;
+
+            // Ajustement automatique des colonnes
+            gridView.OptionsView.ColumnAutoWidth = true;
+            gridView.BestFitColumns();
+
+            
+            gridView.OptionsSelection.EnableAppearanceFocusedRow = true;
+        }
+
+        private void GridViewEquipes_DoubleClick(object sender, EventArgs e)
+        {
+            if (gridViewEquipes.FocusedRowHandle >= 0)
+            {
+                int equipeId = (int)gridViewEquipes.GetRowCellValue(gridViewEquipes.FocusedRowHandle, "Id");
+
+                var _viewModel = new GestionDesEquipes2ViewModel(equipeId);
+                var form = new GestionDesEquipes2(equipeId) { ViewModel = _viewModel };
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    loadData();
+                }
+            }
         }
     }
 }

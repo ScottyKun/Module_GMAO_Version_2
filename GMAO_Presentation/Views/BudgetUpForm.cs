@@ -15,6 +15,7 @@ namespace GMAO_Presentation.Views
     public partial class BudgetUpForm : Form
     {
         private readonly BudgetUpVM viewModel;
+        public BudgetDTO BudgetModifie { get; private set; }
         public BudgetUpForm(BudgetDTO budget)
         {
             InitializeComponent();
@@ -36,6 +37,15 @@ namespace GMAO_Presentation.Views
 
             viewModel.OnClose += () =>
             {
+                BudgetModifie = new BudgetDTO
+                {
+                    BudgetId = budget.BudgetId, // important si tu l’utilises dans l’update
+                    Nom = txtNom.Text,
+                    Annee = int.Parse(numAnnee.Text),
+                    Montant = decimal.Parse(numMontant.Text),
+                    DateCreation = dtCreation.Value
+                };
+
                 MessageBox.Show("Budget modifié avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 DialogResult = DialogResult.OK;
                 Close();

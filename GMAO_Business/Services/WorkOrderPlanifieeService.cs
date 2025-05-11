@@ -64,7 +64,7 @@ namespace GMAO_Business.Services
                 var reservee = wo.Intervention?.PiecesReservees?.FirstOrDefault(r => r.PieceId == p.PieceId);
 
                 if (stock == null || reservee == null || p.Quantite > reservee.Quantite)
-                    throw new InvalidOperationException($"Erreur avec la pièce {p.PieceId}");
+                    throw new InvalidOperationException($"Erreur avec la pièce {p.PieceId}, la quantite est superieur");
 
                 total += stock.prix * p.Quantite;
 
@@ -127,25 +127,17 @@ namespace GMAO_Business.Services
 
         public void Supprimer(int id)
         {
-            var wo = _repository.GetById(id);
+            var wo = _repository.GetById3(id);
             if (wo == null || wo.Terminee)
                 throw new InvalidOperationException("Impossible de supprimer un WO terminé.");
+
+          
+            _repository.RestaurerEtatInterventionEtMaintenanceAprèsSuppression(wo);
 
             _repository.RemovePiecesUtilisees(wo);
             _repository.Remove(wo);
 
-            var intervention = wo.Intervention;
-            if (intervention != null)
-            {
-                intervention.Etat = "New";
-
-                var maintenance = intervention.MaintenancePlanifiee;
-                if (maintenance != null && maintenance.Interventions.All(i => i.Etat == "New"))
-                {
-                    maintenance.Statut = "Nouvelle";
-                }
-            }
-
+            
             _repository.Save();
 
             var idMaintenance = wo.Intervention?.MaintenancePlanifieeId;
@@ -154,6 +146,7 @@ namespace GMAO_Business.Services
                 _maintenancePlanService.RecalculerCouts(idMaintenance.Value);
             }
         }
+
 
         public List<WorkOrderDTO2> GetAllDTOByResponsable(int idResponsable)
         {
@@ -208,7 +201,7 @@ namespace GMAO_Business.Services
 
         public void MarquerCommeImpossible(int id)
         {
-            var wo = _repository.GetById(id);
+            var wo = _repository.GetById2(id);
             if (wo == null || wo.Terminee)
                 throw new InvalidOperationException("WorkOrder introuvable ou déjà terminé.");
 
@@ -272,6 +265,26 @@ namespace GMAO_Business.Services
                     EquipementNom = wo.Intervention?.MaintenancePlanifiee?.Equipement?.nom
                 }).ToList();
             }
+        }
+
+        public WorkOrderDTO2 GetById2(int id)
+        {
+            var wo = _repository.GetById2(id);
+            if (wo == null) return null;
+
+            return new WorkOrderDTO2
+            {
+                Id = wo.Id,
+                Nom = wo.Nom,
+                DateExecution = wo.DateExecution,
+                Terminee = wo.Terminee,
+                Rapport = wo.Rapport,
+                Cout = wo.Cout,
+                InterventionId = wo.InterventionId ?? 0,
+                DescriptionIntervention = wo.Intervention?.Nom,
+                EquipementNom = wo.Intervention?.MaintenancePlanifiee?.Equipement?.nom
+           
+            };
         }
     }
 }

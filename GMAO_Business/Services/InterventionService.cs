@@ -39,8 +39,7 @@ namespace GMAO_Business.Services
             var maintenance = _maintenancePlanService.GetById(i.MaintenancePlanifieeId);
             if (maintenance != null)
             {
-                maintenance.Statut = "En cours";
-                _maintenancePlanService.Modifier(maintenance);
+                _maintenancePlanService.ModifierStatut(maintenance.MaintenanceId);
             }
         }
 
@@ -69,6 +68,25 @@ namespace GMAO_Business.Services
         }
 
 
+        public InterventionDTO GetById2(int id)
+        {
+            var intervention = _repository.GetById(id);
+            if (intervention == null)
+                return null;
+
+            return new InterventionDTO
+            {
+                Id = intervention.Id,
+                Nom = intervention.Nom,
+                Etat = intervention.Etat,
+                DatePrevue = intervention.DatePrevue,
+                MaintenanceDescription = intervention.MaintenancePlanifiee.Description,
+                EquipementNom = intervention.MaintenancePlanifiee.Equipement.nom,
+                MaintenanceId = intervention.MaintenancePlanifieeId,
+                Cout=intervention.Cout
+            };
+        }
+
         public List<InterventionLightDTO2> GetByMaintenanceId(int maintenancePlanifieeId)
         {
             var interventions = _repository.GetByMaintenanceId(maintenancePlanifieeId);
@@ -84,27 +102,23 @@ namespace GMAO_Business.Services
         public void Supprimer(int id)
         {
             var i = _repository.GetById(id);
+
+            if (i == null || i.Etat != "New")
+                throw new InvalidOperationException("Impossible de supprimer une intervention en cours.");
             if (i == null) return;
 
             if (i.WorkOrders.Any(wo => wo.Terminee))
                 throw new InvalidOperationException("Impossible de supprimer une intervention avec des WorkOrders terminés.");
 
-            var maintenance = i.MaintenancePlanifiee;
+            int maintenanceId = i.MaintenancePlanifieeId;
 
-            i.PiecesReservees.Clear();
+            _repository.RemoveReservedPieces(i.PiecesReservees.ToList());
             _repository.Delete(i);
 
-            if (!maintenance.Interventions.Any())
-            {
-                maintenance.Statut = "Nouvelle";
-                maintenance.CoutPrevu = 0;
-                maintenance.CoutReel = 0;
-                maintenance.NbInterventionsFinish = 0;
-            }
-            else
-            {
-                _maintenancePlanService.RecalculerCouts(maintenance.MaintenanceId);
-            }
+            
+            
+            _maintenancePlanService.RecalculerCouts(maintenanceId);
+            
         }
 
         public void ModifierComplet(InterventionModificationDTO dto)
@@ -192,7 +206,7 @@ namespace GMAO_Business.Services
             else
             {
                 var responsables = _userService.GetResponsablesPourTechnicien(UserContext.IdUser);
-                var all = _repository.GetAll();
+                var all = _repository.GetAllWithMaintenance();
                 list = all.Where(i => responsables.Contains(i.MaintenancePlanifiee.ResponsableId)).ToList();
             }
 

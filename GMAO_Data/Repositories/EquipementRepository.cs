@@ -24,6 +24,7 @@ namespace GMAO_Data.Repositories
                 .Include("Categorie")
                 .Include("responsable")
                 .Include("maintenanceTeam")
+                .Where(e => e.responsableId == responsableId)
                 .ToList();
         }
 

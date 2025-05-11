@@ -32,19 +32,22 @@ namespace GMAO_Presentation.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.gridControlEquipes = new DevExpress.XtraGrid.GridControl();
+            this.gridViewEquipes = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEquipes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEquipes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnAjouter);
@@ -80,26 +83,7 @@ namespace GMAO_Presentation.Views
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAjouter.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(151, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(333, 48);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Gestion des Equipes";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(161, 294);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(553, 255);
-            this.dataGridView1.TabIndex = 5;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click_1);
             // 
             // pictureBox1
             // 
@@ -110,6 +94,16 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(151, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(333, 48);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Gestion des Equipes";
             // 
             // pictureBox2
             // 
@@ -131,21 +125,37 @@ namespace GMAO_Presentation.Views
             this.label3.TabIndex = 19;
             this.label3.Text = "Mes Equipes";
             // 
+            // gridControlEquipes
+            // 
+            this.gridControlEquipes.Location = new System.Drawing.Point(147, 294);
+            this.gridControlEquipes.MainView = this.gridViewEquipes;
+            this.gridControlEquipes.Name = "gridControlEquipes";
+            this.gridControlEquipes.Size = new System.Drawing.Size(702, 269);
+            this.gridControlEquipes.TabIndex = 20;
+            this.gridControlEquipes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewEquipes});
+            // 
+            // gridViewEquipes
+            // 
+            this.gridViewEquipes.GridControl = this.gridControlEquipes;
+            this.gridViewEquipes.Name = "gridViewEquipes";
+            // 
             // GestionDesEquipes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
+            this.Controls.Add(this.gridControlEquipes);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "GestionDesEquipes";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlEquipes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewEquipes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,8 +168,9 @@ namespace GMAO_Presentation.Views
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
+        private DevExpress.XtraGrid.GridControl gridControlEquipes;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewEquipes;
     }
 }

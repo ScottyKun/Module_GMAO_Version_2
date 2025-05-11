@@ -156,7 +156,7 @@ namespace GMAO_Business.Services
                 .Sum(p => (_repository.GetPiece(p.PieceId)?.prix ?? 0) * p.Quantite);
 
             workOrder.Terminee = true;
-            workOrder.Cout = 0;
+            workOrder.Cout = total;
             workOrder.Rapport = "Maintenance impossible à exécuter.";
 
             var maintenance = workOrder.MaintenanceCorrective;
@@ -261,6 +261,25 @@ namespace GMAO_Business.Services
         public bool ExisteWorkOrderPourMaintenance(int maintenanceId)
         {
             return _repository.ExistePourMaintenance(maintenanceId);
+        }
+
+        public WorkOrderDTO GetById2(int id)
+        {
+            var w = _repository.GetById(id);
+            if (w == null) return null;
+
+            var dto = new WorkOrderDTO
+            {
+                Id = w.Id,
+                Nom = w.Nom,
+                DateExecution = w.DateExecution,
+                Terminee = w.Terminee,
+                Cout = w.Cout,
+                MaintenanceId = w.MaintenanceCorrective.MaintenanceId,
+                MaintenanceDescription = w.MaintenanceCorrective.Description
+            };
+
+            return dto;
         }
     }
 }

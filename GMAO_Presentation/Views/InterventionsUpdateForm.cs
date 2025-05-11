@@ -1,4 +1,5 @@
-﻿using GMAO_Presentation.ViewModel;
+﻿using GMAO_Business.DTOs;
+using GMAO_Presentation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace GMAO_Presentation.Views
     public partial class InterventionsUpdateForm : Form
     {
         private readonly InterventionUpVM viewModel;
-
+        public InterventionDTO InterventionModifiee { get; private set; }
         public InterventionsUpdateForm(int interventionId)
         {
             InitializeComponent();
@@ -42,6 +43,8 @@ namespace GMAO_Presentation.Views
             {
                 if (viewModel.ModifierCommand.CanExecute(null))
                     viewModel.ModifierCommand.Execute(null);
+
+               
             };
 
             btnSupprimer.Click += (s, e) =>
@@ -49,6 +52,8 @@ namespace GMAO_Presentation.Views
                 var confirm = MessageBox.Show("Confirmer la suppression ?", "Confirmation", MessageBoxButtons.YesNo);
                 if (confirm == DialogResult.Yes)
                     viewModel.SupprimerCommand.Execute(null);
+                        DialogResult = DialogResult.OK;
+                        Close();
             };
 
             btnConvertir.Click += (s, e) =>
@@ -58,6 +63,8 @@ namespace GMAO_Presentation.Views
 
             viewModel.OnClose += () =>
             {
+                InterventionModifiee = viewModel.GetById(interventionId);
+
                 var confirm = MessageBox.Show("Confirmer la modification ?", "Confirmation", MessageBoxButtons.YesNo);
                 DialogResult = DialogResult.OK;
                 Close();

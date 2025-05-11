@@ -15,11 +15,12 @@ namespace GMAO_Presentation.Views
     public partial class GererUserUpForm : Form
     {
         private readonly GstUserUpVM viewModel;
+        public UserDTO3 UtilisateurModifie { get; private set; }
 
         public GererUserUpForm(UserDTO3 user)
         {
             InitializeComponent();
-
+          
             viewModel = new GstUserUpVM(user);
 
             txtNom.DataBindings.Add("Text", viewModel, "Nom");
@@ -44,14 +45,24 @@ namespace GMAO_Presentation.Views
                 if (confirm == DialogResult.Yes)
                 {
                     viewModel.SupprimerCommand.Execute(null);
+                    UtilisateurModifie = null;
                 }
             };
 
             viewModel.OnClose += () =>
             {
+                UtilisateurModifie = new UserDTO3 { 
+                    IdUser=user.IdUser,
+                    Nom=txtNom.Text,
+                    Prenom=txtPrenom.Text,
+                    Tel=txtTel.Text,
+                    Email=txtEmail.Text,
+                    Username=txtUsername.Text,
+                    Fonction=txtFonction.Text,
+                };
                 MessageBox.Show("Opération effectuée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DialogResult = DialogResult.OK;
-                Close();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             };
 
             viewModel.OnError += msg =>
@@ -59,5 +70,7 @@ namespace GMAO_Presentation.Views
                 MessageBox.Show(msg, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             };
         }
+     
+
     }
 }

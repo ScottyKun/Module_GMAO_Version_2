@@ -1,4 +1,5 @@
 ﻿using GMAO_Business.DTOs;
+using GMAO_Business.Entities;
 using GMAO_Data.Entities;
 using GMAO_Data.Repositories;
 using System;
@@ -22,6 +23,9 @@ namespace GMAO_Business.Services
 
         public void Creer(MaintenancePlanifieeDTO2 dto)
         {
+            if (dto.DateDebut >= dto.DateFin)
+                throw new ArgumentException("La date de début doit être antérieure à la date de fin.");
+
             var maintenance = new MaintenancePlanifiee
             {
                 Description = dto.Description,
@@ -97,6 +101,30 @@ namespace GMAO_Business.Services
             };
         }
 
+        public MaintenancePlanifieeDTO GetById2(int id)
+        {
+            var m = _repository.GetById(id);
+            if (m == null)
+                return null;
+
+            return new MaintenancePlanifieeDTO
+            {
+
+                MaintenanceId = m.MaintenanceId,
+                Description = m.Description,
+                Statut = m.Statut,
+                DateDebut = m.DateDebut,
+                DateFin = m.DateFin,
+                RecurrenceJours = m.RecurrenceJours,
+                NbInterventions = m.NbInterventions,
+                NbInterventionsFinish = m.NbInterventionsFinish,
+                CoutPrevu = m.CoutPrevu,
+                CoutReel = m.CoutReel,
+                EquipementNom = m.Equipement?.nom,
+                ResponsableNom = m.Responsable?.nom
+            };
+        }
+
 
         public void RecalculerCouts(int maintenanceId)
         {
@@ -105,6 +133,9 @@ namespace GMAO_Business.Services
 
         public void Modifier(MaintenancePlanifieeDTO2 dto)
         {
+
+            if (dto.DateDebut >= dto.DateFin)
+                throw new ArgumentException("La date de début doit être antérieure à la date de fin.");
             var modif = new MaintenancePlanifiee
             {
                 MaintenanceId = dto.MaintenanceId,
@@ -125,12 +156,19 @@ namespace GMAO_Business.Services
 
         public List<MaintenanceLightDTO> GetMaintenancesDisponiblesPourIntervention()
         {
-            var maintenances = _repository.GetAllDisponiblesPourIntervention();
+            var maintenances = _repository.GetAllDisponiblesPourIntervention(UserContext.IdUser, UserContext.Role);
+
             return maintenances.Select(m => new MaintenanceLightDTO
             {
                 MaintenanceId = m.MaintenanceId,
                 Description = m.Description
             }).ToList();
+        }
+
+
+        public void ModifierStatut(int maintenanceId)
+        {
+            _repository.ModifierStatut(maintenanceId, "En cours");
         }
     }
 }

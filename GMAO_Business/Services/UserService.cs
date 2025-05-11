@@ -79,30 +79,35 @@ namespace GMAO_Business.Services
             _repo.Update(user);
         }
 
-        public List<UserDTO3> Rechercher(string terme) {
+        public List<UserDTO3> Rechercher(string terme)
+        {
             if (string.IsNullOrWhiteSpace(terme))
                 return new List<UserDTO3>();
 
             terme = terme.Trim().ToLower();
+
             return _repo.GetAllUsers()
-                .Where(u => u.nom.ToLower().Contains(terme)
-                         || u.prenom.ToLower().Contains(terme)
-                         || u.username.ToLower().Contains(terme)
-                         || u.email.ToLower().Contains(terme))
+                .Where(u =>
+                    (!string.IsNullOrWhiteSpace(u.nom) && u.nom.ToLower().Contains(terme)) ||
+                    (!string.IsNullOrWhiteSpace(u.prenom) && u.prenom.ToLower().Contains(terme)) ||
+                    (!string.IsNullOrWhiteSpace(u.username) && u.username.ToLower().Contains(terme)) ||
+                    (!string.IsNullOrWhiteSpace(u.email) && u.email.ToLower().Contains(terme))
+                )
                 .Select(u => new UserDTO3
                 {
                     IdUser = u.idUser,
-                    Nom = u.nom,
-                    Prenom = u.prenom,
-                    Email = u.email,
-                    Tel = u.tel,
-                    Fonction = u.fonction,
-                    Username = u.username,
+                    Nom = u.nom ?? string.Empty,
+                    Prenom = u.prenom ?? string.Empty,
+                    Email = u.email ?? string.Empty,
+                    Tel = u.tel ?? string.Empty,
+                    Fonction = u.fonction ?? string.Empty,
+                    Username = u.username ?? string.Empty,
                     Statut = u.Actif
                 })
                 .OrderBy(u => u.Nom)
                 .ToList();
         }
+
 
         public void ModifierInfos(UserDTO3 dto)
         {

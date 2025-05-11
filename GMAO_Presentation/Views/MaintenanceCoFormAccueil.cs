@@ -21,7 +21,12 @@ namespace GMAO_Presentation.Views
             InitializeComponent();
             viewModel = new MaintenanceCoAccueilViewModel(idResponsable);
 
-            dataGridView1.DataSource = viewModel.Maintenances;
+            gridControl1.DataSource = viewModel.Maintenances;
+            gridView1.OptionsBehavior.Editable = false;
+
+            gridView1.BestFitColumns();
+            gridView1.DoubleClick += GridView1_DoubleClick;
+
             btnAjouter.Click += (s, e) => {
                 var addForm = new MaintenanceCoAddForm(idResponsable);
                 if (addForm.ShowDialog() == DialogResult.OK)
@@ -30,20 +35,34 @@ namespace GMAO_Presentation.Views
 
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+
+
+        private void GridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
+            if (gridView1.FocusedRowHandle >= 0)
             {
-                var selected = dataGridView1.Rows[e.RowIndex].DataBoundItem as MaintenanceCorrectiveDTO;
+                var selected = gridView1.GetFocusedRow() as MaintenanceCorrectiveDTO;
                 if (selected != null)
                 {
                     var form = new MaintenanceCoUpdateForm(selected.MaintenanceId);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
-                        viewModel.ChargerMaintenances();
-                        dataGridView1.DataSource = viewModel.Maintenances;
+                        if (form.MaintenanceSupprimee)
+                        {
+                            viewModel.Maintenances.Remove(selected); // Suppression manuelle
+                            gridView1.RefreshData(); // Mise à jour visuelle
+                        }
+                        else if (form.MaintenanceModifiee != null)
+                        {
+                            var index = viewModel.Maintenances.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                viewModel.Maintenances[index] = form.MaintenanceModifiee;
+                                gridView1.RefreshData();
+                            }
+                        }
                     }
-
                 }
             }
         }

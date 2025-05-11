@@ -15,6 +15,7 @@ namespace GMAO_Presentation.Views
     public partial class CategorieFormUpdate : Form
     {
         private readonly CategoryUpdateViewModel _viewModel;
+        public CategoryDTO CategorieModifiee { get; private set; }
         public CategorieFormUpdate(CategoryDTO categorie)
         {
             InitializeComponent();
@@ -29,7 +30,18 @@ namespace GMAO_Presentation.Views
             {
 
                 _viewModel.ModifierCommand.Execute(null);
+
+
+                var updated = new CategoryDTO
+                { 
+                    id = categorie.id,
+                    nom = txtNomEquipe.Text
+
+                };
+                CategorieModifiee = updated;
                 MessageBox.Show("Catégorie modifiée avec succès.");
+
+                
                 this.DialogResult = DialogResult.OK;
                 this.Close();
 

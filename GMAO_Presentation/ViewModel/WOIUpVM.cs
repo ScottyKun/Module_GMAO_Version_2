@@ -14,6 +14,11 @@ namespace GMAO_Presentation.ViewModel
     {
         private readonly WorkOrderPlanifieeService _service;
 
+        public WorkOrderDTO2 GetById(int id)
+        {
+            return _service.GetById2(id);
+        }
+
         public int WorkOrderId { get; set; }
 
         public string Nom { get; set; }

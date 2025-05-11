@@ -48,6 +48,7 @@ namespace GMAO_Presentation.Views
             this.btnGstBudget.TabIndex = 15;
             this.btnGstBudget.Text = "Gérer budget";
             this.btnGstBudget.UseVisualStyleBackColor = false;
+            this.btnGstBudget.Click += new System.EventHandler(this.btnGstBudget_Click_1);
             // 
             // btnGstStock
             // 
@@ -59,6 +60,7 @@ namespace GMAO_Presentation.Views
             this.btnGstStock.TabIndex = 14;
             this.btnGstStock.Text = "Gérer stock";
             this.btnGstStock.UseVisualStyleBackColor = false;
+            this.btnGstStock.Click += new System.EventHandler(this.btnGstStock_Click_1);
             // 
             // btnGstCategorie
             // 
@@ -70,6 +72,7 @@ namespace GMAO_Presentation.Views
             this.btnGstCategorie.TabIndex = 13;
             this.btnGstCategorie.Text = "Gérer catégorie";
             this.btnGstCategorie.UseVisualStyleBackColor = false;
+            this.btnGstCategorie.Click += new System.EventHandler(this.btnGstCategorie_Click_1);
             // 
             // pictureBox1
             // 
@@ -103,7 +106,7 @@ namespace GMAO_Presentation.Views
             // ConfigurationForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 450);
             this.Controls.Add(this.btnGstBudget);
             this.Controls.Add(this.btnGstStock);

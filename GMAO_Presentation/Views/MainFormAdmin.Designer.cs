@@ -57,6 +57,7 @@ namespace GMAO_Presentation.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.imgExit);
             this.panel1.Controls.Add(this.imgVersProfil);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -119,11 +120,11 @@ namespace GMAO_Presentation.Views
             this.btnSideBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnSideBar.TabIndex = 0;
             this.btnSideBar.TabStop = false;
-       
             // 
             // sideBar
             // 
             this.sideBar.BackColor = System.Drawing.Color.DimGray;
+            this.sideBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.sideBar.Controls.Add(this.panel14);
             this.sideBar.Controls.Add(this.panel9);
             this.sideBar.Controls.Add(this.panel10);
@@ -207,7 +208,7 @@ namespace GMAO_Presentation.Views
             // panelContainer
             // 
             this.panelContainer.AutoScroll = true;
-            this.panelContainer.BackColor = System.Drawing.Color.LightGray;
+            this.panelContainer.BackColor = System.Drawing.Color.DimGray;
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(215, 75);
             this.panelContainer.Name = "panelContainer";

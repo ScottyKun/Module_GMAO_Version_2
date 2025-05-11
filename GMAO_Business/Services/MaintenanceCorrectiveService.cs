@@ -46,7 +46,7 @@ namespace GMAO_Business.Services
             foreach (var p in pieces)
                 repo.AjouterReservationPiece(maintenance.MaintenanceId, p.PieceId, p.Quantite);
 
-            maintenance.Cout = repo.CalculerCoutTotal(maintenance.MaintenanceId);
+            maintenance.Cout = CalculerCoutPrevu(maintenance.MaintenanceId);
         }
 
 
@@ -98,6 +98,23 @@ namespace GMAO_Business.Services
             };
         }
 
+        public MaintenanceCorrectiveDTO GetById2(int id)
+        {
+            var m = repo.GetById2(id);
+            if (m == null) return null;
+
+            return new MaintenanceCorrectiveDTO
+            {
+                MaintenanceId = m.MaintenanceId,
+                Description = m.Description,
+                Statut = m.Statut,
+                DateCreation = m.DateCreation,
+                ResponsableNom = m.Responsable?.nom ?? "",
+                EquipementNom = m.Equipement?.nom ?? "",
+                CoutPrevu = CalculerCoutPrevu(m.MaintenanceId)
+
+            };
+        }
 
         public List<MaintenanceCorrectiveDTO> GetAllDTOByResponsable(int idUser)
         {
@@ -111,14 +128,14 @@ namespace GMAO_Business.Services
                 Statut = m.Statut,
                 EquipementNom = m.Equipement?.nom ?? "",
                 ResponsableNom = m.Responsable?.nom ?? "",
-                CoutPrevu = repo.CalculerCoutTotal(m.MaintenanceId)
+                CoutPrevu = CalculerCoutPrevu(m.MaintenanceId)
             }).ToList();
         }
 
         public void Modifier(MaintenanceCorrectiveDTO2 dto, List<PieceReservationDTO> nouvellesPieces)
         {
             var maintenance = repo.FindById(dto.MaintenanceId);
-            if (maintenance == null || maintenance.Statut == "Terminée")
+            if (maintenance == null || maintenance.Statut == "Terminée" || maintenance.Statut=="Echec")
                 throw new InvalidOperationException("Impossible de modifier une maintenance terminée ou inexistante.");
 
             maintenance.Description = dto.Description;
@@ -140,17 +157,17 @@ namespace GMAO_Business.Services
                 repo.AjouterReservationPiece(dto.MaintenanceId, p.PieceId, p.Quantite);
             }
 
-            maintenance.Cout = repo.CalculerCoutTotal(dto.MaintenanceId);
+            maintenance.Cout = CalculerCoutPrevu(dto.MaintenanceId);
             repo.ModifierMaintenance(maintenance);
         }
 
         public void Supprimer(int maintenanceId)
         {
-            var maintenance = repo.GetById(maintenanceId);
+            var maintenance = repo.GetById3(maintenanceId);
             if (maintenance == null)
                 return;
 
-            if (maintenance.Statut == "Terminée")
+            if (maintenance.Statut == "Terminée" || maintenance.Statut=="Echec")
                 throw new InvalidOperationException("Impossible de supprimer une maintenance terminée.");
 
             repo.SupprimerMaintenance(maintenance);

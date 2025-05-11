@@ -43,7 +43,7 @@ namespace GMAO_Presentation.Views
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnModifier);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -136,7 +136,7 @@ namespace GMAO_Presentation.Views
             // CategorieFormUpdate
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 371);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtNomEquipe);

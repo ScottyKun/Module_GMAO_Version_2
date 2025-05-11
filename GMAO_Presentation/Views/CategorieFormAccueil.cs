@@ -15,12 +15,13 @@ namespace GMAO_Presentation.Views
     public partial class CategorieFormAccueil : Form
     {
         private readonly CategoryAccueilViewModel _viewModel;
+        private BindingList<CategoryDTO> _bindedCategories;
         public CategorieFormAccueil()
         {
             InitializeComponent();
             _viewModel = new CategoryAccueilViewModel();
 
-            dataGridView1.DataSource = new BindingList<CategoryDTO>(_viewModel.Categories);
+            LoadData();
 
             btnEnregistrer.Click += (s, e) =>
             {
@@ -28,26 +29,52 @@ namespace GMAO_Presentation.Views
                 if (addForm.ShowDialog() == DialogResult.OK)
                     LoadData();
             };
+
+
+            gridViewCategories.DoubleClick += (s, e) =>
+            {
+                var selected = gridViewCategories.GetFocusedRow() as CategoryDTO;
+                if (selected != null)
+                {
+                    var updateForm = new CategorieFormUpdate(selected);
+                    if (updateForm.ShowDialog() == DialogResult.OK)
+                    {
+                        var updated = updateForm.CategorieModifiee;
+                        if (updated != null)
+                        {
+                            int index = _bindedCategories.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                _bindedCategories[index] = updated;
+                                gridViewCategories.RefreshData(); // Redraw
+                            }
+                        }
+                        else // suppression
+                        {
+                            _bindedCategories.Remove(selected);
+                            gridViewCategories.RefreshData();
+                        }
+                    }
+
+                }
+            };
         }
 
         private void LoadData()
         {
             _viewModel.LoadCategories();
-            var categories = _viewModel.Categories;
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = new BindingList<CategoryDTO>(categories);
-        }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dataGridView1.Rows[e.RowIndex].DataBoundItem is CategoryDTO selected)
-            {
-                var updateForm = new CategorieFormUpdate(selected);
-                if (updateForm.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
-            }
+            gridViewCategories.OptionsBehavior.Editable = false;
+            gridViewCategories.OptionsView.ShowGroupPanel = false;
+            gridViewCategories.BestFitColumns();
+            // On rafraîchit complètement la source du GridControl
+
+            gridControlCategories.DataSource = null;
+            _bindedCategories = new BindingList<CategoryDTO>(_viewModel.Categories);
+            gridControlCategories.DataSource = _bindedCategories;
+
+            // Force le rafraîchissement visuel
+            gridViewCategories.RefreshData();
         }
     }
 }

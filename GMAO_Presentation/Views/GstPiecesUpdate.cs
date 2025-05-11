@@ -15,6 +15,9 @@ namespace GMAO_Presentation.Views
     public partial class GstPiecesUpdate : Form
     {
         private readonly GstPieceUpdateViewModel viewModel;
+        public PieceDTO PieceModifiee { get; private set; }
+        public bool EstSupprimee { get; private set; } = false;
+
         public GstPiecesUpdate(int pieceId)
         {
             InitializeComponent();
@@ -78,6 +81,15 @@ namespace GMAO_Presentation.Views
             btnModifier.Click += (s, e) =>
             {
                 viewModel.ModifierCommand.Execute(null);
+                PieceModifiee = new PieceDTO
+                {
+                    PieceId = pieceId,
+                    Nom = txtNom.Text,
+                    Reference = txtReference.Text,
+                    Prix = numPrix.Value,
+                    Quantite = (int)numQuantite.Value,
+                    DateAjout = dtAjout.Value
+                };
                 MessageBox.Show("Pièce modifiée avec succès !", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
@@ -89,11 +101,13 @@ namespace GMAO_Presentation.Views
                 if (result == DialogResult.Yes)
                 {
                     viewModel.SupprimerCommand.Execute(null);
+                    EstSupprimee = true;
                     MessageBox.Show("Pièce supprimée.", "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                     Close();
                 }
             };
+
         }
     }
 }

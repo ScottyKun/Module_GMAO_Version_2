@@ -19,6 +19,11 @@ namespace GMAO_Presentation.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public MaintenanceCorrectiveDTO GetById(int id)
+        {
+            return _service.GetById2(id);
+        }
+
         public int MaintenanceId { get; set; }
 
         public string Description { get; set; }
@@ -136,6 +141,12 @@ namespace GMAO_Presentation.ViewModel
         private void ConvertirEnWorkOrder()
         {
             if (Statut == "Terminée")
+            {
+                OnError?.Invoke("Maintenance déjà terminée.");
+                return;
+            }
+
+            if (Statut == "Echec")
             {
                 OnError?.Invoke("Maintenance déjà terminée.");
                 return;

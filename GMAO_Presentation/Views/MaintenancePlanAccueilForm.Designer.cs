@@ -32,15 +32,17 @@ namespace GMAO_Presentation.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvMaintenances = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaintenances)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,36 +75,13 @@ namespace GMAO_Presentation.Views
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.Image = global::GMAO_Presentation.Properties.Resources.Add2;
             this.btnAjouter.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAjouter.Location = new System.Drawing.Point(894, 38);
+            this.btnAjouter.Location = new System.Drawing.Point(894, 12);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(127, 76);
+            this.btnAjouter.Size = new System.Drawing.Size(127, 88);
             this.btnAjouter.TabIndex = 2;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAjouter.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(121, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(396, 48);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Maintenance plannifiée";
-            // 
-            // dgvMaintenances
-            // 
-            this.dgvMaintenances.AllowUserToAddRows = false;
-            this.dgvMaintenances.AllowUserToDeleteRows = false;
-            this.dgvMaintenances.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaintenances.Location = new System.Drawing.Point(108, 280);
-            this.dgvMaintenances.Name = "dgvMaintenances";
-            this.dgvMaintenances.ReadOnly = true;
-            this.dgvMaintenances.RowHeadersWidth = 51;
-            this.dgvMaintenances.RowTemplate.Height = 24;
-            this.dgvMaintenances.Size = new System.Drawing.Size(773, 219);
-            this.dgvMaintenances.TabIndex = 7;
             // 
             // pictureBox1
             // 
@@ -113,6 +92,16 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(121, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(396, 48);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Maintenance plannifiée";
             // 
             // label3
             // 
@@ -134,21 +123,37 @@ namespace GMAO_Presentation.Views
             this.pictureBox2.TabIndex = 17;
             this.pictureBox2.TabStop = false;
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(107, 280);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(899, 319);
+            this.gridControl1.TabIndex = 19;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
             // MaintenancePlanAccueilForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 629);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvMaintenances);
             this.Name = "MaintenancePlanAccueilForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaintenances)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,8 +166,9 @@ namespace GMAO_Presentation.Views
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvMaintenances;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

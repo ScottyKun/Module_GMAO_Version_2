@@ -40,7 +40,7 @@ namespace GMAO_Data.Repositories
         {
             return db.Interventions
                      .Include("MaintenancePlanifiee")
-                     .Include("PiecesReservees.Piece")
+                     .Include("PiecesReservees")
                      .Include("WorkOrders")
                      .FirstOrDefault(i => i.Id == id);
         }

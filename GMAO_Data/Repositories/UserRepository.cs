@@ -2,6 +2,7 @@
 using GMAO_Data.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,16 @@ namespace GMAO_Data.Repositories
 
         public List<int> GetResponsablesPourTechnicien(int technicienId)
         {
-            var responsables = _context.Maintenance_Teams
-                .Where(t => t.membres.Any(m => m.idUser == technicienId) && t.chefEquipe.fonction == "Responsable")
-                .Select(t => t.chefEquipe.idUser)
-                .Distinct()
-                .ToList();
+            var teamIds = _context.Team_Users
+                            .Where(t => t.idUser == technicienId)
+                            .Select(t => t.teamId)
+                            .ToList();
+
+            var responsables = _context.Equipements
+                                 .Where(e => teamIds.Contains(e.maintenanceTeamId))
+                                 .Select(e => e.responsableId)
+                                 .Distinct()
+                                 .ToList();
 
             return responsables;
         }
@@ -41,15 +47,29 @@ namespace GMAO_Data.Repositories
         }
 
 
-        public void Update(User user) { _context.SaveChanges(); }
+        public void Update(User user)
+        {
+            _context.Users.Attach(user);
+            _context.Entry(user).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
 
-        public void AddAlert(Alerte alert) { _context.Alertes.Add(alert); }
+
+        public void AddAlert(Alerte alert)
+        {
+            _context.Alertes.Add(alert);
+            _context.SaveChanges();
+        }
+
+
 
         public void RemoveUserTeams(int userId)
         {
             var liaisons = _context.Team_Users.Where(t => t.idUser == userId).ToList();
             _context.Team_Users.RemoveRange(liaisons);
+            _context.SaveChanges();
         }
+
 
         public bool ProfilIncomplet(int userId)
         {

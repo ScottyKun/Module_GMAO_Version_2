@@ -44,6 +44,11 @@ namespace GMAO_Presentation.Views
             this.label3 = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnImpossible = new System.Windows.Forms.Button();
+            this.btnSupprimer = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.btnTerminer = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnUtiliser = new System.Windows.Forms.Button();
@@ -54,19 +59,14 @@ namespace GMAO_Presentation.Views
             this.txtRapport = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnImpossible = new System.Windows.Forms.Button();
-            this.btnSupprimer = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.btnTerminer = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPiecesUtilisees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPiecesReservees)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -217,114 +217,6 @@ namespace GMAO_Presentation.Views
             this.panel1.Size = new System.Drawing.Size(1053, 119);
             this.panel1.TabIndex = 21;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(82, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(366, 48);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Modifier Work Order";
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.btnUtiliser);
-            this.panel4.Controls.Add(this.dgvPiecesUtilisees);
-            this.panel4.Controls.Add(this.dgvPiecesReservees);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.label10);
-            this.panel4.Location = new System.Drawing.Point(0, 424);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1051, 271);
-            this.panel4.TabIndex = 25;
-            // 
-            // btnUtiliser
-            // 
-            this.btnUtiliser.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnUtiliser.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnUtiliser.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUtiliser.Location = new System.Drawing.Point(460, 111);
-            this.btnUtiliser.Name = "btnUtiliser";
-            this.btnUtiliser.Size = new System.Drawing.Size(127, 44);
-            this.btnUtiliser.TabIndex = 18;
-            this.btnUtiliser.Text = "Utiliser";
-            this.btnUtiliser.UseVisualStyleBackColor = false;
-            // 
-            // dgvPiecesUtilisees
-            // 
-            this.dgvPiecesUtilisees.AllowUserToAddRows = false;
-            this.dgvPiecesUtilisees.AllowUserToDeleteRows = false;
-            this.dgvPiecesUtilisees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPiecesUtilisees.Location = new System.Drawing.Point(639, 44);
-            this.dgvPiecesUtilisees.Name = "dgvPiecesUtilisees";
-            this.dgvPiecesUtilisees.RowHeadersWidth = 51;
-            this.dgvPiecesUtilisees.RowTemplate.Height = 24;
-            this.dgvPiecesUtilisees.Size = new System.Drawing.Size(372, 174);
-            this.dgvPiecesUtilisees.TabIndex = 16;
-            // 
-            // dgvPiecesReservees
-            // 
-            this.dgvPiecesReservees.AllowUserToAddRows = false;
-            this.dgvPiecesReservees.AllowUserToDeleteRows = false;
-            this.dgvPiecesReservees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPiecesReservees.Location = new System.Drawing.Point(55, 44);
-            this.dgvPiecesReservees.Name = "dgvPiecesReservees";
-            this.dgvPiecesReservees.ReadOnly = true;
-            this.dgvPiecesReservees.RowHeadersWidth = 51;
-            this.dgvPiecesReservees.RowTemplate.Height = 24;
-            this.dgvPiecesReservees.Size = new System.Drawing.Size(373, 174);
-            this.dgvPiecesReservees.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(622, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(137, 24);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Pièces utilisées";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(66, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(148, 24);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Pièces réservées";
-            // 
-            // txtRapport
-            // 
-            this.txtRapport.Location = new System.Drawing.Point(26, 73);
-            this.txtRapport.Multiline = true;
-            this.txtRapport.Name = "txtRapport";
-            this.txtRapport.Size = new System.Drawing.Size(549, 190);
-            this.txtRapport.TabIndex = 14;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(22, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 24);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Rapport";
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.txtRapport);
-            this.panel5.Controls.Add(this.label8);
-            this.panel5.Location = new System.Drawing.Point(436, 130);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(615, 288);
-            this.panel5.TabIndex = 24;
-            // 
             // btnImpossible
             // 
             this.btnImpossible.BackColor = System.Drawing.Color.Brown;
@@ -395,10 +287,118 @@ namespace GMAO_Presentation.Views
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Script MT Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(82, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(366, 48);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Modifier Work Order";
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.btnUtiliser);
+            this.panel4.Controls.Add(this.dgvPiecesUtilisees);
+            this.panel4.Controls.Add(this.dgvPiecesReservees);
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Location = new System.Drawing.Point(0, 424);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1051, 271);
+            this.panel4.TabIndex = 25;
+            // 
+            // btnUtiliser
+            // 
+            this.btnUtiliser.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnUtiliser.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnUtiliser.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUtiliser.Location = new System.Drawing.Point(460, 111);
+            this.btnUtiliser.Name = "btnUtiliser";
+            this.btnUtiliser.Size = new System.Drawing.Size(127, 44);
+            this.btnUtiliser.TabIndex = 18;
+            this.btnUtiliser.Text = "Utiliser";
+            this.btnUtiliser.UseVisualStyleBackColor = false;
+            // 
+            // dgvPiecesUtilisees
+            // 
+            this.dgvPiecesUtilisees.AllowUserToAddRows = false;
+            this.dgvPiecesUtilisees.AllowUserToDeleteRows = false;
+            this.dgvPiecesUtilisees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPiecesUtilisees.Location = new System.Drawing.Point(639, 44);
+            this.dgvPiecesUtilisees.Name = "dgvPiecesUtilisees";
+            this.dgvPiecesUtilisees.RowHeadersWidth = 51;
+            this.dgvPiecesUtilisees.RowTemplate.Height = 24;
+            this.dgvPiecesUtilisees.Size = new System.Drawing.Size(346, 174);
+            this.dgvPiecesUtilisees.TabIndex = 16;
+            // 
+            // dgvPiecesReservees
+            // 
+            this.dgvPiecesReservees.AllowUserToAddRows = false;
+            this.dgvPiecesReservees.AllowUserToDeleteRows = false;
+            this.dgvPiecesReservees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPiecesReservees.Location = new System.Drawing.Point(55, 44);
+            this.dgvPiecesReservees.Name = "dgvPiecesReservees";
+            this.dgvPiecesReservees.ReadOnly = true;
+            this.dgvPiecesReservees.RowHeadersWidth = 51;
+            this.dgvPiecesReservees.RowTemplate.Height = 24;
+            this.dgvPiecesReservees.Size = new System.Drawing.Size(346, 174);
+            this.dgvPiecesReservees.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(622, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(137, 24);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Pièces utilisées";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(66, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(148, 24);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Pièces réservées";
+            // 
+            // txtRapport
+            // 
+            this.txtRapport.Location = new System.Drawing.Point(26, 73);
+            this.txtRapport.Multiline = true;
+            this.txtRapport.Name = "txtRapport";
+            this.txtRapport.Size = new System.Drawing.Size(549, 190);
+            this.txtRapport.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(22, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 24);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Rapport";
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.txtRapport);
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Location = new System.Drawing.Point(436, 130);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(615, 288);
+            this.panel5.TabIndex = 24;
+            // 
             // WOIUpdateForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1053, 696);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -413,13 +413,13 @@ namespace GMAO_Presentation.Views
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPiecesUtilisees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPiecesReservees)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

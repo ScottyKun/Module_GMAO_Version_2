@@ -281,7 +281,7 @@ namespace GMAO_Presentation.Views
             // GstPiecesAdd
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.Color.LightGray;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 499);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);

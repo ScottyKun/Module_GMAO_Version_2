@@ -22,14 +22,16 @@ namespace GMAO_Presentation.Views
 
             viewModel = new InterventionAccVM();
 
-            //dgvInterventions.AutoGenerateColumns = false;
-            dgvInterventions.DataSource = viewModel.Interventions;
+            gridControlInterventions.DataSource = viewModel.Interventions;
+
+            gridViewInterventions.OptionsBehavior.Editable = false;
 
             btnAjouter.Click += (s, e) =>
             {
                 var form = new InterventionAddForm();
                 if (form.ShowDialog() == DialogResult.OK)
                     viewModel.ChargerInterventions();
+                     gridViewInterventions.RefreshData();
             };
 
             viewModel.OnDemandeAjout += () =>
@@ -39,15 +41,35 @@ namespace GMAO_Presentation.Views
                     viewModel.ChargerInterventions();
             };
 
-            dgvInterventions.CellDoubleClick += (s, e) =>
+            gridViewInterventions.DoubleClick += (s, e) =>
             {
-                if (e.RowIndex >= 0 && dgvInterventions.Rows[e.RowIndex].DataBoundItem is InterventionDTO selected)
+                if (gridViewInterventions.GetFocusedRow() is InterventionDTO selected)
                 {
                     var form = new InterventionsUpdateForm(selected.Id);
                     if (form.ShowDialog() == DialogResult.OK)
-                        viewModel.ChargerInterventions();
+                    {
+                        var modifiee = form.InterventionModifiee;
+
+                        if (modifiee != null)
+                        {
+                            // Cas modification
+                            int index = viewModel.Interventions.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                viewModel.Interventions[index] = modifiee;
+                                gridViewInterventions.RefreshData();
+                            }
+                        }
+                        else
+                        {
+                            // Cas suppression (modifiee == null)
+                            viewModel.Interventions.Remove(selected);
+                            gridViewInterventions.RefreshData();
+                        }
+                    }
                 }
             };
+
         }
     }
 }

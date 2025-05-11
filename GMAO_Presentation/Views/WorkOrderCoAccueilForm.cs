@@ -25,23 +25,44 @@ namespace GMAO_Presentation.Views
             viewModel = new WOCoAccueilVM();
             id = UserContext.IdUser;
 
-            dgvWorkOrders.DataSource = viewModel.WorkOrders;
-        }
+            gridControl1.DataSource = viewModel.WorkOrders;
+            gridView1.OptionsBehavior.Editable = false;
 
-        private void btnAjouter_Click(object sender, EventArgs e)
+            // Double-clic sur une ligne
+            gridView1.DoubleClick += GridView1_DoubleClick;
+        }
+        private void btnAjouter_Click_1(object sender, EventArgs e)
         {
             var form = new WorkOrderCoAddForm(id);
             if (form.ShowDialog() == DialogResult.OK)
                 viewModel.ChargerWorkOrders();
+                gridView1.RefreshData();
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void GridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvWorkOrders.Rows[e.RowIndex].DataBoundItem is WorkOrderDTO selected)
+            if (gridView1.FocusedRowHandle >= 0)
             {
-                var form = new WorkOrderCoUpdateForm(selected.Id);
-                if (form.ShowDialog() == DialogResult.OK)
-                    viewModel.ChargerWorkOrders();
+                var selected = gridView1.GetFocusedRow() as WorkOrderDTO;
+                if (selected != null)
+                {
+                    var form = new WorkOrderCoUpdateForm(selected.Id);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        if (form.EstSupprime)
+                        {
+                            viewModel.WorkOrders.Remove(selected);
+                        }
+                        else if (form.WorkOrderModifie != null)
+                        {
+                            var index = viewModel.WorkOrders.IndexOf(selected);
+                            if (index >= 0)
+                                viewModel.WorkOrders[index] = form.WorkOrderModifie;
+                        }
+
+                        gridView1.RefreshData(); // Mise à jour visuelle
+                    }
+                }
             }
         }
     }
