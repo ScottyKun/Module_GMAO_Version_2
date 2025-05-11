@@ -38,6 +38,7 @@
     <Reference Include="DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v22.2.UI, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -118,6 +119,11 @@
     <Compile Include="ViewModel\InterventionAccVM.cs" />
     <Compile Include="ViewModel\InterventionAddVM.cs" />
     <Compile Include="ViewModel\InterventionUpVM.cs" />
+    <Compile Include="ViewModel\KpiBudgetVM.cs" />
+    <Compile Include="ViewModel\KpiDashboardVM.cs" />
+    <Compile Include="ViewModel\KpiEvolutionVM.cs" />
+    <Compile Include="ViewModel\KpiGlobalVM.cs" />
+    <Compile Include="ViewModel\KpiTopVM.cs" />
     <Compile Include="ViewModel\MaintenanceCoAccueilViewModel.cs" />
     <Compile Include="ViewModel\MaintenanceCoAddViewModel.cs" />
     <Compile Include="ViewModel\MaintenanceCoUpdateViewModel.cs" />
@@ -533,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModifPwdForm.resx">
       <DependentUpon>ModifPwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SuiviBudgetCoutForm.resx">
+      <DependentUpon>SuiviBudgetCoutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\WOIAccueilForm.resx">
       <DependentUpon>WOIAccueilForm.cs</DependentUpon>
