@@ -42,15 +42,15 @@
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,7 +60,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\AlerteDTO.cs" />
+    <Compile Include="DTOs\BudgetDTO.cs" />
+    <Compile Include="DTOs\CategoryDTO.cs" />
+    <Compile Include="DTOs\EquipeDTO.cs" />
+    <Compile Include="DTOs\EquipementDTO.cs" />
+    <Compile Include="DTOs\EquipementLightDTO.cs" />
+    <Compile Include="DTOs\InterventionDTO.cs" />
+    <Compile Include="DTOs\InterventionLightDTO.cs" />
+    <Compile Include="DTOs\MaintenanceCorrectiveDTO.cs" />
+    <Compile Include="DTOs\MaintenanceCorrectiveLightDTO.cs" />
+    <Compile Include="DTOs\MaintenanceLightDTO.cs" />
+    <Compile Include="DTOs\MaintenancePlanifieeDTO.cs" />
+    <Compile Include="DTOs\PieceDTO.cs" />
+    <Compile Include="DTOs\PieceReservationDTO.cs" />
+    <Compile Include="DTOs\PieceReservationView.cs" />
+    <Compile Include="DTOs\PieceUtilisationDTO.cs" />
+    <Compile Include="DTOs\PieceUtilisationView.cs" />
+    <Compile Include="DTOs\StockDTO.cs" />
+    <Compile Include="DTOs\TeamInfo.cs" />
+    <Compile Include="DTOs\UserContext.cs" />
+    <Compile Include="DTOs\UserDTO.cs" />
+    <Compile Include="DTOs\UserDTO2.cs" />
+    <Compile Include="DTOs\UserDTO3.cs" />
+    <Compile Include="DTOs\UserDTO4.cs" />
+    <Compile Include="DTOs\WorkOrderCoDTODetails.cs" />
+    <Compile Include="DTOs\WorkOrderDetailsDTO.cs" />
+    <Compile Include="DTOs\WorkOrderDTO.cs" />
+    <Compile Include="DTOs\WorkOrderDTO2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AlerteService.cs" />
+    <Compile Include="Services\AuthentificationService.cs" />
+    <Compile Include="Services\BudgetService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\EquipementService.cs" />
+    <Compile Include="Services\EquipeService.cs" />
+    <Compile Include="Services\GestionProfilService.cs" />
+    <Compile Include="Services\InscriptionService.cs" />
+    <Compile Include="Services\InterventionService.cs" />
+    <Compile Include="Services\MaintenanceCorrectiveService.cs" />
+    <Compile Include="Services\MaintenancePlanService.cs" />
+    <Compile Include="Services\MaintenanceService.cs" />
+    <Compile Include="Services\PieceRechangeService.cs" />
+    <Compile Include="Services\PlanningService.cs" />
+    <Compile Include="Services\StockService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\WorkOrderCoService.cs" />
+    <Compile Include="Services\WorkOrderPlanifieeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GMAO_Data\GMAO_Data.csproj">
@@ -68,10 +114,7 @@
       <Name>GMAO_Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTOs\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
