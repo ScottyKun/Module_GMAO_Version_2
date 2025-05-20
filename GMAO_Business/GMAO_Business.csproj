@@ -34,6 +34,7 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Sparkline.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -88,12 +89,20 @@
     <Compile Include="DTOs\WorkOrderDetailsDTO.cs" />
     <Compile Include="DTOs\WorkOrderDTO.cs" />
     <Compile Include="DTOs\WorkOrderDTO2.cs" />
+    <Compile Include="KPI\KpiABCResult.cs" />
     <Compile Include="KPI\KpiBudgetMensuelResult.cs" />
     <Compile Include="KPI\KpiBudgetMoisResult.cs" />
     <Compile Include="KPI\KpiBudgetResult.cs" />
+    <Compile Include="KPI\KpiClotureWoResult.cs" />
     <Compile Include="KPI\KpiEcartParTypeMaintenanceResult.cs" />
+    <Compile Include="KPI\KpiEquipeReussite.cs" />
+    <Compile Include="KPI\KpiEquipeTempsMoyen.cs" />
     <Compile Include="KPI\KpiMonthlyEvolutionResult.cs" />
+    <Compile Include="KPI\KpiMTBFResult.cs" />
+    <Compile Include="KPI\KpiMTTRResult.cs" />
+    <Compile Include="KPI\KpiPlanificationResult.cs" />
     <Compile Include="KPI\KpiResult.cs" />
+    <Compile Include="KPI\KpiTauxPanneResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AlerteService.cs" />
     <Compile Include="Services\AuthentificationService.cs" />
@@ -105,6 +114,7 @@
     <Compile Include="Services\InscriptionService.cs" />
     <Compile Include="Services\InterventionService.cs" />
     <Compile Include="Services\KpiService.cs" />
+    <Compile Include="Services\KpiService2.cs" />
     <Compile Include="Services\MaintenanceCorrectiveService.cs" />
     <Compile Include="Services\MaintenancePlanService.cs" />
     <Compile Include="Services\MaintenanceService.cs" />

@@ -71,7 +71,7 @@ namespace GMAO_Presentation.ViewModel
             }
         }
 
-        public DateTime DateExecution { get; set; } = DateTime.Today;
+        public DateTime DateExecution { get; set; } = DateTime.Now;
 
         public event Action OnClose;
         public event Action<string> OnError;

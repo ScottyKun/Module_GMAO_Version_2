@@ -38,7 +38,7 @@ namespace GMAO_Presentation.ViewModel
         }
 
         public string Statut { get; } = "New";
-        public DateTime Date { get; set; } = DateTime.Today;
+        public DateTime Date { get; set; } = DateTime.Now;
 
         public List<MaintenanceLightDTO> MaintenancesDispo { get; set; }
         private int? _selectedMaintenanceId;

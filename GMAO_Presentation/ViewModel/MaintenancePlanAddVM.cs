@@ -32,8 +32,8 @@ namespace GMAO_Presentation.ViewModel
 
         public string Statut { get; } = "Nouvelle";
 
-        public DateTime DateDebut { get; set; } = DateTime.Today;
-        public DateTime DateFin { get; set; } = DateTime.Today.AddDays(30);
+        public DateTime DateDebut { get; set; } = DateTime.Now;
+        public DateTime DateFin { get; set; } = DateTime.Now.AddDays(30);
 
         private int _recurrence = 7;
         public int Recurrence
