@@ -21,7 +21,7 @@ namespace GMAO_Presentation.ViewModel
         public int SelectedInterventionId { get; set; }
 
         public string Nom { get; set; } = "";
-        public DateTime DateExecution { get; set; } = DateTime.Today;
+        public DateTime DateExecution { get; set; } = DateTime.Now;
         public string Rapport { get; set; } = "";
 
         public string DescriptionIntervention { get; set; } = "";

@@ -513,6 +513,7 @@ namespace GMAO_Presentation.Views
             this.button8.TabIndex = 2;
             this.button8.Text = "    Reporting";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // panel14
             // 

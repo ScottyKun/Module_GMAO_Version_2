@@ -57,6 +57,25 @@ namespace GMAO_Presentation.Views
             MessageBox.Show($"{title}\n{message}", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+       
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+
+        }
+
+        private void lbClick_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new Views.InscriptionForm().Show();
+            this.Hide();
+        }
     }
 }
 

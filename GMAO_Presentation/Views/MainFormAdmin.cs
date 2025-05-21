@@ -90,5 +90,9 @@ namespace GMAO_Presentation.Views
             }
         }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Views.DashBoardForm(), sender);
+        }
     }
 }

@@ -59,7 +59,7 @@ namespace GMAO_Presentation.Views
             this.lbClick.LinkColor = System.Drawing.Color.Black;
             this.lbClick.Location = new System.Drawing.Point(349, 543);
             this.lbClick.Name = "lbClick";
-            this.lbClick.Size = new System.Drawing.Size(187, 19);
+            this.lbClick.Size = new System.Drawing.Size(148, 16);
             this.lbClick.TabIndex = 44;
             this.lbClick.TabStop = true;
             this.lbClick.Text = "Déjà inscrit? Se connecter";
@@ -71,7 +71,7 @@ namespace GMAO_Presentation.Views
             this.cbRole.Location = new System.Drawing.Point(334, 487);
             this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(224, 24);
+            this.cbRole.Size = new System.Drawing.Size(224, 21);
             this.cbRole.TabIndex = 43;
             // 
             // label5
@@ -80,7 +80,7 @@ namespace GMAO_Presentation.Views
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(149, 483);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 27);
+            this.label5.Size = new System.Drawing.Size(81, 22);
             this.label5.TabIndex = 42;
             this.label5.Text = "Fonction";
             // 
@@ -90,7 +90,7 @@ namespace GMAO_Presentation.Views
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(149, 276);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 27);
+            this.label3.Size = new System.Drawing.Size(54, 22);
             this.label3.TabIndex = 40;
             this.label3.Text = "Email";
             // 
@@ -99,8 +99,10 @@ namespace GMAO_Presentation.Views
             this.txtPassword.Location = new System.Drawing.Point(334, 383);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(224, 22);
+            this.txtPassword.Size = new System.Drawing.Size(224, 20);
             this.txtPassword.TabIndex = 38;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // label2
             // 
@@ -108,7 +110,7 @@ namespace GMAO_Presentation.Views
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(149, 378);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 27);
+            this.label2.Size = new System.Drawing.Size(89, 22);
             this.label2.TabIndex = 35;
             this.label2.Text = "Password";
             // 
@@ -118,7 +120,7 @@ namespace GMAO_Presentation.Views
             this.label4.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(272, 73);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(180, 36);
+            this.label4.Size = new System.Drawing.Size(144, 29);
             this.label4.TabIndex = 33;
             this.label4.Text = "Inscription";
             // 
@@ -127,7 +129,7 @@ namespace GMAO_Presentation.Views
             this.txtEmail.Location = new System.Drawing.Point(334, 281);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(224, 22);
+            this.txtEmail.Size = new System.Drawing.Size(224, 20);
             this.txtEmail.TabIndex = 32;
             // 
             // btnInscription
@@ -147,7 +149,7 @@ namespace GMAO_Presentation.Views
             this.txtUser.Location = new System.Drawing.Point(334, 185);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(224, 22);
+            this.txtUser.Size = new System.Drawing.Size(224, 20);
             this.txtUser.TabIndex = 30;
             // 
             // label1
@@ -157,7 +159,7 @@ namespace GMAO_Presentation.Views
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(149, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 27);
+            this.label1.Size = new System.Drawing.Size(95, 22);
             this.label1.TabIndex = 29;
             this.label1.Text = "User name";
             // 

@@ -61,5 +61,17 @@ namespace GMAO_Presentation.Views
             new Views.AuthentificationForm().Show();
 
         }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+
+        }
     }
 }

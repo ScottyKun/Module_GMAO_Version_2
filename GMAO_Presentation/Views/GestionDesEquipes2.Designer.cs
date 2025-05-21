@@ -64,7 +64,7 @@ namespace GMAO_Presentation.Views
             this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(11, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 24);
+            this.label8.Size = new System.Drawing.Size(108, 19);
             this.label8.TabIndex = 10;
             this.label8.Text = "Détails équipe";
             // 
@@ -87,7 +87,7 @@ namespace GMAO_Presentation.Views
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 194);
+            this.dataGridView1.Size = new System.Drawing.Size(734, 194);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
             // 
@@ -107,7 +107,7 @@ namespace GMAO_Presentation.Views
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(191, 24);
+            this.label4.Size = new System.Drawing.Size(158, 19);
             this.label4.TabIndex = 4;
             this.label4.Text = "Membres disponibles";
             // 
@@ -117,7 +117,7 @@ namespace GMAO_Presentation.Views
             this.clbMembres.FormattingEnabled = true;
             this.clbMembres.Location = new System.Drawing.Point(99, 44);
             this.clbMembres.Name = "clbMembres";
-            this.clbMembres.Size = new System.Drawing.Size(307, 140);
+            this.clbMembres.Size = new System.Drawing.Size(307, 139);
             this.clbMembres.TabIndex = 9;
             this.clbMembres.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbMembres_ItemCheck);
             // 
@@ -141,7 +141,7 @@ namespace GMAO_Presentation.Views
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(14, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 24);
+            this.label3.Size = new System.Drawing.Size(124, 19);
             this.label3.TabIndex = 1;
             this.label3.Text = "Nom de l\'équipe";
             // 
@@ -151,7 +151,7 @@ namespace GMAO_Presentation.Views
             this.chkStatut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkStatut.Location = new System.Drawing.Point(223, 127);
             this.chkStatut.Name = "chkStatut";
-            this.chkStatut.Size = new System.Drawing.Size(62, 22);
+            this.chkStatut.Size = new System.Drawing.Size(53, 19);
             this.chkStatut.TabIndex = 10;
             this.chkStatut.Text = "actif";
             this.chkStatut.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@ namespace GMAO_Presentation.Views
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(14, 75);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 24);
+            this.label5.Size = new System.Drawing.Size(105, 19);
             this.label5.TabIndex = 3;
             this.label5.Text = "Chef d\'équipe";
             // 
@@ -172,7 +172,7 @@ namespace GMAO_Presentation.Views
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(14, 125);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 24);
+            this.label6.Size = new System.Drawing.Size(52, 19);
             this.label6.TabIndex = 7;
             this.label6.Text = "Statut";
             // 
@@ -181,14 +181,14 @@ namespace GMAO_Presentation.Views
             this.cmbChefEquipe.FormattingEnabled = true;
             this.cmbChefEquipe.Location = new System.Drawing.Point(223, 77);
             this.cmbChefEquipe.Name = "cmbChefEquipe";
-            this.cmbChefEquipe.Size = new System.Drawing.Size(248, 24);
+            this.cmbChefEquipe.Size = new System.Drawing.Size(248, 21);
             this.cmbChefEquipe.TabIndex = 6;
             // 
             // txtNomEquipe
             // 
             this.txtNomEquipe.Location = new System.Drawing.Point(223, 25);
             this.txtNomEquipe.Name = "txtNomEquipe";
-            this.txtNomEquipe.Size = new System.Drawing.Size(248, 22);
+            this.txtNomEquipe.Size = new System.Drawing.Size(248, 20);
             this.txtNomEquipe.TabIndex = 5;
             // 
             // label2
@@ -197,7 +197,7 @@ namespace GMAO_Presentation.Views
             this.label2.Font = new System.Drawing.Font("Mistral", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(577, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 20);
+            this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = ">>>>";
             // 
@@ -222,7 +222,7 @@ namespace GMAO_Presentation.Views
             this.label1.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(66, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(445, 39);
+            this.label1.Size = new System.Drawing.Size(367, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Modifier Equipe de Maintenance";
             // 
@@ -269,9 +269,9 @@ namespace GMAO_Presentation.Views
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Mistral", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(875, 104);
+            this.label7.Location = new System.Drawing.Point(831, 110);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 20);
+            this.label7.Size = new System.Drawing.Size(40, 16);
             this.label7.TabIndex = 6;
             this.label7.Text = ">>>>";
             // 
