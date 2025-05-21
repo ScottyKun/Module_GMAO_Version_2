@@ -35,6 +35,9 @@ namespace GMAO_Presentation.Views
             DevExpress.XtraTreeMap.HatchFillStyle hatchFillStyle1 = new DevExpress.XtraTreeMap.HatchFillStyle();
             DevExpress.XtraTreeMap.HatchFillStyle hatchFillStyle2 = new DevExpress.XtraTreeMap.HatchFillStyle();
             DevExpress.XtraTreeMap.TreeMapPaletteColorizer treeMapPaletteColorizer1 = new DevExpress.XtraTreeMap.TreeMapPaletteColorizer();
+            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.OverlappedRangeBarSeriesView overlappedRangeBarSeriesView1 = new DevExpress.XtraCharts.OverlappedRangeBarSeriesView();
             DevExpress.XtraCharts.XYDiagram xyDiagram3 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.XYDiagram xyDiagram4 = new DevExpress.XtraCharts.XYDiagram();
@@ -45,14 +48,12 @@ namespace GMAO_Presentation.Views
             DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.OverlappedRangeBarSeriesView overlappedRangeBarSeriesView1 = new DevExpress.XtraCharts.OverlappedRangeBarSeriesView();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.stackedBarPanne = new DevExpress.XtraCharts.ChartControl();
             this.treeMapABC = new DevExpress.XtraTreeMap.TreeMapControl();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.rangeBarMTBF = new DevExpress.XtraCharts.ChartControl();
             this.chartMTTR = new DevExpress.XtraCharts.ChartControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.chartTauxPlanif = new DevExpress.XtraCharts.ChartControl();
@@ -62,7 +63,7 @@ namespace GMAO_Presentation.Views
             this.chartDonutReussite = new DevExpress.XtraCharts.ChartControl();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnTelecharger = new System.Windows.Forms.Button();
-            this.rangeBarMTBF = new DevExpress.XtraCharts.ChartControl();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -72,6 +73,10 @@ namespace GMAO_Presentation.Views
             ((System.ComponentModel.ISupportInitialize)(stackedBarSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeMapABC)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rangeBarMTBF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(overlappedRangeBarSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMTTR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
@@ -89,10 +94,6 @@ namespace GMAO_Presentation.Views
             ((System.ComponentModel.ISupportInitialize)(this.chartDonutReussite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rangeBarMTBF)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(overlappedRangeBarSeriesView1)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -113,7 +114,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage1.Controls.Add(this.stackedBarPanne);
             this.xtraTabPage1.Controls.Add(this.treeMapABC);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1049, 572);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1049, 577);
             this.xtraTabPage1.Text = "Equipements";
             // 
             // stackedBarPanne
@@ -148,8 +149,22 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage4.Controls.Add(this.rangeBarMTBF);
             this.xtraTabPage4.Controls.Add(this.chartMTTR);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(1049, 572);
+            this.xtraTabPage4.Size = new System.Drawing.Size(1049, 577);
             this.xtraTabPage4.Text = "MT";
+            // 
+            // rangeBarMTBF
+            // 
+            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+            this.rangeBarMTBF.Diagram = xyDiagram2;
+            this.rangeBarMTBF.Location = new System.Drawing.Point(532, 82);
+            this.rangeBarMTBF.Name = "rangeBarMTBF";
+            series2.Name = "Series 1";
+            series2.View = overlappedRangeBarSeriesView1;
+            this.rangeBarMTBF.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series2};
+            this.rangeBarMTBF.Size = new System.Drawing.Size(514, 449);
+            this.rangeBarMTBF.TabIndex = 10;
             // 
             // chartMTTR
             // 
@@ -169,7 +184,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage2.Controls.Add(this.chartTauxPlanif);
             this.xtraTabPage2.Controls.Add(this.chartClotureWO);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1049, 572);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1049, 577);
             this.xtraTabPage2.Text = "Responsable";
             // 
             // chartTauxPlanif
@@ -203,7 +218,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage3.Controls.Add(this.chartTempsIntervention);
             this.xtraTabPage3.Controls.Add(this.chartDonutReussite);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1049, 572);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1049, 577);
             this.xtraTabPage3.Text = "Equipe de maintenance";
             // 
             // chartTempsIntervention
@@ -261,25 +276,22 @@ namespace GMAO_Presentation.Views
             this.btnTelecharger.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTelecharger.UseVisualStyleBackColor = false;
             // 
-            // rangeBarMTBF
+            // label1
             // 
-            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
-            this.rangeBarMTBF.Diagram = xyDiagram2;
-            this.rangeBarMTBF.Location = new System.Drawing.Point(532, 82);
-            this.rangeBarMTBF.Name = "rangeBarMTBF";
-            series2.Name = "Series 1";
-            series2.View = overlappedRangeBarSeriesView1;
-            this.rangeBarMTBF.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.rangeBarMTBF.Size = new System.Drawing.Size(514, 449);
-            this.rangeBarMTBF.TabIndex = 10;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(154, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(474, 33);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Tableaux de bord pour le suivi de l\'activité";
             // 
             // DashBoardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1051, 682);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnTelecharger);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.xtraTabControl1);
@@ -295,6 +307,10 @@ namespace GMAO_Presentation.Views
             ((System.ComponentModel.ISupportInitialize)(this.stackedBarPanne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeMapABC)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(overlappedRangeBarSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rangeBarMTBF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMTTR)).EndInit();
@@ -312,11 +328,8 @@ namespace GMAO_Presentation.Views
             ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDonutReussite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(overlappedRangeBarSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rangeBarMTBF)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -337,5 +350,6 @@ namespace GMAO_Presentation.Views
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
         private DevExpress.XtraCharts.ChartControl chartMTTR;
         private DevExpress.XtraCharts.ChartControl rangeBarMTBF;
+        private System.Windows.Forms.Label label1;
     }
 }

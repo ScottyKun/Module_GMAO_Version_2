@@ -75,6 +75,9 @@ namespace GMAO_Presentation.Views
             this.biCardCoutMoyenPlan = new GMAO_Presentation.Helpers.BiCard();
             this.chartCoutParEquipement = new DevExpress.XtraCharts.ChartControl();
             this.chartRepartition = new DevExpress.XtraCharts.ChartControl();
+            this.btnTelecharger = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Dashboard)).BeginInit();
             this.Dashboard.SuspendLayout();
             this.Top.SuspendLayout();
@@ -115,15 +118,15 @@ namespace GMAO_Presentation.Views
             ((System.ComponentModel.ISupportInitialize)(this.chartRepartition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Dashboard
             // 
-            this.Dashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Dashboard.Location = new System.Drawing.Point(0, 0);
+            this.Dashboard.Location = new System.Drawing.Point(0, 85);
             this.Dashboard.Name = "Dashboard";
             this.Dashboard.SelectedTabPage = this.Top;
-            this.Dashboard.Size = new System.Drawing.Size(1051, 629);
+            this.Dashboard.Size = new System.Drawing.Size(1051, 575);
             this.Dashboard.TabIndex = 0;
             this.Dashboard.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.Top,
@@ -136,7 +139,7 @@ namespace GMAO_Presentation.Views
             this.Top.Controls.Add(this.chartTopPieces);
             this.Top.Controls.Add(this.chartTopEquipements);
             this.Top.Name = "Top";
-            this.Top.Size = new System.Drawing.Size(1049, 599);
+            this.Top.Size = new System.Drawing.Size(1049, 550);
             this.Top.Text = "Top N";
             // 
             // chartTopPieces
@@ -146,7 +149,7 @@ namespace GMAO_Presentation.Views
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartTopPieces.Diagram = xyDiagram1;
             this.chartTopPieces.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartTopPieces.Location = new System.Drawing.Point(521, 153);
+            this.chartTopPieces.Location = new System.Drawing.Point(521, 46);
             this.chartTopPieces.Margin = new System.Windows.Forms.Padding(6);
             this.chartTopPieces.Name = "chartTopPieces";
             series1.ArgumentDataMember = "Label";
@@ -154,7 +157,7 @@ namespace GMAO_Presentation.Views
             series1.ValueDataMembersSerializable = "Value";
             this.chartTopPieces.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartTopPieces.Size = new System.Drawing.Size(514, 411);
+            this.chartTopPieces.Size = new System.Drawing.Size(514, 488);
             this.chartTopPieces.TabIndex = 2;
             // 
             // chartTopEquipements
@@ -164,7 +167,7 @@ namespace GMAO_Presentation.Views
             xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
             this.chartTopEquipements.Diagram = xyDiagram2;
             this.chartTopEquipements.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartTopEquipements.Location = new System.Drawing.Point(14, 153);
+            this.chartTopEquipements.Location = new System.Drawing.Point(23, 46);
             this.chartTopEquipements.Margin = new System.Windows.Forms.Padding(6);
             this.chartTopEquipements.Name = "chartTopEquipements";
             series2.ArgumentDataMember = "Label";
@@ -172,7 +175,7 @@ namespace GMAO_Presentation.Views
             series2.ValueDataMembersSerializable = "Value";
             this.chartTopEquipements.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series2};
-            this.chartTopEquipements.Size = new System.Drawing.Size(486, 411);
+            this.chartTopEquipements.Size = new System.Drawing.Size(486, 488);
             this.chartTopEquipements.TabIndex = 1;
             // 
             // xtraTabPage2
@@ -183,14 +186,14 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage2.Controls.Add(this.chartDepenseMensuelle);
             this.xtraTabPage2.Controls.Add(this.chartPrevuReel);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1049, 599);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1049, 550);
             this.xtraTabPage2.Text = "Budget";
             // 
             // gaugeBudget
             // 
             this.gaugeBudget.BackColor = System.Drawing.SystemColors.Control;
             this.gaugeBudget.GaugeColor = System.Drawing.Color.SteelBlue;
-            this.gaugeBudget.Location = new System.Drawing.Point(-1, 56);
+            this.gaugeBudget.Location = new System.Drawing.Point(0, 17);
             this.gaugeBudget.Maximum = 100D;
             this.gaugeBudget.Minimum = 0D;
             this.gaugeBudget.Name = "gaugeBudget";
@@ -206,7 +209,7 @@ namespace GMAO_Presentation.Views
             // gridViewEcart
             // 
             this.gridViewEcart.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6);
-            this.gridViewEcart.Location = new System.Drawing.Point(190, 56);
+            this.gridViewEcart.Location = new System.Drawing.Point(198, 17);
             this.gridViewEcart.MainView = this.gridView;
             this.gridViewEcart.Margin = new System.Windows.Forms.Padding(6);
             this.gridViewEcart.Name = "gridViewEcart";
@@ -224,7 +227,7 @@ namespace GMAO_Presentation.Views
             // gridTauxDepassement
             // 
             this.gridTauxDepassement.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6);
-            this.gridTauxDepassement.Location = new System.Drawing.Point(630, 56);
+            this.gridTauxDepassement.Location = new System.Drawing.Point(631, 17);
             this.gridTauxDepassement.MainView = this.gridView1;
             this.gridTauxDepassement.Margin = new System.Windows.Forms.Padding(6);
             this.gridTauxDepassement.Name = "gridTauxDepassement";
@@ -252,7 +255,7 @@ namespace GMAO_Presentation.Views
             xyDiagram3.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram3.AxisY.VisibleInPanesSerializable = "-1";
             this.chartDepenseMensuelle.Diagram = xyDiagram3;
-            this.chartDepenseMensuelle.Location = new System.Drawing.Point(525, 336);
+            this.chartDepenseMensuelle.Location = new System.Drawing.Point(524, 299);
             this.chartDepenseMensuelle.Margin = new System.Windows.Forms.Padding(6);
             this.chartDepenseMensuelle.Name = "chartDepenseMensuelle";
             series3.Name = "Series 1";
@@ -261,7 +264,7 @@ namespace GMAO_Presentation.Views
             this.chartDepenseMensuelle.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series3,
         series4};
-            this.chartDepenseMensuelle.Size = new System.Drawing.Size(525, 264);
+            this.chartDepenseMensuelle.Size = new System.Drawing.Size(525, 245);
             this.chartDepenseMensuelle.TabIndex = 9;
             // 
             // chartPrevuReel
@@ -269,7 +272,7 @@ namespace GMAO_Presentation.Views
             xyDiagram4.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram4.AxisY.VisibleInPanesSerializable = "-1";
             this.chartPrevuReel.Diagram = xyDiagram4;
-            this.chartPrevuReel.Location = new System.Drawing.Point(0, 336);
+            this.chartPrevuReel.Location = new System.Drawing.Point(0, 299);
             this.chartPrevuReel.Margin = new System.Windows.Forms.Padding(6);
             this.chartPrevuReel.Name = "chartPrevuReel";
             series5.Name = "Series 1";
@@ -279,14 +282,14 @@ namespace GMAO_Presentation.Views
             this.chartPrevuReel.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series5,
         series6};
-            this.chartPrevuReel.Size = new System.Drawing.Size(526, 265);
+            this.chartPrevuReel.Size = new System.Drawing.Size(526, 245);
             this.chartPrevuReel.TabIndex = 6;
             // 
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.chartEvolution);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1049, 599);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1049, 550);
             this.xtraTabPage1.Text = "Evolution";
             // 
             // chartEvolution
@@ -301,7 +304,7 @@ namespace GMAO_Presentation.Views
             xyDiagram5.AxisX.WholeRange.MinValueSerializable = "0";
             xyDiagram5.AxisY.VisibleInPanesSerializable = "-1";
             this.chartEvolution.Diagram = xyDiagram5;
-            this.chartEvolution.Location = new System.Drawing.Point(14, 80);
+            this.chartEvolution.Location = new System.Drawing.Point(24, 17);
             this.chartEvolution.Margin = new System.Windows.Forms.Padding(6);
             this.chartEvolution.Name = "chartEvolution";
             series7.Name = "Series 1";
@@ -311,7 +314,7 @@ namespace GMAO_Presentation.Views
             this.chartEvolution.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series7,
         series8};
-            this.chartEvolution.Size = new System.Drawing.Size(996, 505);
+            this.chartEvolution.Size = new System.Drawing.Size(996, 527);
             this.chartEvolution.TabIndex = 5;
             // 
             // xtraTabPage3
@@ -324,12 +327,12 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage3.Controls.Add(this.chartCoutParEquipement);
             this.xtraTabPage3.Controls.Add(this.chartRepartition);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1049, 599);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1049, 550);
             this.xtraTabPage3.Text = "Global";
             // 
             // biCardCoutTotal
             // 
-            this.biCardCoutTotal.Location = new System.Drawing.Point(22, 101);
+            this.biCardCoutTotal.Location = new System.Drawing.Point(20, 63);
             this.biCardCoutTotal.Name = "biCardCoutTotal";
             this.biCardCoutTotal.Size = new System.Drawing.Size(158, 100);
             this.biCardCoutTotal.TabIndex = 17;
@@ -340,7 +343,7 @@ namespace GMAO_Presentation.Views
             // 
             // biCardCoutCorrective
             // 
-            this.biCardCoutCorrective.Location = new System.Drawing.Point(232, 101);
+            this.biCardCoutCorrective.Location = new System.Drawing.Point(226, 63);
             this.biCardCoutCorrective.Name = "biCardCoutCorrective";
             this.biCardCoutCorrective.Size = new System.Drawing.Size(158, 100);
             this.biCardCoutCorrective.TabIndex = 16;
@@ -351,7 +354,7 @@ namespace GMAO_Presentation.Views
             // 
             // biCardCoutPlanifiee
             // 
-            this.biCardCoutPlanifiee.Location = new System.Drawing.Point(450, 101);
+            this.biCardCoutPlanifiee.Location = new System.Drawing.Point(447, 63);
             this.biCardCoutPlanifiee.Name = "biCardCoutPlanifiee";
             this.biCardCoutPlanifiee.Size = new System.Drawing.Size(158, 100);
             this.biCardCoutPlanifiee.TabIndex = 15;
@@ -362,7 +365,7 @@ namespace GMAO_Presentation.Views
             // 
             // biCardCoutMoyenCo
             // 
-            this.biCardCoutMoyenCo.Location = new System.Drawing.Point(661, 101);
+            this.biCardCoutMoyenCo.Location = new System.Drawing.Point(660, 63);
             this.biCardCoutMoyenCo.Name = "biCardCoutMoyenCo";
             this.biCardCoutMoyenCo.Size = new System.Drawing.Size(158, 100);
             this.biCardCoutMoyenCo.TabIndex = 14;
@@ -373,7 +376,7 @@ namespace GMAO_Presentation.Views
             // 
             // biCardCoutMoyenPlan
             // 
-            this.biCardCoutMoyenPlan.Location = new System.Drawing.Point(870, 101);
+            this.biCardCoutMoyenPlan.Location = new System.Drawing.Point(862, 63);
             this.biCardCoutMoyenPlan.Name = "biCardCoutMoyenPlan";
             this.biCardCoutMoyenPlan.Size = new System.Drawing.Size(158, 100);
             this.biCardCoutMoyenPlan.TabIndex = 13;
@@ -388,32 +391,70 @@ namespace GMAO_Presentation.Views
             xyDiagram6.AxisY.VisibleInPanesSerializable = "-1";
             this.chartCoutParEquipement.Diagram = xyDiagram6;
             this.chartCoutParEquipement.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartCoutParEquipement.Location = new System.Drawing.Point(395, 234);
+            this.chartCoutParEquipement.Location = new System.Drawing.Point(396, 172);
             this.chartCoutParEquipement.Margin = new System.Windows.Forms.Padding(6);
             this.chartCoutParEquipement.Name = "chartCoutParEquipement";
             series9.Name = "Series 1";
             this.chartCoutParEquipement.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series9};
-            this.chartCoutParEquipement.Size = new System.Drawing.Size(654, 351);
+            this.chartCoutParEquipement.Size = new System.Drawing.Size(654, 379);
             this.chartCoutParEquipement.TabIndex = 11;
             // 
             // chartRepartition
             // 
-            this.chartRepartition.Location = new System.Drawing.Point(6, 234);
+            this.chartRepartition.Location = new System.Drawing.Point(6, 171);
             this.chartRepartition.Margin = new System.Windows.Forms.Padding(6);
             this.chartRepartition.Name = "chartRepartition";
             series10.Name = "RepartitionTypeMaintenance";
             series10.View = pieSeriesView1;
             this.chartRepartition.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series10};
-            this.chartRepartition.Size = new System.Drawing.Size(388, 351);
+            this.chartRepartition.Size = new System.Drawing.Size(388, 379);
             this.chartRepartition.TabIndex = 10;
+            // 
+            // btnTelecharger
+            // 
+            this.btnTelecharger.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnTelecharger.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnTelecharger.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTelecharger.Image = global::GMAO_Presentation.Properties.Resources.Download;
+            this.btnTelecharger.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTelecharger.Location = new System.Drawing.Point(890, 12);
+            this.btnTelecharger.Name = "btnTelecharger";
+            this.btnTelecharger.Size = new System.Drawing.Size(131, 85);
+            this.btnTelecharger.TabIndex = 10;
+            this.btnTelecharger.Text = "Telecharger";
+            this.btnTelecharger.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTelecharger.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(193, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(275, 33);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Suivi des coûts et budget";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GMAO_Presentation.Properties.Resources.Dollar_Bag;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // SuiviBudgetCoutForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1051, 629);
+            this.ClientSize = new System.Drawing.Size(1051, 658);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnTelecharger);
             this.Controls.Add(this.Dashboard);
             this.Name = "SuiviBudgetCoutForm";
             this.Load += new System.EventHandler(this.SuiviBudgetCoutForm_Load);
@@ -457,7 +498,9 @@ namespace GMAO_Presentation.Views
             ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRepartition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -486,5 +529,8 @@ namespace GMAO_Presentation.Views
         private Helpers.BiCard biCardCoutMoyenPlan;
         private DevExpress.XtraCharts.ChartControl chartCoutParEquipement;
         private DevExpress.XtraCharts.ChartControl chartRepartition;
+        private System.Windows.Forms.Button btnTelecharger;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

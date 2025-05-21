@@ -74,6 +74,7 @@ namespace GMAO_Presentation.Views
         private void lbClick_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new Views.InscriptionForm().Show();
+            this.Hide();
         }
     }
 }

@@ -96,19 +96,19 @@ namespace GMAO_Presentation.Views
         private void SetupGlobalPage()
         {
             // Valeurs globales
-            biCardCoutTotal.ValueText = _viewModel.GlobalVM.CoutTotalGlobal.ToString("C0");
+            biCardCoutTotal.ValueText = _viewModel.GlobalVM.CoutTotalGlobal.ToString();
             biCardCoutTotal.Title = "Coût Total";
 
-            biCardCoutCorrective.ValueText = _viewModel.GlobalVM.CoutTotalCorrective.ToString("C0");
+            biCardCoutCorrective.ValueText = _viewModel.GlobalVM.CoutTotalCorrective.ToString();
             biCardCoutCorrective.Title = "Corrective";
 
-            biCardCoutPlanifiee.ValueText = _viewModel.GlobalVM.CoutTotalPlanifiee.ToString("C0");
+            biCardCoutPlanifiee.ValueText = _viewModel.GlobalVM.CoutTotalPlanifiee.ToString();
             biCardCoutPlanifiee.Title = "Planifiée";
 
-            biCardCoutMoyenCo.ValueText = _viewModel.GlobalVM.CoutMoyenCorrective.ToString("C0");
+            biCardCoutMoyenCo.ValueText = _viewModel.GlobalVM.CoutMoyenCorrective.ToString();
             biCardCoutMoyenCo.Title = "Moyen Corrective";
 
-            biCardCoutMoyenPlan.ValueText = _viewModel.GlobalVM.CoutMoyenPlanifiee.ToString("C0");
+            biCardCoutMoyenPlan.ValueText = _viewModel.GlobalVM.CoutMoyenPlanifiee.ToString();
             biCardCoutMoyenPlan.Title = "Moyen Planifiée";
 
 
@@ -181,11 +181,11 @@ namespace GMAO_Presentation.Views
             view.OptionsBehavior.Editable = false;
 
             view.Columns["BudgetPrevu"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            view.Columns["BudgetPrevu"].DisplayFormat.FormatString = "c0";
+           // view.Columns["BudgetPrevu"].DisplayFormat.FormatString = "c0";
             view.Columns["CoutReel"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            view.Columns["CoutReel"].DisplayFormat.FormatString = "c0";
+           // view.Columns["CoutReel"].DisplayFormat.FormatString = "c0";
             view.Columns["Ecart"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            view.Columns["Ecart"].DisplayFormat.FormatString = "c0";
+           // view.Columns["Ecart"].DisplayFormat.FormatString = "c0";
 
             // Mise en forme conditionnelle pour Ecart
             StyleFormatCondition conditionNegative = new StyleFormatCondition();
@@ -286,6 +286,11 @@ namespace GMAO_Presentation.Views
             planifiee.LegendText = "Maintenance Planifiée";
         }
 
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
 
+        }
+
+       
     }
 }
