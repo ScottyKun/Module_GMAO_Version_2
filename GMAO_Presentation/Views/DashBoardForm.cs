@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraCharts;
 using DevExpress.XtraCharts.Heatmap;
 using DevExpress.XtraTreeMap;
+using GMAO_Presentation.Helpers;
 using GMAO_Presentation.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -255,6 +256,35 @@ namespace GMAO_Presentation.Views
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             new Views.DashboardDesigner().ShowDialog();
+        }
+
+        private void btnTelecharger_Click(object sender, EventArgs e)
+        {
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                folderDialog.Description = "Choisissez le dossier où exporter les visuels";
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string dossierExport = folderDialog.SelectedPath;
+
+                    // Récupère la page courante sélectionnée du XtraTabControl (celle dont on veut exporter les visuels)
+                    var tabPage = xtraTabControl1.SelectedTabPage;
+                    if (tabPage == null)
+                    {
+                        MessageBox.Show("Aucune page sélectionnée pour l'export.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    try
+                    {
+                        ExportHelper.ExportVisuelsDeLaPage(tabPage, dossierExport);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erreur lors de l'export : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

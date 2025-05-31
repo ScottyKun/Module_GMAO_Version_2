@@ -286,11 +286,34 @@ namespace GMAO_Presentation.Views
             planifiee.LegendText = "Maintenance Planifiée";
         }
 
-        private void btnAjouter_Click(object sender, EventArgs e)
+        
+        private void btnTelecharger_Click(object sender, EventArgs e)
         {
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                folderDialog.Description = "Choisissez le dossier où exporter les visuels";
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string dossierExport = folderDialog.SelectedPath;
 
+                    // Récupère la page courante sélectionnée du XtraTabControl (celle dont on veut exporter les visuels)
+                    var tabPage = Dashboard.SelectedTabPage;
+                    if (tabPage == null)
+                    {
+                        MessageBox.Show("Aucune page sélectionnée pour l'export.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    try
+                    {
+                        GMAO_Presentation.Helpers.ExportHelper.ExportVisuelsDeLaPage(tabPage, dossierExport);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erreur lors de l'export : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
-
-       
     }
 }

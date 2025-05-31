@@ -139,7 +139,7 @@ namespace GMAO_Presentation.Views
             this.Top.Controls.Add(this.chartTopPieces);
             this.Top.Controls.Add(this.chartTopEquipements);
             this.Top.Name = "Top";
-            this.Top.Size = new System.Drawing.Size(1049, 550);
+            this.Top.Size = new System.Drawing.Size(1049, 545);
             this.Top.Text = "Top N";
             // 
             // chartTopPieces
@@ -186,7 +186,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage2.Controls.Add(this.chartDepenseMensuelle);
             this.xtraTabPage2.Controls.Add(this.chartPrevuReel);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1049, 550);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1049, 545);
             this.xtraTabPage2.Text = "Budget";
             // 
             // gaugeBudget
@@ -289,7 +289,7 @@ namespace GMAO_Presentation.Views
             // 
             this.xtraTabPage1.Controls.Add(this.chartEvolution);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1049, 550);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1049, 545);
             this.xtraTabPage1.Text = "Evolution";
             // 
             // chartEvolution
@@ -327,7 +327,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage3.Controls.Add(this.chartCoutParEquipement);
             this.xtraTabPage3.Controls.Add(this.chartRepartition);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1049, 550);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1049, 545);
             this.xtraTabPage3.Text = "Global";
             // 
             // biCardCoutTotal
@@ -426,6 +426,7 @@ namespace GMAO_Presentation.Views
             this.btnTelecharger.Text = "Telecharger";
             this.btnTelecharger.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTelecharger.UseVisualStyleBackColor = false;
+            this.btnTelecharger.Click += new System.EventHandler(this.btnTelecharger_Click);
             // 
             // label1
             // 
@@ -433,7 +434,7 @@ namespace GMAO_Presentation.Views
             this.label1.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(193, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(275, 33);
+            this.label1.Size = new System.Drawing.Size(328, 39);
             this.label1.TabIndex = 11;
             this.label1.Text = "Suivi des coûts et budget";
             // 

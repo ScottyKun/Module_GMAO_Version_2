@@ -114,7 +114,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage1.Controls.Add(this.stackedBarPanne);
             this.xtraTabPage1.Controls.Add(this.treeMapABC);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1049, 577);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1049, 572);
             this.xtraTabPage1.Text = "Equipements";
             // 
             // stackedBarPanne
@@ -149,7 +149,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage4.Controls.Add(this.rangeBarMTBF);
             this.xtraTabPage4.Controls.Add(this.chartMTTR);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(1049, 577);
+            this.xtraTabPage4.Size = new System.Drawing.Size(1049, 572);
             this.xtraTabPage4.Text = "MT";
             // 
             // rangeBarMTBF
@@ -184,7 +184,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage2.Controls.Add(this.chartTauxPlanif);
             this.xtraTabPage2.Controls.Add(this.chartClotureWO);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1049, 577);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1049, 572);
             this.xtraTabPage2.Text = "Responsable";
             // 
             // chartTauxPlanif
@@ -218,7 +218,7 @@ namespace GMAO_Presentation.Views
             this.xtraTabPage3.Controls.Add(this.chartTempsIntervention);
             this.xtraTabPage3.Controls.Add(this.chartDonutReussite);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1049, 577);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1049, 572);
             this.xtraTabPage3.Text = "Equipe de maintenance";
             // 
             // chartTempsIntervention
@@ -275,6 +275,7 @@ namespace GMAO_Presentation.Views
             this.btnTelecharger.Text = "Telecharger";
             this.btnTelecharger.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTelecharger.UseVisualStyleBackColor = false;
+            this.btnTelecharger.Click += new System.EventHandler(this.btnTelecharger_Click);
             // 
             // label1
             // 
@@ -282,7 +283,7 @@ namespace GMAO_Presentation.Views
             this.label1.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(154, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(474, 33);
+            this.label1.Size = new System.Drawing.Size(570, 39);
             this.label1.TabIndex = 9;
             this.label1.Text = "Tableaux de bord pour le suivi de l\'activité";
             // 
