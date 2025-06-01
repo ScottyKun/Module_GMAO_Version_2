@@ -117,7 +117,7 @@ namespace GMAO_Presentation.Views
             this.gridPiecesUtilisees.Name = "gridPiecesUtilisees";
             this.gridPiecesUtilisees.RowHeadersWidth = 51;
             this.gridPiecesUtilisees.RowTemplate.Height = 24;
-            this.gridPiecesUtilisees.Size = new System.Drawing.Size(341, 174);
+            this.gridPiecesUtilisees.Size = new System.Drawing.Size(348, 174);
             this.gridPiecesUtilisees.TabIndex = 16;
             // 
             // gridPiecesReservees
@@ -130,7 +130,7 @@ namespace GMAO_Presentation.Views
             this.gridPiecesReservees.ReadOnly = true;
             this.gridPiecesReservees.RowHeadersWidth = 51;
             this.gridPiecesReservees.RowTemplate.Height = 24;
-            this.gridPiecesReservees.Size = new System.Drawing.Size(346, 174);
+            this.gridPiecesReservees.Size = new System.Drawing.Size(362, 174);
             this.gridPiecesReservees.TabIndex = 17;
             // 
             // label9

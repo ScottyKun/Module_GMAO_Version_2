@@ -96,9 +96,9 @@ namespace GMAO_Presentation.Views
                 if (confirm == DialogResult.Yes)
                 {
                     viewModel.SupprimerCommand.Execute(null);
-                    MaintenanceSupprimee = true;
+                    /*MaintenanceSupprimee = true;
                     DialogResult = DialogResult.OK;
-                    Close();
+                    Close();*/
                 }
             };
 
@@ -107,6 +107,7 @@ namespace GMAO_Presentation.Views
             viewModel.OnClose += () =>
             {
                 MaintenanceModifiee = viewModel.GetById(maintenanceId);
+                MaintenanceSupprimee = true;
                 DialogResult = DialogResult.OK;
                 Close();
             };

@@ -105,9 +105,9 @@ namespace GMAO_Presentation.Views
                     if (viewModel.SupprimerCommand.CanExecute(null))
                     {
                         viewModel.SupprimerCommand.Execute(null);
-                        Supprime = true;
+                       /* Supprime = true;
                         DialogResult = DialogResult.OK;
-                        Close();
+                        Close();*/
                     }
                 }
             };
@@ -138,6 +138,7 @@ namespace GMAO_Presentation.Views
             viewModel.OnClose += () =>
             {
                 WorkOrderModifie = viewModel.GetById(workOrderId);
+                Supprime = true;
                 DialogResult = DialogResult.OK;
                 Close();
             };

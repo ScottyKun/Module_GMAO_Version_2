@@ -162,6 +162,9 @@ namespace GMAO_Presentation.Views
             {
                 diagram.Rotated = true;
                 diagram.AxisX.Label.Angle = -45;
+
+                diagram.AxisY.Title.Text = "Temps moyen (h)";
+                diagram.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             }
 
 
@@ -207,6 +210,7 @@ namespace GMAO_Presentation.Views
                 diagram.AxisX.Label.Angle = -45;
                 diagram.AxisY.Title.Text = "Nb pannes";
                 diagram.AxisY.WholeRange.AlwaysShowZeroLevel = true;
+                diagram.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             }
 
 

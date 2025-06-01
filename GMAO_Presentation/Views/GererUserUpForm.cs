@@ -31,7 +31,7 @@ namespace GMAO_Presentation.Views
             txtUsername.DataBindings.Add("Text", viewModel, "Username");
             chkStatut.DataBindings.Add("Checked", viewModel, "Statut");
 
-            chkStatut.Enabled = false;
+            //chkStatut.Enabled = false;
 
             btnModifier.Click += (s, e) =>
             {
@@ -59,6 +59,7 @@ namespace GMAO_Presentation.Views
                     Email=txtEmail.Text,
                     Username=txtUsername.Text,
                     Fonction=txtFonction.Text,
+                    Statut=chkStatut.Checked
                 };
                 MessageBox.Show("Opération effectuée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;

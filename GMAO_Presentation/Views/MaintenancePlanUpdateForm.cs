@@ -50,9 +50,9 @@ namespace GMAO_Presentation.Views
                 if (confirm == DialogResult.Yes)
                 {
                     viewModel.SupprimerCommand.Execute(null);
-                    EstSupprimee = true;
+                   /* EstSupprimee = true;
                     DialogResult = DialogResult.OK;
-                    Close();
+                    Close();*/
                 }
             };
 
@@ -64,6 +64,7 @@ namespace GMAO_Presentation.Views
             viewModel.OnClose += () =>
             {
                 MaintenanceModifiee = viewModel.GetById(maintenanceId);
+                EstSupprimee = true;
                 DialogResult = DialogResult.OK;
                 Close();
             };

@@ -58,6 +58,7 @@ namespace GMAO_Presentation.Views
         {
             gridViewBudgets.OptionsBehavior.Editable = false;
             gridViewBudgets.OptionsView.ShowGroupPanel = false;
+            gridViewBudgets.OptionsBehavior.ReadOnly = true;
 
             gridViewBudgets.Columns.Clear();
 

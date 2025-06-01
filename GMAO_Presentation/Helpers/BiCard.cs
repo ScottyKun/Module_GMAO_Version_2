@@ -72,6 +72,10 @@ namespace GMAO_Presentation.Helpers
                     new PointF(10, yPos));
             }
         }
+
+
+       
+
     }
 
     // Extension pour les rectangles arrondis
@@ -103,4 +107,7 @@ namespace GMAO_Presentation.Helpers
             return path;
         }
     }
+
+
+
 }

@@ -323,7 +323,7 @@ namespace GMAO_Presentation.Views
             this.dgvPieces.Name = "dgvPieces";
             this.dgvPieces.RowHeadersWidth = 51;
             this.dgvPieces.RowTemplate.Height = 24;
-            this.dgvPieces.Size = new System.Drawing.Size(510, 190);
+            this.dgvPieces.Size = new System.Drawing.Size(435, 190);
             this.dgvPieces.TabIndex = 29;
             // 
             // panel4

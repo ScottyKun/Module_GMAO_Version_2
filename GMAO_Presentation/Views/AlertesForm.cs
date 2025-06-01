@@ -42,6 +42,9 @@ namespace GMAO_Presentation.Views
             var checkCol = view.Columns.AddVisible("Terminee", "Lue");
             checkCol.ColumnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
 
+            view.OptionsBehavior.Editable = false;            
+            view.OptionsBehavior.ReadOnly = true;
+
             // Double-clic pour voir les détails
             view.DoubleClick += (s, e) =>
             {
@@ -51,11 +54,21 @@ namespace GMAO_Presentation.Views
                     var form = new AlerteDetailForm(selected.Id);
                     if (form.ShowDialog() == DialogResult.OK)
                     {
-                        viewModel.RefreshCommand.Execute(null); // actualisation
-                        gridViewAlertes.RefreshData(); // pour être sûr
+                        // Supposons que la form expose l'alerte modifiée via une propriété publique
+                        var updatedAlerte = form.AlerteModifiee;
+                        if (updatedAlerte != null)
+                        {
+                            int index = viewModel.Alertes.IndexOf(selected);
+                            if (index >= 0)
+                            {
+                                viewModel.Alertes[index] = updatedAlerte;
+                                gridViewAlertes.RefreshRow(index);
+                            }
+                        }
                     }
                 }
             };
+
 
         }
     }

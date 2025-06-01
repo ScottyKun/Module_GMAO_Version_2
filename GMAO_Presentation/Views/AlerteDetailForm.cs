@@ -1,4 +1,5 @@
-﻿using GMAO_Presentation.ViewModel;
+﻿using GMAO_Business.DTOs;
+using GMAO_Presentation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace GMAO_Presentation.Views
     public partial class AlerteDetailForm : Form
     {
         private readonly AlerteDetVM viewModel;
+
+        public AlerteDTO AlerteModifiee { get; private set; }
         public AlerteDetailForm(int alerteId)
         {
             InitializeComponent();
@@ -34,6 +37,16 @@ namespace GMAO_Presentation.Views
 
             viewModel.OnClose += () =>
             {
+                AlerteModifiee = new AlerteDTO
+                {
+                    Id = viewModel.AlerteId,
+                    Libelle = viewModel.Libelle,
+                    Message = viewModel.Message,
+                    Priorite = viewModel.Priorite,
+                    DateCreation = viewModel.DateCreation,
+                    Terminee = viewModel.Terminee
+                };
+
                 MessageBox.Show("Opération effectuée", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();

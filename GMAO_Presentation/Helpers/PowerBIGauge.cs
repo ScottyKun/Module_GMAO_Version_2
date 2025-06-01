@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -128,16 +129,21 @@ namespace GMAO_Presentation.Helpers
             double percentage = (_value - _minimum) / (_maximum - _minimum);
             float currentValueAngle = (float)(sweepAngle * percentage);
 
-            // Draw the gauge arc
-            using (var pen = new Pen(Color.LightGray, 10))
+            try
             {
-                g.DrawArc(pen, centerX - radius, centerY - radius, 2 * radius, 2 * radius, startAngle, sweepAngle);
-            }
+                using (var pen = new Pen(Color.LightGray, 10))
+                {
+                    g.DrawArc(pen, centerX - radius, centerY - radius, 2 * radius, 2 * radius, startAngle, sweepAngle);
+                }
 
-            // Draw the value arc
-            using (var pen = new Pen(_gaugeColor, 10))
+                using (var pen = new Pen(_gaugeColor, 10))
+                {
+                    g.DrawArc(pen, centerX - radius, centerY - radius, 2 * radius, 2 * radius, startAngle, currentValueAngle);
+                }
+            }
+            catch (Exception ex)
             {
-                g.DrawArc(pen, centerX - radius, centerY - radius, 2 * radius, 2 * radius, startAngle, currentValueAngle);
+                Debug.WriteLine("Erreur DrawArc : " + ex.Message);
             }
 
             // Draw value text
@@ -167,5 +173,8 @@ namespace GMAO_Presentation.Helpers
                 g.DrawRectangle(pen, ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
             }
         }
+
+        
+
     }
 }

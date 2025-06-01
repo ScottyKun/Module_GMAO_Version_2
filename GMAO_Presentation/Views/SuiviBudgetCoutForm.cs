@@ -50,6 +50,10 @@ namespace GMAO_Presentation.Views
                 diagramEquipements.Rotated = true; // Rotation horizontale
                 diagramEquipements.AxisX.Label.Angle = -45;
                 diagramEquipements.AxisY.WholeRange.AlwaysShowZeroLevel = false;
+
+                diagramEquipements.AxisY.Title.Text = "Coût total";
+                diagramEquipements.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagramEquipements.AxisY.Title.Alignment = StringAlignment.Center;
             }
 
             // Configuration Vue Barres
@@ -77,6 +81,11 @@ namespace GMAO_Presentation.Views
                 diagramPieces.Rotated = true; // Rotation horizontale
                 diagramPieces.AxisX.Label.Angle = -45;
                 diagramPieces.AxisY.WholeRange.Auto = true;
+
+                diagramPieces.AxisY.Title.Text = "Quantité utilisée";
+                diagramPieces.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagramPieces.AxisY.Title.Alignment = StringAlignment.Center;
+
             }
 
             // Configuration Vue Barres
@@ -123,7 +132,13 @@ namespace GMAO_Presentation.Views
 
             // Affiche la légende
             chartCoutParEquipement.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
-
+            if (chartCoutParEquipement.Diagram is XYDiagram diagram)
+            {
+               
+                diagram.AxisY.Title.Text = "Coût";
+                diagram.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagram.AxisY.Title.Alignment = StringAlignment.Center;
+            }
 
             // Répartition
             chartRepartition.DataSource = _viewModel.GlobalVM.RepartitionMaintenance;
@@ -155,8 +170,17 @@ namespace GMAO_Presentation.Views
             planifiee.ValueDataMembers.AddRange("CoutReel");
             planifiee.LegendText = "Cout Reel";
 
-            // ((XYDiagram)chartPrevuReel.Diagram).AxisX.Label.TextPattern = "{A:00}/{A:yyyy}";
 
+            if (chartPrevuReel.Diagram is XYDiagram diagram)
+            {
+                diagram.AxisX.Title.Text = "Mois";
+                diagram.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagram.AxisX.Title.Alignment = StringAlignment.Center;
+
+                diagram.AxisY.Title.Text = "Coût";
+                diagram.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagram.AxisY.Title.Alignment = StringAlignment.Center;
+            }
 
             chartDepenseMensuelle.DataSource = _viewModel.BudgetVM.DepensesMensuelles;
             // Série budget mensuel (barres)
@@ -170,6 +194,17 @@ namespace GMAO_Presentation.Views
             seriesCout.ArgumentDataMember = "Mois";
             seriesCout.ValueDataMembers.AddRange("CoutReel");
             seriesCout.LegendText = "Coût réel cumulé";
+
+            if (chartDepenseMensuelle.Diagram is XYDiagram diagram2)
+            {
+                diagram2.AxisX.Title.Text = "Mois";
+                diagram2.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagram2.AxisX.Title.Alignment = StringAlignment.Center;
+
+                diagram2.AxisY.Title.Text = "Montant";
+                diagram2.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagram2.AxisY.Title.Alignment = StringAlignment.Center;
+            }
 
 
             gridViewEcart.DataSource = _viewModel.BudgetVM.EcartBudgets;
@@ -284,6 +319,17 @@ namespace GMAO_Presentation.Views
             planifiee.ArgumentDataMember = "Mois";
             planifiee.ValueDataMembers.AddRange("CoutPlanifiee");
             planifiee.LegendText = "Maintenance Planifiée";
+
+            if (chartEvolution.Diagram is XYDiagram diagram)
+            {
+                diagram.AxisX.Title.Text = "Mois";
+                diagram.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagram.AxisX.Title.Alignment = StringAlignment.Center;
+
+                diagram.AxisY.Title.Text = "Coût";
+                diagram.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                diagram.AxisY.Title.Alignment = StringAlignment.Center;
+            }
         }
 
         

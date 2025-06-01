@@ -49,11 +49,9 @@ namespace GMAO_Presentation.Views
 
             btnSupprimer.Click += (s, e) =>
             {
-                var confirm = MessageBox.Show("Confirmer la suppression ?", "Confirmation", MessageBoxButtons.YesNo);
-                if (confirm == DialogResult.Yes)
+             
                     viewModel.SupprimerCommand.Execute(null);
-                        DialogResult = DialogResult.OK;
-                        Close();
+                       
             };
 
             btnConvertir.Click += (s, e) =>
@@ -65,7 +63,7 @@ namespace GMAO_Presentation.Views
             {
                 InterventionModifiee = viewModel.GetById(interventionId);
 
-                var confirm = MessageBox.Show("Confirmer la modification ?", "Confirmation", MessageBoxButtons.YesNo);
+                var confirm = MessageBox.Show("Confirmer ?", "Confirmation", MessageBoxButtons.YesNo);
                 DialogResult = DialogResult.OK;
                 Close();
             };

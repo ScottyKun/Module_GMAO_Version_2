@@ -67,6 +67,7 @@ namespace GMAO_Presentation.Views
            viewModel.OnClose += () =>
            {
                WorkOrderModifie = viewModel.GetById(workOrderId);
+               EstSupprime = true;
                DialogResult = DialogResult.OK;
                Close();
            };
@@ -91,9 +92,9 @@ namespace GMAO_Presentation.Views
                 if (MessageBox.Show("Supprimer ce Work Order ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     viewModel.SupprimerCommand.Execute(null);
-                    EstSupprime = true;
+                    /*EstSupprime = true;
                     DialogResult = DialogResult.OK;
-                    Close();
+                    Close();*/
                 }
             };
 
